@@ -1,0 +1,66 @@
+[
+  {
+    "date": "2026-05-20",
+    "type": "sampling",
+    "title": "Ranovus 向微软送样 CPO 光引擎",
+    "relatedNodeIds": ["optical_engine"],
+    "relatedCompanyIds": ["ranovus", "azure"],
+    "summary": "Ranovus 宣布完成新一代 CPO 光引擎原型并向微软 Azure 团队送样测试，预计 Q3 反馈结果。"
+  },
+  {
+    "date": "2026-04-15",
+    "type": "certification",
+    "title": "Broadcom CPO 模组通过 OIF 互操作认证",
+    "relatedNodeIds": ["cpo_module"],
+    "relatedCompanyIds": ["broadcom_cpo"],
+    "summary": "Broadcom 的 CPO 模组原型在 OIF 多供应商互操作测试中通过 800G/lane 认证。"
+  },
+  {
+    "date": "2026-03-28",
+    "type": "yield",
+    "title": "GlobalFoundries 硅光良率突破 90%",
+    "relatedNodeIds": ["silicon_wafer"],
+    "relatedCompanyIds": ["globalfoundries"],
+    "summary": "GF 在 45nm SOI 硅光平台上良率从 82% 提升至 92%，降低了下游光引擎的成本压力。"
+  },
+  {
+    "date": "2026-03-10",
+    "type": "order",
+    "title": "AWS 下达 CPO 交换机意向订单",
+    "relatedNodeIds": ["cpo_switch", "cloud_dc"],
+    "relatedCompanyIds": ["aws", "arista"],
+    "summary": "AWS 向 Arista 下达基于 CPO 架构的 51.2T 交换机意向订单，预计 2027 年开始小批量部署。"
+  },
+  {
+    "date": "2026-02-18",
+    "type": "other",
+    "title": "Ayar Labs 获 C 轮融资 1.5 亿美元",
+    "relatedNodeIds": ["optical_engine"],
+    "relatedCompanyIds": ["ayar_labs"],
+    "summary": "Ayar Labs 完成 C 轮融资，投资方包括 NVIDIA 和英特尔资本，资金将用于量产爬坡。"
+  },
+  {
+    "date": "2026-01-22",
+    "type": "sampling",
+    "title": "Marvell CPO 方案首次流片成功",
+    "relatedNodeIds": ["cpo_module", "switch_asic"],
+    "relatedCompanyIds": ["marvell_cpo", "marvell_asic"],
+    "summary": "Marvell 完成首颗集成 CPO 接口的交换芯片流片，进入内部验证阶段。"
+  },
+  {
+    "date": "2025-12-05",
+    "type": "certification",
+    "title": "Intel 硅光引擎通过 1.6T 速率验证",
+    "relatedNodeIds": ["optical_engine", "modulator"],
+    "relatedCompanyIds": ["intel_photonics"],
+    "summary": "Intel 实验室首次演示单引擎 1.6Tbps 速率传输，采用 4×400G PAM4 方案。"
+  },
+  {
+    "date": "2025-11-15",
+    "type": "order",
+    "title": "Lumentum CW 激光器获大额长约",
+    "relatedNodeIds": ["cw_laser"],
+    "relatedCompanyIds": ["lumentum"],
+    "summary": "Lumentum 与某头部云厂商签订 3 年 CW 激光器供货长约，保障光引擎客户光源供应。"
+  }
+]
