@@ -132,11 +132,11 @@
       "sourceMetricIds": ["gross_margin"]
     },
     {
-      "id": "innolight-2026q1-edge-pluggable-optical-module-to-cloud-dc-growth-proxy",
+      "id": "innolight-2026q1-edge-pluggable-optical-module-to-data-center-switch-growth-proxy",
       "target": {
         "type": "edge",
         "source": "pluggable_optical_module",
-        "target": "cloud_dc"
+        "target": "data_center_switch"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 1.9212,
@@ -162,65 +162,34 @@
       ]
     },
     {
-      "id": "innolight-2026q1-node-cpo-module-demand-growth-signal",
+      "id": "innolight-2026q1-edge-pluggable-optical-module-to-ai-server-growth-proxy",
       "target": {
-        "type": "node",
-        "id": "cpo_module"
+        "type": "edge",
+        "source": "pluggable_optical_module",
+        "target": "ai_server"
       },
-      "metric": "demand_growth_signal",
+      "metric": "revenue_growth_yoy_proxy",
       "value": 1.9212,
       "unit": "yoy_ratio",
       "period": "2026Q1",
       "estimated": true,
-      "confidence": 0.35,
-      "method": "sector_readthrough",
+      "confidence": 0.6,
+      "method": "company_revenue_growth_proxy",
       "sourceMetricIds": ["revenue"],
       "supportingContext": [
-        {
-          "source": "2026 年一季度报告",
-          "metric": "营业收入同比增速",
-          "value": 1.9212,
-          "unit": "yoy_ratio"
-        },
         {
           "source": "2025 年年度报告",
           "metric": "光通信收发模块收入占营业收入比重",
           "value": 0.9795,
           "unit": "ratio"
+        },
+        {
+          "source": "2026 年一季度报告",
+          "metric": "未拆分交换机侧与服务器侧光模块收入，因此服务器侧链路置信度低于整体数据中心交换机链路",
+          "value": 0.6,
+          "unit": "confidence"
         }
       ]
-    },
-    {
-      "id": "innolight-2026q1-edge-cpo-module-to-cpo-switch-demand-growth-signal",
-      "target": {
-        "type": "edge",
-        "source": "cpo_module",
-        "target": "cpo_switch"
-      },
-      "metric": "demand_growth_signal",
-      "value": 1.9212,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.3,
-      "method": "sector_readthrough",
-      "sourceMetricIds": ["revenue"]
-    },
-    {
-      "id": "innolight-2026q1-edge-cpo-switch-to-cloud-dc-demand-growth-signal",
-      "target": {
-        "type": "edge",
-        "source": "cpo_switch",
-        "target": "cloud_dc"
-      },
-      "metric": "demand_growth_signal",
-      "value": 1.9212,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.3,
-      "method": "sector_readthrough",
-      "sourceMetricIds": ["revenue"]
     }
   ],
   "companySignals": [
@@ -233,8 +202,8 @@
         "techRoute": "高速可插拔光模块",
         "stage": "mass_prod",
         "massProductionEta": "已量产",
-        "keyCustomers": ["aws", "azure", "google_cloud"],
-        "relatedNodeIds": ["pluggable_optical_module"]
+        "keyCustomers": ["云数据中心客户", "通信设备商"],
+        "relatedNodeIds": ["pluggable_optical_module", "data_center_switch", "ai_server"]
       },
       "estimated": true,
       "confidence": 0.76,
@@ -248,12 +217,11 @@
       "date": "2026-04-17",
       "type": "financial_report",
       "title": "中际旭创发布 2026 年一季度报告",
-      "summary": "报告期 2026Q1，营业收入同比 +192.1%，归母净利润同比 +262.3%；结构化提取 6 条产业链图谱信号。",
+      "summary": "报告期 2026Q1，营业收入同比 +192.1%，归母净利润同比 +262.3%；结构化提取 4 条产业链图谱信号，主要映射至高速可插拔光模块进入交换机和 AI 服务器的设备侧链路。",
       "relatedNodeIds": [
         "pluggable_optical_module",
-        "cloud_dc",
-        "cpo_module",
-        "cpo_switch"
+        "data_center_switch",
+        "ai_server"
       ],
       "relatedCompanyIds": ["zhongji_innolight"],
       "sourceReportId": "2026-04-17_zhongji-innolight_2026q1"

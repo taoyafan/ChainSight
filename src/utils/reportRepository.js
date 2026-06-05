@@ -17,6 +17,74 @@ function comparePeriodDesc(a, b) {
   return String(b?.period || '').localeCompare(String(a?.period || ''))
 }
 
+function parseDateValue(value) {
+  if (!value) return null
+  const time = new Date(`${value}T00:00:00`).getTime()
+  return Number.isFinite(time) ? time : null
+}
+
+function periodRange(item) {
+  const signal = item.signal || {}
+  const report = item.report || {}
+  return {
+    start: parseDateValue(signal.periodStart || report.periodStart),
+    end: parseDateValue(signal.periodEnd || report.periodEnd),
+  }
+}
+
+function periodDays(item) {
+  const { start, end } = periodRange(item)
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return Number.POSITIVE_INFINITY
+  return Math.max(1, Math.round((end - start) / 86400000) + 1)
+}
+
+function signalTimingRank(item, targetTime) {
+  const { start, end } = periodRange(item)
+  if (!Number.isFinite(targetTime) || !Number.isFinite(start) || !Number.isFinite(end)) {
+    return { usable: true, covers: false, endedBefore: false, distance: Number.POSITIVE_INFINITY }
+  }
+
+  const covers = start <= targetTime && targetTime <= end
+  const endedBefore = end <= targetTime
+  return {
+    usable: covers || endedBefore,
+    covers,
+    endedBefore,
+    distance: covers ? 0 : Math.abs(targetTime - end),
+  }
+}
+
+function compareSignalForRealizedDate(targetDate) {
+  const targetTime = parseDateValue(targetDate)
+  return (a, b) => {
+    const aRank = signalTimingRank(a, targetTime)
+    const bRank = signalTimingRank(b, targetTime)
+
+    if (aRank.covers !== bRank.covers) return aRank.covers ? -1 : 1
+    if (aRank.covers && bRank.covers) {
+      const durationDelta = periodDays(a) - periodDays(b)
+      if (Math.abs(durationDelta) > 0.0001) return durationDelta
+    } else if (aRank.distance !== bRank.distance) {
+      return aRank.distance - bRank.distance
+    }
+
+    const confidenceDelta = (b.signal.confidence || 0) - (a.signal.confidence || 0)
+    if (Math.abs(confidenceDelta) > 0.0001) return confidenceDelta
+
+    const aEnd = periodRange(a).end || 0
+    const bEnd = periodRange(b).end || 0
+    if (aEnd !== bEnd) return bEnd - aEnd
+
+    return comparePeriodDesc(a.signal, b.signal)
+  }
+}
+
+function filterSignalsForRealizedDate(items, targetDate) {
+  const targetTime = parseDateValue(targetDate)
+  if (!Number.isFinite(targetTime)) return [...items]
+  return items.filter((item) => signalTimingRank(item, targetTime).usable)
+}
+
 function normalizeReportPackage(extracted) {
   const report = extracted.report || {}
   const reportId = report.id
@@ -134,6 +202,16 @@ export const companyWatchRows = Object.entries(companySignalsById)
 
 export function getBestEdgeGrowth(source, target) {
   return edgeGrowthByKey[edgeKey(source, target)]?.[0] || null
+}
+
+export function getEdgeGrowthSignalsAsOf(source, target, targetDate) {
+  const items = edgeGrowthByKey[edgeKey(source, target)] || []
+  return filterSignalsForRealizedDate(items, targetDate)
+    .sort(compareSignalForRealizedDate(targetDate))
+}
+
+export function getBestEdgeGrowthAsOf(source, target, targetDate) {
+  return getEdgeGrowthSignalsAsOf(source, target, targetDate)[0] || null
 }
 
 export function getBestCompanySignal(companyId) {

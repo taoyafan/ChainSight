@@ -230,7 +230,7 @@ src/
         techRoute: '高速可插拔光模块',
         stage: 'mass_prod',
         massProductionEta: '已量产',
-        keyCustomers: ['aws', 'azure', 'google_cloud']
+        keyCustomers: ['云数据中心客户', '通信设备商']
       },
       confidence: 0.76,
       method: 'primary_business_and_industry_mapping'
@@ -243,7 +243,7 @@ src/
       type: 'financial_report',
       title: '中际旭创发布 2026 年一季度报告',
       summary: '营业收入同比 +192.1%，归母净利润同比 +262.3%。',
-      relatedNodeIds: ['pluggable_optical_module', 'cloud_dc'],
+      relatedNodeIds: ['pluggable_optical_module', 'data_center_switch'],
       relatedCompanyIds: ['zhongji_innolight'],
       sourceReportId: '2026-04-17_zhongji-innolight_2026q1'
     }

@@ -1,7 +1,7 @@
-import { getBestEdgeGrowth } from '@/utils/reportRepository'
+import { getBestEdgeGrowthAsOf, getEdgeGrowthSignalsAsOf } from '@/utils/reportRepository'
 
 /**
- * AntV G6 v5 配置 - CPO 产业链拓扑图
+ * AntV G6 v5 配置 - 产业链拓扑图
  */
 
 // 层级顺序映射（用于 Dagre 布局的 rank）
@@ -16,7 +16,7 @@ export const LAYER_ORDER = {
 export const LAYER_LABELS = {
   chip: '硅光芯片',
   engine: '光引擎',
-  module: 'CPO 模组',
+  module: '光模块/模组',
   system: '系统集成',
   cloud: '云/算力',
 }
@@ -39,11 +39,38 @@ const MAX_EDGE_WIDTH = 24
 const NEUTRAL_EDGE_WIDTH = 6
 const POSITIVE_GROWTH_CAP = 2
 const NEGATIVE_GROWTH_CAP = 1
+const EDGE_GROWTH_METRICS = new Set([
+  'revenue_growth_yoy_proxy',
+  'demand_growth_signal',
+])
 
 function formatYoy(value) {
   if (!Number.isFinite(value)) return '暂无 YoY 数据'
   const sign = value > 0 ? '+' : ''
   return `${sign}${(value * 100).toFixed(1)}% YoY`
+}
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;')
+}
+
+function toGrowthContribution({ report, signal }) {
+  return {
+    id: signal.id,
+    metric: signal.metric,
+    value: signal.value,
+    period: signal.period,
+    confidence: signal.confidence,
+    companyName: report?.companyName,
+    reportTitle: report?.title,
+    reportId: report?.id,
+    method: signal.method,
+  }
 }
 
 function getGrowthEdgeStyle(growthValue) {
@@ -83,7 +110,7 @@ function getGrowthEdgeStyle(growthValue) {
 /**
  * 将原始节点/边数据转为 G6 v5 graph data
  */
-export function buildGraphData(nodes, edges) {
+export function buildGraphData(nodes, edges, analysisDate) {
   const g6Nodes = nodes.map(n => ({
     id: n.id,
     data: {
@@ -97,7 +124,10 @@ export function buildGraphData(nodes, edges) {
   }))
 
   const g6Edges = edges.map((e, i) => {
-    const growthEvidence = getBestEdgeGrowth(e.source, e.target)
+    const growthEvidence = getBestEdgeGrowthAsOf(e.source, e.target, analysisDate)
+    const growthContributions = getEdgeGrowthSignalsAsOf(e.source, e.target, analysisDate)
+      .filter(({ signal }) => EDGE_GROWTH_METRICS.has(signal.metric))
+      .map(toGrowthContribution)
     const growthValue = growthEvidence?.signal?.value
     const growthStyle = getGrowthEdgeStyle(growthValue)
 
@@ -116,6 +146,9 @@ export function buildGraphData(nodes, edges) {
         growthConfidence: growthEvidence?.signal?.confidence,
         growthReportTitle: growthEvidence?.report?.title,
         growthCompanyName: growthEvidence?.report?.companyName,
+        growthContributions,
+        contributionCount: growthContributions.length,
+        analysisDate,
         label: e.label,
       },
     }
@@ -206,7 +239,11 @@ export function getGraphOptions(container, width, height) {
         lineWidth: (d) => d.data?.lineWidth || MIN_EDGE_WIDTH,
         endArrow: true,
         endArrowSize: 6,
-        labelText: (d) => d.data?.label || '',
+        labelText: (d) => {
+          const label = d.data?.label || ''
+          const count = d.data?.contributionCount || 0
+          return count > 0 ? `${label} · ${count}报告` : label
+        },
         labelFill: '#909399',
         labelFontSize: 18,
         labelBackground: true,
@@ -236,16 +273,38 @@ export function getGraphOptions(container, width, height) {
           const growthYoy = edge?.data?.growthYoy
           const hasGrowth = Number.isFinite(growthYoy)
           const confidence = edge?.data?.growthConfidence
+          const contributions = edge?.data?.growthContributions || []
+          const contributionHtml = contributions.length
+            ? `
+              <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid #ebeef5; color: #303133; font-weight: 600;">报告贡献</div>
+              ${contributions.map((item) => {
+                const valueColor = Number.isFinite(item.value) && item.value < 0 ? '#dc2626' : Number.isFinite(item.value) && item.value > 0 ? '#16a34a' : '#606266'
+                return `
+                  <div style="margin-top: 4px; color: #606266;">
+                    <div>
+                      ${escapeHtml(item.companyName || '未知公司')}：
+                      <span style="color: ${valueColor};">${formatYoy(item.value)}</span>
+                      ${Number.isFinite(item.confidence) ? ` / 置信度 ${(item.confidence * 100).toFixed(0)}%` : ''}
+                    </div>
+                    <div style="color: #909399;">${escapeHtml(item.period || '')}${item.reportTitle ? ` · ${escapeHtml(item.reportTitle)}` : ''}</div>
+                  </div>
+                `
+              }).join('')}
+            `
+            : '<div style="margin-top: 8px; color: #909399;">暂无报告贡献</div>'
           return `
-            <div style="min-width: 180px; font-size: 12px; line-height: 1.6;">
+            <div style="min-width: 240px; max-width: 360px; font-size: 12px; line-height: 1.6;">
               <div style="font-weight: 600; color: #303133;">${edge?.data?.label || '边'}</div>
               <div style="color: #606266;">${edge?.source || ''} → ${edge?.target || ''}</div>
+              ${edge?.data?.analysisDate ? `<div style="color: #606266;">观察日期：${edge.data.analysisDate}（真实周期回填）</div>` : ''}
+              <div style="margin-top: 6px; color: #303133; font-weight: 600;">当前线宽依据</div>
               <div style="margin-top: 4px; color: ${hasGrowth && growthYoy < 0 ? '#dc2626' : hasGrowth && growthYoy > 0 ? '#16a34a' : '#606266'};">
                 ${hasGrowth ? formatYoy(growthYoy) : '暂无报告 YoY 贡献'}
               </div>
               ${edge?.data?.growthPeriod ? `<div style="color: #606266;">期间：${edge.data.growthPeriod}</div>` : ''}
               ${Number.isFinite(confidence) ? `<div style="color: #606266;">置信度：${(confidence * 100).toFixed(0)}%</div>` : ''}
               ${edge?.data?.growthCompanyName ? `<div style="color: #606266;">报告：${edge.data.growthCompanyName}《${edge.data.growthReportTitle || ''}》</div>` : ''}
+              ${contributionHtml}
             </div>
           `
         },

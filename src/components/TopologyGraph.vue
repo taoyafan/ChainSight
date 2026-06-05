@@ -90,11 +90,11 @@ function handleKeydown(e) {
   }
 }
 
-onMounted(() => {
+function mountGraph() {
   if (!containerRef.value) return
   const rect = containerRef.value.getBoundingClientRect()
   const options = getGraphOptions(containerRef.value, rect.width, rect.height || 600)
-  const graphData = buildGraphData(graphStore.nodes, graphStore.edges)
+  const graphData = buildGraphData(graphStore.nodes, graphStore.edges, graphStore.analysisDate)
 
   graph = new Graph({
     ...options,
@@ -125,7 +125,10 @@ onMounted(() => {
     graphStore.clearSelection()
     await clearHighlight()
   })
+}
 
+onMounted(() => {
+  mountGraph()
   document.addEventListener('keydown', handleKeydown)
 })
 
@@ -139,6 +142,14 @@ onUnmounted(() => {
 
 watch(() => graphStore.showBottleneck, (val) => {
   applyBottleneck(val)
+})
+
+watch(() => graphStore.analysisDate, async () => {
+  if (!graph) return
+  graph.destroy()
+  graph = null
+  graphStore.clearSelection()
+  mountGraph()
 })
 
 watch(() => graphStore.highlightNodeIds, (ids) => {

@@ -11,7 +11,7 @@ export const STATUS_TEXT = {
 export const LAYER_TEXT = {
   chip: '硅光芯片',
   engine: '光引擎',
-  module: 'CPO 模组',
+  module: '光模块/模组',
   system: '系统集成',
   cloud: '云/算力',
 }

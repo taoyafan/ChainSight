@@ -13,6 +13,8 @@ reports/
       raw/              # 可选，本地原始文件，Git 忽略
 ```
 
+`YYYY` 使用报告的披露/发布日期年份，而不是财报所属期间年份。例如 2026-02-26 发布的 `2025 Form 10-K` 放在 `reports/2026/` 下，同时在 `extracted.json` 的 `report.period` 中写 `2025`。
+
 ## 文件职责
 
 - `extracted.json`：机器可读的结构化结果，供图谱、时间线、详情页和汇总算法读取。
@@ -41,7 +43,14 @@ reports/
 
 ## 图谱信号规则
 
-连接线默认读取 `graphSignals` 中指向边的季度 YoY 增长信号。
+连接线默认读取 `graphSignals` 中指向边的 YoY 增长信号。图谱的日期选择器使用“真实状态回填”口径：按 `periodStart` / `periodEnd` 判断报告信号覆盖哪个经营周期，而不是按 `publishedAt` 判断当时是否已经披露。
+
+选择某个观察日期时：
+
+- 优先使用 `periodStart <= 观察日期 <= periodEnd` 的报告信号。
+- 同时有季度、半年报、年报覆盖该日期时，优先使用覆盖周期更短的信号。
+- 如果没有报告覆盖该日期，则使用观察日期之前最近结束的报告周期。
+- `publishedAt` 仍用于来源追溯和时间线，不用于限制历史真实状态回填。
 
 支持的边增长 metric：
 
@@ -55,7 +64,7 @@ reports/
   "target": {
     "type": "edge",
     "source": "pluggable_optical_module",
-    "target": "cloud_dc"
+    "target": "data_center_switch"
   },
   "metric": "revenue_growth_yoy_proxy",
   "value": 1.9212,
@@ -80,7 +89,7 @@ reports/
   "type": "financial_report",
   "title": "中际旭创发布 2026 年一季度报告",
   "summary": "营业收入同比 +192.1%，归母净利润同比 +262.3%。",
-  "relatedNodeIds": ["pluggable_optical_module", "cloud_dc"],
+    "relatedNodeIds": ["pluggable_optical_module", "data_center_switch"],
   "relatedCompanyIds": ["zhongji_innolight"],
   "sourceReportId": "2026-04-17_zhongji-innolight_2026q1"
 }
@@ -102,8 +111,8 @@ reports/
     "techRoute": "高速可插拔光模块",
     "stage": "mass_prod",
     "massProductionEta": "已量产",
-    "keyCustomers": ["aws", "azure", "google_cloud"],
-    "relatedNodeIds": ["pluggable_optical_module"]
+    "keyCustomers": ["云数据中心客户", "通信设备商"],
+    "relatedNodeIds": ["pluggable_optical_module", "data_center_switch", "ai_server"]
   },
   "estimated": true,
   "confidence": 0.76,

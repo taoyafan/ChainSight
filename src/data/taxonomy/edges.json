@@ -55,9 +55,9 @@
   },
   {
     "source": "pluggable_optical_module",
-    "target": "cloud_dc",
+    "target": "data_center_switch",
     "transactionAmountQuarterUsd": 760000000,
-    "label": "数据中心光互连部署"
+    "label": "交换机光口装配"
   },
   {
     "source": "cpo_module",
@@ -72,15 +72,21 @@
     "label": "ASIC 供应"
   },
   {
-    "source": "cpo_switch",
-    "target": "ai_server",
-    "transactionAmountQuarterUsd": 520000000,
-    "label": "交换机集成"
+    "source": "switch_asic",
+    "target": "data_center_switch",
+    "transactionAmountQuarterUsd": 780000000,
+    "label": "ASIC 供应"
   },
   {
     "source": "cpo_switch",
     "target": "cloud_dc",
     "transactionAmountQuarterUsd": 680000000,
+    "label": "网络部署"
+  },
+  {
+    "source": "data_center_switch",
+    "target": "cloud_dc",
+    "transactionAmountQuarterUsd": 880000000,
     "label": "网络部署"
   },
   {

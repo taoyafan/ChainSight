@@ -1,0 +1,252 @@
+{
+  "report": {
+    "id": "2026-02-26_applied-optoelectronics_2025_10k",
+    "companyId": "applied_optoelectronics",
+    "companyName": "Applied Optoelectronics, Inc.",
+    "stockCode": "AAOI",
+    "exchange": "NASDAQ",
+    "title": "2025 Form 10-K",
+    "type": "annual_report_10k",
+    "period": "2025",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-12-31",
+    "publishedAt": "2026-02-26",
+    "accessionNumber": "0001437749-26-005875",
+    "currency": "USD",
+    "amountUnit": "USD",
+    "audited": true,
+    "sources": [
+      {
+        "name": "SEC EDGAR: Applied Optoelectronics 2025 Form 10-K",
+        "type": "official_sec_filing_html",
+        "url": "https://www.sec.gov/Archives/edgar/data/1158114/000143774926005875/aaoi20251231_10k.htm",
+        "localPathIgnored": "raw/aaoi20251231_10k.htm",
+        "publisher": "U.S. Securities and Exchange Commission",
+        "accessedAt": "2026-06-05"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "Total revenue",
+      "value": 455700000,
+      "unit": "USD",
+      "period": "2025",
+      "yoy": 0.827185244586
+    },
+    {
+      "id": "gross_margin",
+      "label": "Gross margin",
+      "value": 0.3,
+      "unit": "ratio",
+      "period": "2025"
+    },
+    {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 136913000,
+      "unit": "USD",
+      "period": "2025"
+    },
+    {
+      "id": "net_loss",
+      "label": "Net loss",
+      "value": -38200000,
+      "unit": "USD",
+      "period": "2025"
+    },
+    {
+      "id": "internet_data_center_revenue",
+      "label": "Internet data center market revenue",
+      "value": 195700000,
+      "unit": "USD",
+      "period": "2025",
+      "shareOfRevenue": 0.429,
+      "yoy": 0.317845117845
+    },
+    {
+      "id": "catv_revenue",
+      "label": "CATV market revenue",
+      "value": 245100000,
+      "unit": "USD",
+      "period": "2025",
+      "shareOfRevenue": 0.538,
+      "yoy": 1.794754846066
+    },
+    {
+      "id": "telecom_revenue",
+      "label": "Telecom market revenue",
+      "value": 13700000,
+      "unit": "USD",
+      "period": "2025",
+      "shareOfRevenue": 0.03,
+      "yoy": 0.245454545455
+    },
+    {
+      "id": "ftth_and_other_revenue",
+      "label": "FTTH and other market revenue",
+      "value": 1200000,
+      "unit": "USD",
+      "period": "2025",
+      "shareOfRevenue": 0.003,
+      "yoy": -0.428571428571
+    },
+    {
+      "id": "top_five_customer_revenue_share",
+      "label": "Top five customer revenue share",
+      "value": 0.952,
+      "unit": "ratio",
+      "period": "2025"
+    },
+    {
+      "id": "microsoft_revenue_share",
+      "label": "Microsoft revenue share",
+      "value": 0.288,
+      "unit": "ratio",
+      "period": "2025"
+    },
+    {
+      "id": "digicomm_revenue_share",
+      "label": "Digicomm revenue share",
+      "value": 0.531,
+      "unit": "ratio",
+      "period": "2025"
+    }
+  ],
+  "graphSignals": [
+    {
+      "id": "aaoi-2025-node-pluggable-optical-module-data-center-revenue-proxy",
+      "target": {
+        "type": "node",
+        "id": "pluggable_optical_module"
+      },
+      "metric": "revenue_proxy",
+      "value": 195700000,
+      "unit": "USD",
+      "period": "2025",
+      "estimated": true,
+      "confidence": 0.78,
+      "method": "data_center_market_revenue_proxy",
+      "sourceMetricIds": ["internet_data_center_revenue"],
+      "supportingContext": [
+        {
+          "source": "2025 Form 10-K, Item 1 Business",
+          "metric": "Data center optical transceivers plug into switches and servers within the data center",
+          "value": 1,
+          "unit": "qualitative_support"
+        }
+      ]
+    },
+    {
+      "id": "aaoi-2025-node-pluggable-optical-module-gross-margin-proxy",
+      "target": {
+        "type": "node",
+        "id": "pluggable_optical_module"
+      },
+      "metric": "gross_margin_proxy",
+      "value": 0.3,
+      "unit": "ratio",
+      "period": "2025",
+      "estimated": true,
+      "confidence": 0.55,
+      "method": "company_level_margin_proxy",
+      "sourceMetricIds": ["gross_margin"]
+    },
+    {
+      "id": "aaoi-2025-edge-pluggable-optical-module-to-data-center-switch-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pluggable_optical_module",
+        "target": "data_center_switch"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.317845117845,
+      "unit": "yoy_ratio",
+      "period": "2025",
+      "estimated": true,
+      "confidence": 0.66,
+      "method": "data_center_market_revenue_growth_proxy",
+      "sourceMetricIds": ["internet_data_center_revenue"],
+      "supportingContext": [
+        {
+          "source": "2025 Form 10-K, Item 1 Business",
+          "metric": "Optical transceivers plug into switches within the data center",
+          "value": 1,
+          "unit": "qualitative_support"
+        },
+        {
+          "source": "2025 Form 10-K, Revenue by primary market",
+          "metric": "Internet data center market revenue YoY",
+          "value": 0.317845117845,
+          "unit": "yoy_ratio"
+        }
+      ]
+    },
+    {
+      "id": "aaoi-2025-edge-pluggable-optical-module-to-ai-server-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pluggable_optical_module",
+        "target": "ai_server"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.317845117845,
+      "unit": "yoy_ratio",
+      "period": "2025",
+      "estimated": true,
+      "confidence": 0.52,
+      "method": "data_center_market_revenue_growth_proxy",
+      "sourceMetricIds": ["internet_data_center_revenue"],
+      "supportingContext": [
+        {
+          "source": "2025 Form 10-K, Item 1 Business",
+          "metric": "Optical transceivers plug into servers within the data center; AI investment is cited as a demand driver",
+          "value": 1,
+          "unit": "qualitative_support"
+        },
+        {
+          "source": "2025 Form 10-K, Revenue by primary market",
+          "metric": "Internet data center market revenue YoY",
+          "value": 0.317845117845,
+          "unit": "yoy_ratio"
+        }
+      ]
+    }
+  ],
+  "companySignals": [
+    {
+      "id": "aaoi-2025-company-watch-profile",
+      "companyId": "applied_optoelectronics",
+      "period": "2025",
+      "fields": {
+        "layer": "module",
+        "techRoute": "高速可插拔光模块 / 光纤网络产品",
+        "stage": "mass_prod",
+        "massProductionEta": "已量产",
+        "keyCustomers": ["Digicomm", "Microsoft", "大型互联网数据中心运营商", "设备供应商", "CATV MSO"],
+        "relatedNodeIds": ["pluggable_optical_module", "data_center_switch", "ai_server"]
+      },
+      "estimated": true,
+      "confidence": 0.78,
+      "method": "10k_business_description_and_market_revenue_mapping",
+      "sourceMetricIds": ["internet_data_center_revenue", "catv_revenue", "microsoft_revenue_share", "digicomm_revenue_share"]
+    }
+  ],
+  "timelineEvents": [
+    {
+      "id": "aaoi-2025-10k-published",
+      "date": "2026-02-26",
+      "type": "financial_report",
+      "title": "AAOI 发布 2025 Form 10-K",
+      "summary": "2025 年收入 4.557 亿美元，其中 internet data center 收入 1.957 亿美元、同比约 +31.8%；报告明确说明数据中心光收发模块插入交换机和服务器。CATV 收入占比 53.8%，因此图谱只把 data center 收入作为当前 AI 数据中心链路的代理。",
+      "relatedNodeIds": [
+        "pluggable_optical_module",
+        "data_center_switch",
+        "ai_server"
+      ],
+      "relatedCompanyIds": ["applied_optoelectronics"],
+      "sourceReportId": "2026-02-26_applied-optoelectronics_2025_10k"
+    }
+  ]
+}

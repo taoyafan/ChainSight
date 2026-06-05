@@ -1,0 +1,216 @@
+{
+  "report": {
+    "id": "2026-04-21_tfc-communication_2026q1",
+    "companyId": "tfc_communication",
+    "companyName": "苏州天孚光通信股份有限公司",
+    "stockCode": "300394",
+    "exchange": "SZSE",
+    "title": "2026 年一季度报告",
+    "type": "quarterly_report",
+    "period": "2026Q1",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-03-31",
+    "publishedAt": "2026-04-21",
+    "announcementNumber": "2026-025",
+    "currency": "CNY",
+    "amountUnit": "yuan",
+    "audited": false,
+    "sources": [
+      {
+        "name": "巨潮资讯网：天孚通信 2026 年一季度报告",
+        "type": "official_disclosure_pdf",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-04-21/1225128020.PDF",
+        "localPathIgnored": "raw/1225128020.PDF",
+        "publisher": "巨潮资讯网",
+        "accessedAt": "2026-06-05"
+      },
+      {
+        "name": "东方财富公告镜像：天孚通信 2026 年一季度报告",
+        "type": "disclosure_mirror",
+        "url": "https://data.eastmoney.com/notices/detail/300394/AN202604201821344635.html",
+        "localPathIgnored": "raw/AN202604201821344635.html",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-05"
+      },
+      {
+        "name": "东方财富公告内容接口分页缓存",
+        "type": "disclosure_mirror_json_cache",
+        "localPathIgnored": "raw/eastmoney_content_page*.json",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-05"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "营业收入",
+      "value": 1330270175.36,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.4082
+    },
+    {
+      "id": "operating_cost",
+      "label": "营业成本",
+      "value": 577284926.96,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.3015
+    },
+    {
+      "id": "gross_profit",
+      "label": "毛利",
+      "value": 752985248.4,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "derived": true,
+      "formula": "revenue - operating_cost"
+    },
+    {
+      "id": "gross_margin",
+      "label": "毛利率",
+      "value": 0.566039337232,
+      "unit": "ratio",
+      "period": "2026Q1",
+      "derived": true,
+      "formula": "gross_profit / revenue"
+    },
+    {
+      "id": "net_profit_attributable",
+      "label": "归属于上市公司股东的净利润",
+      "value": 492218878.05,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.4579
+    },
+    {
+      "id": "net_profit_attributable_ex_nonrecurring",
+      "label": "归属于上市公司股东的扣除非经常性损益的净利润",
+      "value": 493192417.72,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.4844
+    },
+    {
+      "id": "net_operating_cash_flow",
+      "label": "经营活动产生的现金流量净额",
+      "value": 182277065.44,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": -0.3792
+    },
+    {
+      "id": "rd_expense",
+      "label": "研发费用",
+      "value": 87312860.13,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.4198
+    }
+  ],
+  "graphSignals": [
+    {
+      "id": "tfc-2026q1-node-optical-engine-revenue-proxy",
+      "target": {
+        "type": "node",
+        "id": "optical_engine"
+      },
+      "metric": "revenue_proxy",
+      "value": 1330270175.36,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.68,
+      "method": "company_revenue_proxy_with_high_speed_optical_device_context",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年一季度报告",
+          "metric": "营业收入变动说明",
+          "value": "增加，主要受益于人工智能行业加速发展与全球数据中心建设，带动了高速光器件产品需求的持续稳定增长。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "tfc-2026q1-node-optical-engine-gross-margin-proxy",
+      "target": {
+        "type": "node",
+        "id": "optical_engine"
+      },
+      "metric": "gross_margin_proxy",
+      "value": 0.566039337232,
+      "unit": "ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.58,
+      "method": "company_level_margin_proxy",
+      "sourceMetricIds": ["gross_margin"]
+    },
+    {
+      "id": "tfc-2026q1-edge-optical-engine-to-pluggable-optical-module-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "optical_engine",
+        "target": "pluggable_optical_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.4082,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.62,
+      "method": "company_revenue_growth_proxy_with_high_speed_optical_device_context",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年一季度报告",
+          "metric": "营业收入同比增长",
+          "value": 0.4082,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "2026 年一季度报告",
+          "metric": "增长原因",
+          "value": "人工智能行业加速发展与全球数据中心建设，带动高速光器件产品需求持续稳定增长",
+          "unit": "text"
+        }
+      ]
+    }
+  ],
+  "companySignals": [
+    {
+      "id": "tfc-2026q1-company-watch-profile",
+      "companyId": "tfc_communication",
+      "period": "2026Q1",
+      "fields": {
+        "layer": "engine",
+        "techRoute": "高速光器件",
+        "stage": "mass_prod",
+        "massProductionEta": "已量产",
+        "keyCustomers": ["数据中心客户", "光模块厂商"],
+        "relatedNodeIds": ["optical_engine", "pluggable_optical_module"]
+      },
+      "estimated": true,
+      "confidence": 0.68,
+      "method": "quarterly_report_growth_reason_mapping",
+      "sourceMetricIds": ["revenue", "gross_margin", "net_profit_attributable"]
+    }
+  ],
+  "timelineEvents": [
+    {
+      "id": "tfc-2026q1-report-published",
+      "date": "2026-04-21",
+      "type": "financial_report",
+      "title": "天孚通信发布 2026 年一季度报告",
+      "summary": "报告期 2026Q1，营业收入同比 +40.8%，归母净利润同比 +45.8%；公司说明增长主要受益于 AI 行业加速发展与全球数据中心建设，带动高速光器件产品需求持续稳定增长。图谱信号映射至光引擎/高速光器件进入可插拔光模块的链路。",
+      "relatedNodeIds": [
+        "optical_engine",
+        "pluggable_optical_module"
+      ],
+      "relatedCompanyIds": ["tfc_communication"],
+      "sourceReportId": "2026-04-21_tfc-communication_2026q1"
+    }
+  ]
+}

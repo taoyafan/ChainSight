@@ -9,6 +9,7 @@ export const useGraphStore = defineStore('graph', () => {
   const selectedNodeId = ref(null)
   const highlightNodeIds = ref([])
   const showBottleneck = ref(false)
+  const analysisDate = ref(new Date().toISOString().slice(0, 10))
 
   const nodeMap = computed(() => {
     const map = {}
@@ -55,9 +56,13 @@ export const useGraphStore = defineStore('graph', () => {
     showBottleneck.value = val ?? !showBottleneck.value
   }
 
+  function setAnalysisDate(date) {
+    analysisDate.value = date || new Date().toISOString().slice(0, 10)
+  }
+
   return {
-    nodes, edges, selectedNodeId, highlightNodeIds, showBottleneck,
+    nodes, edges, selectedNodeId, highlightNodeIds, showBottleneck, analysisDate,
     nodeMap, layerGroups,
-    getNeighborIds, selectNode, clearSelection, setHighlightNodes, toggleBottleneck
+    getNeighborIds, selectNode, clearSelection, setHighlightNodes, toggleBottleneck, setAnalysisDate
   }
 })

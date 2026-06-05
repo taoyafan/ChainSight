@@ -1,0 +1,189 @@
+{
+  "report": {
+    "id": "2026-04-28_yuanjie-tech_2026q1",
+    "companyId": "yuanjie_tech",
+    "companyName": "陕西源杰半导体科技股份有限公司",
+    "stockCode": "688498",
+    "exchange": "SSE",
+    "title": "2026 年第一季度报告",
+    "type": "quarterly_report",
+    "period": "2026Q1",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-03-31",
+    "publishedAt": "2026-04-28",
+    "announcementNumber": "AN202604271821622147",
+    "currency": "CNY",
+    "amountUnit": "yuan",
+    "audited": false,
+    "sources": [
+      {
+        "name": "东方财富公告镜像：源杰科技 2026 年第一季度报告",
+        "type": "disclosure_mirror",
+        "url": "https://data.eastmoney.com/notices/detail/688498/AN202604271821622147.html",
+        "localPathIgnored": "raw/AN202604271821622147.html",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-05"
+      },
+      {
+        "name": "东方财富公告 PDF：源杰科技 2026 年第一季度报告",
+        "type": "disclosure_mirror_pdf",
+        "url": "https://pdf.dfcfw.com/pdf/H2_AN202604271821622147_1.pdf?1777315183000.pdf",
+        "localPathIgnored": "raw/H2_AN202604271821622147_1.pdf",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-05"
+      },
+      {
+        "name": "东方财富公告内容接口分页缓存",
+        "type": "disclosure_mirror_json_cache",
+        "localPathIgnored": "raw/eastmoney_content_page*.json",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-05"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "营业收入",
+      "value": 355278486.49,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 3.2094
+    },
+    {
+      "id": "profit_total",
+      "label": "利润总额",
+      "value": 211353903.33,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 11.513
+    },
+    {
+      "id": "net_profit_attributable",
+      "label": "归属于上市公司股东的净利润",
+      "value": 179441968.61,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 11.5307
+    },
+    {
+      "id": "net_profit_attributable_ex_nonrecurring",
+      "label": "归属于上市公司股东的扣除非经常性损益的净利润",
+      "value": 177939676.39,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 11.7364
+    },
+    {
+      "id": "net_operating_cash_flow",
+      "label": "经营活动产生的现金流量净额",
+      "value": 39650807.07,
+      "unit": "CNY",
+      "period": "2026Q1"
+    },
+    {
+      "id": "rd_expense",
+      "label": "研发投入合计",
+      "value": 20650110.32,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.7794
+    },
+    {
+      "id": "rd_expense_ratio",
+      "label": "研发投入占营业收入的比例",
+      "value": 0.0581,
+      "unit": "ratio",
+      "period": "2026Q1"
+    }
+  ],
+  "graphSignals": [
+    {
+      "id": "yuanjie-2026q1-node-cw-laser-revenue-proxy",
+      "target": {
+        "type": "node",
+        "id": "cw_laser"
+      },
+      "metric": "revenue_proxy",
+      "value": 355278486.49,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.7,
+      "method": "company_revenue_proxy_with_direct_cw_source_context",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年第一季度报告",
+          "metric": "业绩变动原因",
+          "value": "受益于客户需求增长，数据中心领域 CW 光源产品销售额实现增长，公司整体产品结构进一步优化，数据中心产品毛利率较高",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "yuanjie-2026q1-edge-cw-laser-to-optical-engine-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "cw_laser",
+        "target": "optical_engine"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 3.2094,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.72,
+      "method": "company_revenue_growth_proxy_with_direct_cw_source_context",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年第一季度报告",
+          "metric": "营业收入同比增长",
+          "value": 3.2094,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "2026 年第一季度报告",
+          "metric": "增长原因",
+          "value": "数据中心领域 CW 光源产品销售额实现增长",
+          "unit": "text"
+        }
+      ]
+    }
+  ],
+  "companySignals": [
+    {
+      "id": "yuanjie-2026q1-company-watch-profile",
+      "companyId": "yuanjie_tech",
+      "period": "2026Q1",
+      "fields": {
+        "layer": "chip",
+        "techRoute": "CW 光源 / III-V 激光芯片",
+        "stage": "mass_prod",
+        "massProductionEta": "已量产",
+        "keyCustomers": ["数据中心客户"],
+        "relatedNodeIds": ["cw_laser", "optical_engine"]
+      },
+      "estimated": true,
+      "confidence": 0.74,
+      "method": "quarterly_report_growth_reason_mapping",
+      "sourceMetricIds": ["revenue", "net_profit_attributable"]
+    }
+  ],
+  "timelineEvents": [
+    {
+      "id": "yuanjie-2026q1-report-published",
+      "date": "2026-04-28",
+      "type": "financial_report",
+      "title": "源杰科技发布 2026 年第一季度报告",
+      "summary": "报告期 2026Q1，营业收入同比 +320.9%，归母净利润同比 +1153.1%；公司说明增长主要受益于客户需求增长、数据中心领域 CW 光源产品销售额增长和产品结构优化。图谱信号映射至 CW 激光器进入光引擎的上游链路。",
+      "relatedNodeIds": [
+        "cw_laser",
+        "optical_engine"
+      ],
+      "relatedCompanyIds": ["yuanjie_tech"],
+      "sourceReportId": "2026-04-28_yuanjie-tech_2026q1"
+    }
+  ]
+}

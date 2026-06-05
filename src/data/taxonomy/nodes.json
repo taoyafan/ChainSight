@@ -9,7 +9,7 @@
     "marketSizeHint": "medium",
     "costRatio": "~8%",
     "altLimitNote": "III-V 外延片供应商集中，但已有多家量产",
-    "companies": ["lumentum", "coherent"]
+    "companies": ["lumentum", "coherent", "yuanjie_tech"]
   },
   {
     "id": "silicon_wafer",
@@ -57,7 +57,7 @@
     "marketSizeHint": "large",
     "costRatio": "~25%",
     "altLimitNote": "异质集成/微转印技术尚在爬坡",
-    "companies": ["ranovus", "ayar_labs", "broadcom_cpo"]
+    "companies": ["ranovus", "ayar_labs", "broadcom_cpo", "tfc_communication"]
   },
   {
     "id": "fiber_array",
@@ -117,6 +117,18 @@
     "marketSizeHint": "large",
     "costRatio": "",
     "altLimitNote": "系统集成方案仍在定义中",
+    "companies": ["arista", "cisco_system"]
+  },
+  {
+    "id": "data_center_switch",
+    "label": "数据中心交换机",
+    "layer": "system",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "当前高速可插拔光模块主要插入交换机光口，随云厂商网络部署需求变化",
     "companies": ["arista", "cisco_system"]
   },
   {
