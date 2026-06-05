@@ -84,6 +84,18 @@
     "companies": ["broadcom_cpo", "marvell_cpo", "osat_a"]
   },
   {
+    "id": "pluggable_optical_module",
+    "label": "高速可插拔光模块",
+    "layer": "module",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "当前 AI 数据中心高速互连的主流产品形态，区别于 CPO 共封装方案",
+    "companies": ["zhongji_innolight"]
+  },
+  {
     "id": "switch_asic",
     "label": "交换芯片",
     "layer": "system",

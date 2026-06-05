@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chainsight.local/schemas/report-extracted.schema.json",
+  "title": "ChainSight Report Extracted Data",
+  "type": "object",
+  "required": ["report", "metrics", "graphSignals", "companySignals", "timelineEvents"],
+  "additionalProperties": false,
+  "properties": {
+    "report": {
+      "type": "object",
+      "required": ["id", "title", "type", "publishedAt", "sources"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "companyId": { "type": "string" },
+        "companyName": { "type": "string" },
+        "period": { "type": "string" },
+        "publishedAt": { "type": "string" },
+        "sources": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/metric" }
+    },
+    "graphSignals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/graphSignal" }
+    },
+    "companySignals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/companySignal" }
+    },
+    "timelineEvents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/timelineEvent" }
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "required": ["id", "label", "value", "unit", "period"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "period": { "type": "string" },
+        "yoy": { "type": "number" },
+        "derived": { "type": "boolean" },
+        "formula": { "type": "string" }
+      }
+    },
+    "graphSignal": {
+      "type": "object",
+      "required": ["id", "target", "metric", "value", "unit", "period", "confidence", "method"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "target": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["type", "id"],
+              "properties": {
+                "type": { "const": "node" },
+                "id": { "type": "string" }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["type", "source", "target"],
+              "properties": {
+                "type": { "const": "edge" },
+                "source": { "type": "string" },
+                "target": { "type": "string" }
+              }
+            }
+          ]
+        },
+        "metric": { "type": "string" },
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "period": { "type": "string" },
+        "estimated": { "type": "boolean" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "method": { "type": "string" },
+        "sourceMetricIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "companySignal": {
+      "type": "object",
+      "required": ["id", "companyId", "period", "fields", "confidence", "method"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "companyId": { "type": "string" },
+        "period": { "type": "string" },
+        "fields": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "layer": { "type": "string" },
+            "techRoute": { "type": "string" },
+            "stage": { "type": "string" },
+            "massProductionEta": { "type": "string" },
+            "keyCustomers": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "relatedNodeIds": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "estimated": { "type": "boolean" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "method": { "type": "string" },
+        "sourceMetricIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "timelineEvent": {
+      "type": "object",
+      "required": ["id", "date", "type", "title", "summary", "sourceReportId"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "type": { "type": "string" },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "relatedNodeIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "relatedCompanyIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sourceReportId": { "type": "string" }
+      }
+    }
+  }
+}

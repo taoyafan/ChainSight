@@ -53,7 +53,7 @@
         </div>
         <template #footer>
           <n-space align="center" size="small">
-            <n-tooltip trigger="hover">
+            <n-tooltip v-if="!event.sourceReportId" trigger="hover">
               <template #trigger>
                 <n-text depth="3" style="cursor: help; font-size: 12px;">
                   🔮 影响预测
@@ -61,6 +61,9 @@
               </template>
               未来将自动推导该事件对产业链的影响
             </n-tooltip>
+            <n-text v-else depth="3" style="font-size: 12px;">
+              数据来自报告 JSON
+            </n-text>
             <FeedbackButton :context="event.title" />
           </n-space>
         </template>
@@ -125,12 +128,12 @@ function handleNodeClick(nodeId) {
 }
 
 function timelineType(type) {
-  const map = { sampling: 'warning', certification: 'success', yield: 'info', order: 'error', other: 'default' }
+  const map = { sampling: 'warning', certification: 'success', yield: 'info', order: 'error', report: 'info', financial_report: 'info', other: 'default' }
   return map[type] || 'default'
 }
 
 function eventTagType(type) {
-  const map = { sampling: 'warning', certification: 'success', yield: 'info', order: 'error', other: 'default' }
+  const map = { sampling: 'warning', certification: 'success', yield: 'info', order: 'error', report: 'info', financial_report: 'info', other: 'default' }
   return map[type] || 'default'
 }
 </script>

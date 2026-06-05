@@ -1,3 +1,5 @@
+import { getBestEdgeGrowth } from '@/utils/reportRepository'
+
 /**
  * AntV G6 v5 配置 - CPO 产业链拓扑图
  */
@@ -32,6 +34,51 @@ export const STATUS_COLORS = {
 }
 
 const SIZE_MAP = { small: 90, medium: 120, large: 150 }
+const MIN_EDGE_WIDTH = 1.2
+const MAX_EDGE_WIDTH = 24
+const NEUTRAL_EDGE_WIDTH = 6
+const POSITIVE_GROWTH_CAP = 2
+const NEGATIVE_GROWTH_CAP = 1
+
+function formatYoy(value) {
+  if (!Number.isFinite(value)) return '暂无 YoY 数据'
+  const sign = value > 0 ? '+' : ''
+  return `${sign}${(value * 100).toFixed(1)}% YoY`
+}
+
+function getGrowthEdgeStyle(growthValue) {
+  if (!Number.isFinite(growthValue)) {
+    return {
+      lineWidth: NEUTRAL_EDGE_WIDTH,
+      stroke: '#9ca3af',
+      growthTone: 'neutral',
+    }
+  }
+
+  if (growthValue > 0.02) {
+    const capped = Math.min(growthValue, POSITIVE_GROWTH_CAP)
+    return {
+      lineWidth: NEUTRAL_EDGE_WIDTH + (capped / POSITIVE_GROWTH_CAP) * (MAX_EDGE_WIDTH - NEUTRAL_EDGE_WIDTH),
+      stroke: '#16a34a',
+      growthTone: 'positive',
+    }
+  }
+
+  if (growthValue < -0.02) {
+    const capped = Math.min(Math.abs(growthValue), NEGATIVE_GROWTH_CAP)
+    return {
+      lineWidth: NEUTRAL_EDGE_WIDTH - (capped / NEGATIVE_GROWTH_CAP) * (NEUTRAL_EDGE_WIDTH - MIN_EDGE_WIDTH),
+      stroke: '#dc2626',
+      growthTone: 'negative',
+    }
+  }
+
+  return {
+    lineWidth: NEUTRAL_EDGE_WIDTH,
+    stroke: '#9ca3af',
+    growthTone: 'flat',
+  }
+}
 
 /**
  * 将原始节点/边数据转为 G6 v5 graph data
@@ -49,15 +96,30 @@ export function buildGraphData(nodes, edges) {
     },
   }))
 
-  const g6Edges = edges.map((e, i) => ({
-    id: `edge-${i}`,
-    source: e.source,
-    target: e.target,
-    data: {
-      strength: e.strength,
-      label: e.label,
-    },
-  }))
+  const g6Edges = edges.map((e, i) => {
+    const growthEvidence = getBestEdgeGrowth(e.source, e.target)
+    const growthValue = growthEvidence?.signal?.value
+    const growthStyle = getGrowthEdgeStyle(growthValue)
+
+    return {
+      id: `edge-${i}`,
+      source: e.source,
+      target: e.target,
+      data: {
+        transactionAmountQuarterUsd: e.transactionAmountQuarterUsd,
+        lineWidth: growthStyle.lineWidth,
+        stroke: growthStyle.stroke,
+        growthTone: growthStyle.growthTone,
+        growthYoy: growthValue,
+        growthMetric: growthEvidence?.signal?.metric,
+        growthPeriod: growthEvidence?.signal?.period,
+        growthConfidence: growthEvidence?.signal?.confidence,
+        growthReportTitle: growthEvidence?.report?.title,
+        growthCompanyName: growthEvidence?.report?.companyName,
+        label: e.label,
+      },
+    }
+  })
 
   return { nodes: g6Nodes, edges: g6Edges }
 }
@@ -75,7 +137,7 @@ export function getGraphOptions(container, width, height) {
     layout: {
       type: 'dagre',
       rankdir: 'LR',
-      nodesep: 80,
+      nodesep: 240,
       ranksep: 140,
     },
     node: {
@@ -140,8 +202,8 @@ export function getGraphOptions(container, width, height) {
       type: 'cubic-horizontal',
       style: {
         opacity: 1,
-        stroke: '#c0c4cc',
-        lineWidth: (d) => Math.max(1, (d.data?.strength || 0.5) * 4),
+        stroke: (d) => d.data?.stroke || '#9ca3af',
+        lineWidth: (d) => d.data?.lineWidth || MIN_EDGE_WIDTH,
         endArrow: true,
         endArrowSize: 6,
         labelText: (d) => d.data?.label || '',
@@ -155,14 +217,40 @@ export function getGraphOptions(container, width, height) {
       state: {
         highlight: {
           opacity: 1,
-          stroke: '#409EFF',
-          lineWidth: 2.5,
         },
         dim: {
           opacity: 0.15,
         },
       },
     },
+    plugins: [
+      {
+        type: 'tooltip',
+        trigger: 'hover',
+        enable: (event, items) => {
+          const edge = items?.[0]
+          return edge?.id?.startsWith('edge-') || event.target?.id?.startsWith('edge-')
+        },
+        getContent: async (_event, items) => {
+          const edge = items[0]
+          const growthYoy = edge?.data?.growthYoy
+          const hasGrowth = Number.isFinite(growthYoy)
+          const confidence = edge?.data?.growthConfidence
+          return `
+            <div style="min-width: 180px; font-size: 12px; line-height: 1.6;">
+              <div style="font-weight: 600; color: #303133;">${edge?.data?.label || '边'}</div>
+              <div style="color: #606266;">${edge?.source || ''} → ${edge?.target || ''}</div>
+              <div style="margin-top: 4px; color: ${hasGrowth && growthYoy < 0 ? '#dc2626' : hasGrowth && growthYoy > 0 ? '#16a34a' : '#606266'};">
+                ${hasGrowth ? formatYoy(growthYoy) : '暂无报告 YoY 贡献'}
+              </div>
+              ${edge?.data?.growthPeriod ? `<div style="color: #606266;">期间：${edge.data.growthPeriod}</div>` : ''}
+              ${Number.isFinite(confidence) ? `<div style="color: #606266;">置信度：${(confidence * 100).toFixed(0)}%</div>` : ''}
+              ${edge?.data?.growthCompanyName ? `<div style="color: #606266;">报告：${edge.data.growthCompanyName}《${edge.data.growthReportTitle || ''}》</div>` : ''}
+            </div>
+          `
+        },
+      },
+    ],
     behaviors: ['drag-canvas', 'zoom-canvas', 'drag-element'],
     animation: true,
   }

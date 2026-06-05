@@ -1,0 +1,92 @@
+[
+  {
+    "source": "cw_laser",
+    "target": "optical_engine",
+    "transactionAmountQuarterUsd": 28000000,
+    "label": "激光光源供应"
+  },
+  {
+    "source": "silicon_wafer",
+    "target": "modulator",
+    "transactionAmountQuarterUsd": 18000000,
+    "label": "晶圆代工"
+  },
+  {
+    "source": "silicon_wafer",
+    "target": "pd_array",
+    "transactionAmountQuarterUsd": 14000000,
+    "label": "晶圆代工"
+  },
+  {
+    "source": "modulator",
+    "target": "optical_engine",
+    "transactionAmountQuarterUsd": 32000000,
+    "label": "调制器集成"
+  },
+  {
+    "source": "pd_array",
+    "target": "optical_engine",
+    "transactionAmountQuarterUsd": 24000000,
+    "label": "探测器集成"
+  },
+  {
+    "source": "optical_engine",
+    "target": "cpo_module",
+    "transactionAmountQuarterUsd": 120000000,
+    "label": "光引擎封装"
+  },
+  {
+    "source": "fiber_array",
+    "target": "cpo_module",
+    "transactionAmountQuarterUsd": 16000000,
+    "label": "光纤耦合"
+  },
+  {
+    "source": "optical_engine",
+    "target": "pluggable_optical_module",
+    "transactionAmountQuarterUsd": 180000000,
+    "label": "光模块集成"
+  },
+  {
+    "source": "pluggable_optical_module",
+    "target": "ai_server",
+    "transactionAmountQuarterUsd": 620000000,
+    "label": "高速光互连"
+  },
+  {
+    "source": "pluggable_optical_module",
+    "target": "cloud_dc",
+    "transactionAmountQuarterUsd": 760000000,
+    "label": "数据中心光互连部署"
+  },
+  {
+    "source": "cpo_module",
+    "target": "cpo_switch",
+    "transactionAmountQuarterUsd": 260000000,
+    "label": "模组上板"
+  },
+  {
+    "source": "switch_asic",
+    "target": "cpo_switch",
+    "transactionAmountQuarterUsd": 310000000,
+    "label": "ASIC 供应"
+  },
+  {
+    "source": "cpo_switch",
+    "target": "ai_server",
+    "transactionAmountQuarterUsd": 520000000,
+    "label": "交换机集成"
+  },
+  {
+    "source": "cpo_switch",
+    "target": "cloud_dc",
+    "transactionAmountQuarterUsd": 680000000,
+    "label": "网络部署"
+  },
+  {
+    "source": "ai_server",
+    "target": "cloud_dc",
+    "transactionAmountQuarterUsd": 950000000,
+    "label": "服务器部署"
+  }
+]

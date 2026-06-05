@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import nodesData from '@/data/nodes.json'
-import edgesData from '@/data/edges.json'
+import nodesData from '@/data/taxonomy/nodes.json'
+import edgesData from '@/data/taxonomy/edges.json'
 
 export const useGraphStore = defineStore('graph', () => {
   const nodes = ref(nodesData)

@@ -10,15 +10,20 @@ import { useRouter } from 'vue-router'
 import { NH3 } from 'naive-ui'
 import WatchTable from '@/components/WatchTable.vue'
 import { useGraphStore } from '@/stores/graphStore'
+import { useCompanyStore } from '@/stores/companyStore'
 
 const router = useRouter()
 const graphStore = useGraphStore()
+const companyStore = useCompanyStore()
 
 function handleGoToCompany(companyId) {
-  // 找到该公司关联的所有节点并高亮
-  const relatedNodes = graphStore.nodes
-    .filter(n => n.companies?.includes(companyId))
-    .map(n => n.id)
+  const reportRow = companyStore.watchRows.find(c => c.id === companyId)
+  const reportNodes = reportRow?.relatedNodeIds || []
+  const relatedNodes = reportNodes.length > 0
+    ? reportNodes
+    : graphStore.nodes
+      .filter(n => n.companies?.includes(companyId))
+      .map(n => n.id)
   graphStore.setHighlightNodes(relatedNodes)
   router.push({ name: 'topology' })
 }

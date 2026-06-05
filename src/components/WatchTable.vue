@@ -61,7 +61,7 @@ const stageOptions = computed(() =>
 )
 
 const filteredData = computed(() => {
-  let list = companyStore.companies
+  let list = companyStore.watchRows
   if (filterLayer.value) list = list.filter(c => c.layer === filterLayer.value)
   if (filterStage.value) list = list.filter(c => c.stage === filterStage.value)
   return list
@@ -119,6 +119,28 @@ const columns = [
     width: 160,
     render(row) {
       return (row.keyCustomers || []).join(', ') || '—'
+    },
+  },
+  {
+    title: '报告期',
+    key: 'period',
+    width: 90,
+  },
+  {
+    title: '置信度',
+    key: 'confidence',
+    width: 90,
+    render(row) {
+      if (!Number.isFinite(row.confidence)) return '—'
+      return `${(row.confidence * 100).toFixed(0)}%`
+    },
+  },
+  {
+    title: '来源',
+    key: 'sourceReportTitle',
+    width: 180,
+    render(row) {
+      return row.sourceReportTitle ? `${row.sourceReportTitle}` : '—'
     },
   },
   {

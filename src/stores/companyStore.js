@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import companiesData from '@/data/companies.json'
+import companiesData from '@/data/taxonomy/companies.json'
+import { companyWatchRows } from '@/utils/reportRepository'
 
 export const useCompanyStore = defineStore('company', () => {
   const companies = ref(companiesData)
+  const watchRows = computed(() => companyWatchRows)
   const watchlist = ref([]) // 收藏的公司 id 列表
 
   const companyMap = computed(() => {
@@ -33,5 +35,5 @@ export const useCompanyStore = defineStore('company', () => {
     return watchlist.value.includes(companyId)
   }
 
-  return { companies, watchlist, companyMap, layers, stages, toggleWatch, isWatched }
+  return { companies, watchRows, watchlist, companyMap, layers, stages, toggleWatch, isWatched }
 })

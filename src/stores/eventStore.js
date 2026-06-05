@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import eventsData from '@/data/events.json'
+import { computed, ref } from 'vue'
+import { timelineEvents } from '@/utils/reportRepository'
 
 export const useEventStore = defineStore('event', () => {
-  const events = ref(eventsData)
   const filterLayer = ref(null)
+  const allEvents = computed(() => [...timelineEvents])
 
   // 按时间倒序
   const sortedEvents = computed(() =>
-    [...events.value].sort((a, b) => b.date.localeCompare(a.date))
+    [...allEvents.value].sort((a, b) => b.date.localeCompare(a.date))
   )
 
   const filteredEvents = computed(() => {
@@ -18,12 +18,12 @@ export const useEventStore = defineStore('event', () => {
   })
 
   const eventTypes = computed(() =>
-    [...new Set(events.value.map(e => e.type))]
+    [...new Set(allEvents.value.map(e => e.type))]
   )
 
   function setFilterLayer(layer) {
     filterLayer.value = layer
   }
 
-  return { events, filterLayer, sortedEvents, filteredEvents, eventTypes, setFilterLayer }
+  return { allEvents, filterLayer, sortedEvents, filteredEvents, eventTypes, setFilterLayer }
 })

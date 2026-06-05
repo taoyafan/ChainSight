@@ -32,7 +32,8 @@
 
 **连线**：
 
-- 连线粗细表示"供应关系强度"（初期静态赋值，以后可动态）。
+- 连线粗细默认表示季度同比增长信号（YoY）：以中性宽度为基准，正增长变粗并显示绿色，负增长变细并显示红色；没有报告增长数据或接近 0% YoY 时显示灰色中性线。
+- 鼠标悬浮连接线时展示该边的 YoY 增长、期间、置信度和报告来源。方向含义为 `source` 向 `target` 销售。
 - 箭头指示物料/产品流向。
 
 **交互**：
@@ -139,20 +140,27 @@ src/
 │   ├── WatchTable.vue       # 标的观察表
 │   └── FeedbackButton.vue   # 纠错/补充按钮
 ├── stores/
-│   ├── graphStore.js        # 图谱节点/边数据、选中状态
-│   ├── eventStore.js        # 事件列表
+│   ├── graphStore.js        # 产业链本体节点/边、选中状态
+│   ├── eventStore.js        # 从报告包汇总后的时间线事件
 │   └── companyStore.js      # 公司基础信息
 ├── views/
 │   ├── TopologyView.vue     # 主页面-拓扑图
 │   ├── TimelineViewPage.vue
 │   └── WatchlistView.vue
-├── data/                    # 静态样例数据（JSON/JS）
-│   ├── nodes.json
-│   ├── edges.json
-│   ├── events.json
-│   └── companies.json
+├── data/
+│   ├── taxonomy/            # 产业链本体：稳定底图，不承载报告结论
+│   │   ├── nodes.json
+│   │   ├── edges.json
+│   │   └── companies.json
+│   └── reports/             # 可插拔报告包
+│       ├── extracted.schema.json
+│       └── YYYY/YYYY-MM-DD_company_period/
+│           ├── extracted.json
+│           ├── note.md
+│           └── raw/         # Git 忽略
 ├── utils/
 │   ├── g6Config.js          # G6图配置与布局
+│   ├── reportRepository.js  # 统一读取 reports/**/extracted.json
 │   └── helpers.js
 └── App.vue
 ```
@@ -179,7 +187,7 @@ src/
     {
       source: 'silicon_photonics',
       target: 'optical_engine',
-      strength: 0.7,           // 0-1，决定连线粗细
+      transactionAmountQuarterUsd: 120000000, // 美元/季度，source 向 target 的基础交易金额估计；默认线宽由报告贡献的季度 YoY 增长驱动
       label: '晶圆供应'
     }
   ],
@@ -188,21 +196,58 @@ src/
 }
 ```
 
-#### eventStore
+#### report extracted
 
 ```js
 {
-  events: [
+  report: {
+    id: '2026-04-17_zhongji-innolight_2026q1',
+    title: '2026 年一季度报告',
+    type: 'quarterly_report',
+    companyId: 'zhongji_innolight',
+    period: '2026Q1',
+    publishedAt: '2026-04-17',
+    sources: []
+  },
+  metrics: [],
+  graphSignals: [
     {
-      date: '2026-05-20',
-      type: 'sampling',        // sampling | certification | yield | order | other
-      title: 'A公司硅光引擎送样B客户',
-      relatedNodeIds: ['optical_engine'],
-      relatedCompanyIds: ['companyA', 'companyB'],
-      summary: '...'
+      target: { type: 'edge', source: 'cpo_switch', target: 'cloud_dc' },
+      metric: 'demand_growth_signal',
+      value: 1.9212,
+      unit: 'yoy_ratio',
+      period: '2026Q1',
+      confidence: 0.3,
+      method: 'sector_readthrough'
     }
   ],
-  filterLayer: null
+  companySignals: [
+    {
+      companyId: 'zhongji_innolight',
+      period: '2026Q1',
+      fields: {
+        layer: 'module',
+        techRoute: '高速可插拔光模块',
+        stage: 'mass_prod',
+        massProductionEta: '已量产',
+        keyCustomers: ['aws', 'azure', 'google_cloud']
+      },
+      confidence: 0.76,
+      method: 'primary_business_and_industry_mapping'
+    }
+  ],
+  timelineEvents: [
+    {
+      id: 'innolight-2026q1-report-published',
+      date: '2026-04-17',
+      type: 'financial_report',
+      title: '中际旭创发布 2026 年一季度报告',
+      summary: '营业收入同比 +192.1%，归母净利润同比 +262.3%。',
+      relatedNodeIds: ['pluggable_optical_module', 'cloud_dc'],
+      relatedCompanyIds: ['zhongji_innolight'],
+      sourceReportId: '2026-04-17_zhongji-innolight_2026q1'
+    }
+  ]
 }
 ```
 

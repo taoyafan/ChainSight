@@ -21,6 +21,8 @@ export const EVENT_TYPE_TEXT = {
   certification: '认证',
   yield: '良率突破',
   order: '订单',
+  report: '报告',
+  financial_report: '财报',
   other: '其他',
 }
 
@@ -29,6 +31,8 @@ export const EVENT_TYPE_COLORS = {
   certification: '#67C23A',
   yield: '#409EFF',
   order: '#F56C6C',
+  report: '#8B5CF6',
+  financial_report: '#8B5CF6',
   other: '#909399',
 }
 
