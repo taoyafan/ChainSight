@@ -273,38 +273,16 @@ export function getGraphOptions(container, width, height) {
           const growthYoy = edge?.data?.growthYoy
           const hasGrowth = Number.isFinite(growthYoy)
           const confidence = edge?.data?.growthConfidence
-          const contributions = edge?.data?.growthContributions || []
-          const contributionHtml = contributions.length
-            ? `
-              <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid #ebeef5; color: #303133; font-weight: 600;">报告贡献</div>
-              ${contributions.map((item) => {
-                const valueColor = Number.isFinite(item.value) && item.value < 0 ? '#dc2626' : Number.isFinite(item.value) && item.value > 0 ? '#16a34a' : '#606266'
-                return `
-                  <div style="margin-top: 4px; color: #606266;">
-                    <div>
-                      ${escapeHtml(item.companyName || '未知公司')}：
-                      <span style="color: ${valueColor};">${formatYoy(item.value)}</span>
-                      ${Number.isFinite(item.confidence) ? ` / 置信度 ${(item.confidence * 100).toFixed(0)}%` : ''}
-                    </div>
-                    <div style="color: #909399;">${escapeHtml(item.period || '')}${item.reportTitle ? ` · ${escapeHtml(item.reportTitle)}` : ''}</div>
-                  </div>
-                `
-              }).join('')}
-            `
-            : '<div style="margin-top: 8px; color: #909399;">暂无报告贡献</div>'
           return `
-            <div style="min-width: 240px; max-width: 360px; font-size: 12px; line-height: 1.6;">
+            <div style="min-width: 180px; max-width: 240px; font-size: 12px; line-height: 1.55;">
               <div style="font-weight: 600; color: #303133;">${edge?.data?.label || '边'}</div>
-              <div style="color: #606266;">${edge?.source || ''} → ${edge?.target || ''}</div>
-              ${edge?.data?.analysisDate ? `<div style="color: #606266;">观察日期：${edge.data.analysisDate}（真实周期回填）</div>` : ''}
-              <div style="margin-top: 6px; color: #303133; font-weight: 600;">当前线宽依据</div>
               <div style="margin-top: 4px; color: ${hasGrowth && growthYoy < 0 ? '#dc2626' : hasGrowth && growthYoy > 0 ? '#16a34a' : '#606266'};">
                 ${hasGrowth ? formatYoy(growthYoy) : '暂无报告 YoY 贡献'}
               </div>
-              ${edge?.data?.growthPeriod ? `<div style="color: #606266;">期间：${edge.data.growthPeriod}</div>` : ''}
-              ${Number.isFinite(confidence) ? `<div style="color: #606266;">置信度：${(confidence * 100).toFixed(0)}%</div>` : ''}
-              ${edge?.data?.growthCompanyName ? `<div style="color: #606266;">报告：${edge.data.growthCompanyName}《${edge.data.growthReportTitle || ''}》</div>` : ''}
-              ${contributionHtml}
+              <div style="color: #909399;">
+                ${edge?.data?.growthPeriod ? `${escapeHtml(edge.data.growthPeriod)} · ` : ''}
+                ${Number.isFinite(confidence) ? `置信度 ${(confidence * 100).toFixed(0)}%` : '双击查看详情'}
+              </div>
             </div>
           `
         },

@@ -225,7 +225,7 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["Digicomm", "Microsoft", "大型互联网数据中心运营商", "设备供应商", "CATV MSO"],
-        "relatedNodeIds": ["pluggable_optical_module", "data_center_switch", "ai_server"]
+        "relatedNodeIds": ["pluggable_optical_module"]
       },
       "estimated": true,
       "confidence": 0.78,

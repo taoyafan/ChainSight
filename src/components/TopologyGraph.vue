@@ -8,7 +8,7 @@ import { Graph } from '@antv/g6'
 import { useGraphStore } from '@/stores/graphStore'
 import { buildGraphData, getGraphOptions } from '@/utils/g6Config'
 
-const emit = defineEmits(['node-click', 'node-dblclick'])
+const emit = defineEmits(['node-click', 'node-dblclick', 'edge-dblclick'])
 
 const containerRef = ref(null)
 const graphStore = useGraphStore()
@@ -114,6 +114,11 @@ function mountGraph() {
   graph.on('node:dblclick', (evt) => {
     const nodeId = evt.target?.id
     if (nodeId) emit('node-dblclick', nodeId)
+  })
+
+  graph.on('edge:dblclick', (evt) => {
+    const edgeId = evt.target?.id
+    if (edgeId) emit('edge-dblclick', edgeId)
   })
 
   graph.on('canvas:click', async () => {

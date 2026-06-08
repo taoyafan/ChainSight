@@ -203,7 +203,7 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["云数据中心客户", "通信设备商"],
-        "relatedNodeIds": ["pluggable_optical_module", "data_center_switch", "ai_server"]
+        "relatedNodeIds": ["pluggable_optical_module"]
       },
       "estimated": true,
       "confidence": 0.76,

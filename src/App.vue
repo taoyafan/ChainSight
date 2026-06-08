@@ -13,7 +13,7 @@ const isDark = ref(false)
 
 const theme = computed(() => isDark.value ? darkTheme : null)
 
-const menuValue = computed(() => route.name || 'topology')
+const menuValue = computed(() => route.name === 'node-analysis' ? 'topology' : route.name || 'topology')
 
 const menuOptions = [
   { label: '产业链拓扑', key: 'topology' },

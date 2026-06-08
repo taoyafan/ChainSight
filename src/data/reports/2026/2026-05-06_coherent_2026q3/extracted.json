@@ -1,0 +1,314 @@
+{
+  "report": {
+    "id": "2026-05-06_coherent_2026q3",
+    "companyId": "coherent",
+    "companyName": "Coherent Corp.",
+    "stockCode": "COHR",
+    "exchange": "NYSE",
+    "title": "Fiscal 2026 Third Quarter Form 10-Q",
+    "type": "quarterly_report_10q",
+    "period": "FY2026Q3",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-03-31",
+    "publishedAt": "2026-05-06",
+    "accessionNumber": "0000820318-26-000013",
+    "currency": "USD",
+    "amountUnit": "USD",
+    "audited": false,
+    "sources": [
+      {
+        "name": "SEC EDGAR: Coherent Fiscal 2026 Q3 Form 10-Q",
+        "type": "official_sec_filing_html",
+        "url": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
+        "localPathIgnored": "raw/iivi-20260331.htm",
+        "publisher": "U.S. Securities and Exchange Commission",
+        "accessedAt": "2026-06-08"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "value": 1805641000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.205466
+    },
+    {
+      "id": "datacenter_and_communications_revenue",
+      "label": "Datacenter & Communications revenue",
+      "value": 1361677000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.405748
+    },
+    {
+      "id": "industrial_revenue",
+      "label": "Industrial revenue",
+      "value": 443964000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": -0.161116
+    },
+    {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1125696000,
+      "unit": "USD",
+      "period": "FY2026Q3"
+    },
+    {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 679945000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "derived": true,
+      "formula": "revenue - cost_of_revenue"
+    },
+    {
+      "id": "gross_margin",
+      "label": "Gross margin",
+      "value": 0.376559,
+      "unit": "ratio",
+      "period": "FY2026Q3",
+      "derived": true,
+      "formula": "gross_profit / revenue"
+    },
+    {
+      "id": "net_income",
+      "label": "Net income",
+      "value": 191402000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 11.674482
+    },
+    {
+      "id": "datacenter_and_communications_segment_income",
+      "label": "Datacenter & Communications segment income",
+      "value": 347610000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.491067
+    }
+  ],
+  "graphSignals": [
+    {
+      "id": "coherent-2026q3-node-pluggable-optical-module-datacenter-communications-revenue-proxy",
+      "target": {
+        "type": "node",
+        "id": "pluggable_optical_module"
+      },
+      "metric": "revenue_proxy",
+      "value": 1361677000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.58,
+      "method": "datacenter_and_communications_broad_segment_revenue_proxy",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Datacenter & Communications segment description",
+          "value": "The segment sells into datacenter and communications markets, including transceivers, systems, subsystems, modules, components, optics and semiconductor devices; the report does not isolate pluggable optical module revenue.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "coherent-2026q3-edge-optical-engine-to-pluggable-optical-module-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "optical_engine",
+        "target": "pluggable_optical_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.405748,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.66,
+      "method": "datacenter_and_communications_revenue_growth_proxy",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Datacenter & Communications revenue YoY",
+          "value": 0.405748,
+          "unit": "yoy_ratio"
+        }
+      ]
+    },
+    {
+      "id": "coherent-2026q3-edge-cw-laser-to-optical-engine-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "cw_laser",
+        "target": "optical_engine"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.405748,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.46,
+      "method": "datacenter_and_communications_revenue_growth_low_confidence_laser_proxy",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Datacenter & Communications revenue YoY",
+          "value": 0.405748,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Mapping limitation",
+          "value": "The segment includes components, optics and semiconductor devices but does not isolate laser-source revenue.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "coherent-2026q3-edge-pd-array-to-optical-engine-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pd_array",
+        "target": "optical_engine"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.405748,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.42,
+      "method": "datacenter_and_communications_revenue_growth_low_confidence_detector_component_proxy",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Datacenter & Communications revenue YoY",
+          "value": 0.405748,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Mapping limitation",
+          "value": "The segment includes components, optics and semiconductor devices but does not isolate photodetector or receiver component revenue.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "coherent-2026q3-edge-modulator-to-optical-engine-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "modulator",
+        "target": "optical_engine"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.405748,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.36,
+      "method": "datacenter_and_communications_revenue_growth_low_confidence_optical_component_proxy",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Datacenter & Communications revenue YoY",
+          "value": 0.405748,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Mapping limitation",
+          "value": "The segment includes optics and semiconductor devices but does not isolate modulator revenue.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "coherent-2026q3-edge-pluggable-optical-module-to-data-center-switch-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pluggable_optical_module",
+        "target": "data_center_switch"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.405748,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.6,
+      "method": "datacenter_and_communications_revenue_growth_proxy",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"]
+    },
+    {
+      "id": "coherent-2026q3-edge-pluggable-optical-module-to-ai-server-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pluggable_optical_module",
+        "target": "ai_server"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.405748,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.54,
+      "method": "datacenter_and_communications_revenue_growth_proxy_for_ai_server_interconnect_demand",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Datacenter & Communications revenue YoY",
+          "value": 0.405748,
+          "unit": "yoy_ratio"
+        }
+      ]
+    }
+  ],
+  "companySignals": [
+    {
+      "id": "coherent-2026q3-company-watch-profile",
+      "companyId": "coherent",
+      "period": "FY2026Q3",
+      "fields": {
+        "layer": "module",
+        "techRoute": "Datacenter optics / transceivers / optical components",
+        "stage": "mass_prod",
+        "massProductionEta": "已量产",
+        "keyCustomers": ["datacenter customers", "communications customers", "network equipment customers"],
+        "relatedNodeIds": ["cw_laser", "pd_array", "modulator", "optical_engine", "pluggable_optical_module"]
+      },
+      "estimated": true,
+      "confidence": 0.72,
+      "method": "10q_datacenter_and_communications_segment_mapping",
+      "sourceMetricIds": ["datacenter_and_communications_revenue", "datacenter_and_communications_segment_income"]
+    }
+  ],
+  "timelineEvents": [
+    {
+      "id": "coherent-2026q3-10q-published",
+      "date": "2026-05-06",
+      "type": "financial_report",
+      "title": "Coherent 发布 FY2026 Q3 Form 10-Q",
+      "summary": "FY2026Q3 收入 18.056 亿美元，同比约 +20.5%；Datacenter & Communications 分部收入 13.617 亿美元，同比约 +40.6%。该分部覆盖数据中心和通信市场中的 transceivers、systems、subsystems、modules、components、optics 和 semiconductor devices。",
+      "relatedNodeIds": [
+        "cw_laser",
+        "pd_array",
+        "modulator",
+        "optical_engine",
+        "pluggable_optical_module",
+        "data_center_switch",
+        "ai_server"
+      ],
+      "relatedCompanyIds": ["coherent"],
+      "sourceReportId": "2026-05-06_coherent_2026q3"
+    }
+  ]
+}

@@ -5,6 +5,13 @@ const EDGE_GROWTH_METRICS = new Set([
   'demand_growth_signal',
 ])
 
+export const FX_RATE_UPDATED_AT = '2026-06-08'
+
+export const FX_RATES_TO_CNY = {
+  CNY: 1,
+  USD: 6.7864,
+}
+
 function getModuleData(moduleValue) {
   return moduleValue?.default ?? moduleValue
 }
@@ -199,6 +206,80 @@ export const companyWatchRows = Object.entries(companySignalsById)
     }
   })
   .sort((a, b) => String(b.sourcePublishedAt || '').localeCompare(String(a.sourcePublishedAt || '')))
+
+const companyWatchRowMap = companyWatchRows.reduce((acc, row) => {
+  acc[row.id] = row
+  return acc
+}, {})
+
+function compareReportSignalDesc(a, b) {
+  const publishedDelta = String(b.report.publishedAt || '').localeCompare(String(a.report.publishedAt || ''))
+  if (publishedDelta !== 0) return publishedDelta
+
+  const periodDelta = comparePeriodDesc(a.signal, b.signal)
+  if (periodDelta !== 0) return periodDelta
+
+  return (b.signal.confidence || 0) - (a.signal.confidence || 0)
+}
+
+export function getNodeWatchRows(nodeId) {
+  if (!nodeId) return []
+  return companyWatchRows.filter((row) => row.relatedNodeIds?.includes(nodeId))
+}
+
+export function getNodeRevenueProxyItems(nodeId) {
+  const watchRowMap = getNodeWatchRows(nodeId).reduce((acc, row) => {
+    acc[row.id] = row
+    return acc
+  }, {})
+
+  const latestByCompany = graphSignals
+    .filter(({ report, signal }) => {
+      const target = signal.target || {}
+      const companyId = signal.companyId || report.companyId
+      return target.type === 'node'
+        && target.id === nodeId
+        && signal.metric === 'revenue_proxy'
+        && watchRowMap[companyId]
+    })
+    .reduce((acc, item) => {
+      const companyId = item.signal.companyId || item.report.companyId
+      if (!companyId || !watchRowMap[companyId]) return acc
+      if (!acc[companyId] || compareReportSignalDesc(item, acc[companyId]) < 0) {
+        acc[companyId] = item
+      }
+      return acc
+    }, {})
+
+  const items = Object.entries(latestByCompany)
+    .map(([companyId, item]) => {
+      const unit = item.signal.unit || item.report.currency || ''
+      const fxRateToCny = FX_RATES_TO_CNY[unit]
+      const value = Number(item.signal.value)
+      const convertedValueCny = Number.isFinite(value) && Number.isFinite(fxRateToCny)
+        ? value * fxRateToCny
+        : null
+
+      return {
+        companyId,
+        company: watchRowMap[companyId] || companyWatchRowMap[companyId],
+        report: item.report,
+        signal: item.signal,
+        value,
+        unit,
+        fxRateToCny,
+        convertedValueCny,
+      }
+    })
+    .filter((item) => Number.isFinite(item.convertedValueCny) && item.convertedValueCny > 0)
+    .sort((a, b) => b.convertedValueCny - a.convertedValueCny)
+
+  const totalCny = items.reduce((sum, item) => sum + item.convertedValueCny, 0)
+  return items.map((item) => ({
+    ...item,
+    share: totalCny > 0 ? item.convertedValueCny / totalCny : 0,
+  }))
+}
 
 export function getBestEdgeGrowth(source, target) {
   return edgeGrowthByKey[edgeKey(source, target)]?.[0] || null

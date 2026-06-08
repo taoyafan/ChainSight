@@ -112,13 +112,15 @@ reports/
     "stage": "mass_prod",
     "massProductionEta": "已量产",
     "keyCustomers": ["云数据中心客户", "通信设备商"],
-    "relatedNodeIds": ["pluggable_optical_module", "data_center_switch", "ai_server"]
+    "relatedNodeIds": ["pluggable_optical_module"]
   },
   "estimated": true,
   "confidence": 0.76,
   "method": "primary_business_and_industry_mapping"
 }
 ```
+
+`companySignals.fields.relatedNodeIds` 只表示公司实际产品或方案覆盖的节点。下游客户、应用场景和需求传导不要写入这里；如果报告只能支持“该产品增长传导到下游节点”，应写入 `graphSignals` 或 `timelineEvents.relatedNodeIds`，并用较低置信度、proxy 方法说明。
 
 如果同一家公司有多个报告信号，前端默认展示置信度最高、报告期较新的记录。
 

@@ -1,0 +1,279 @@
+{
+  "report": {
+    "id": "2026-05-05_lumentum_2026q3",
+    "companyId": "lumentum",
+    "companyName": "Lumentum Holdings Inc.",
+    "stockCode": "LITE",
+    "exchange": "NASDAQ",
+    "title": "Fiscal 2026 Third Quarter Form 10-Q",
+    "type": "quarterly_report_10q",
+    "period": "FY2026Q3",
+    "periodStart": "2025-12-28",
+    "periodEnd": "2026-03-28",
+    "publishedAt": "2026-05-05",
+    "accessionNumber": "0001628280-26-030777",
+    "currency": "USD",
+    "amountUnit": "USD",
+    "audited": false,
+    "sources": [
+      {
+        "name": "SEC EDGAR: Lumentum Fiscal 2026 Q3 Form 10-Q",
+        "type": "official_sec_filing_html",
+        "url": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026030777/lite-20260328.htm",
+        "localPathIgnored": "raw/lite-20260328.htm",
+        "publisher": "U.S. Securities and Exchange Commission",
+        "accessedAt": "2026-06-08"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "Net revenue",
+      "value": 808400000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.901223
+    },
+    {
+      "id": "components_revenue",
+      "label": "Components revenue",
+      "value": 533300000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.772939
+    },
+    {
+      "id": "systems_revenue",
+      "label": "Systems revenue",
+      "value": 275100000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 1.211415
+    },
+    {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 357000000,
+      "unit": "USD",
+      "period": "FY2026Q3"
+    },
+    {
+      "id": "gross_margin",
+      "label": "Gross margin",
+      "value": 0.441613,
+      "unit": "ratio",
+      "period": "FY2026Q3",
+      "derived": true,
+      "formula": "gross_profit / revenue"
+    },
+    {
+      "id": "net_income",
+      "label": "Net income",
+      "value": 144200000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 2.269841
+    }
+  ],
+  "graphSignals": [
+    {
+      "id": "lumentum-2026q3-node-cw-laser-components-revenue-proxy",
+      "target": {
+        "type": "node",
+        "id": "cw_laser"
+      },
+      "metric": "revenue_proxy",
+      "value": 533300000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.68,
+      "method": "components_revenue_proxy_for_laser_light_sources",
+      "sourceMetricIds": ["components_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Components description",
+          "value": "Components include semiconductor laser chips, laser sub-assemblies and laser light sources supplied to cloud data center operators, AI/ML infrastructure providers and network equipment manufacturer customers.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "lumentum-2026q3-edge-cw-laser-to-optical-engine-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "cw_laser",
+        "target": "optical_engine"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.772939,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.62,
+      "method": "components_revenue_growth_proxy_for_laser_source_demand",
+      "sourceMetricIds": ["components_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Components revenue YoY",
+          "value": 0.772939,
+          "unit": "yoy_ratio"
+        }
+      ]
+    },
+    {
+      "id": "lumentum-2026q3-node-pluggable-optical-module-systems-context-signal",
+      "target": {
+        "type": "node",
+        "id": "pluggable_optical_module"
+      },
+      "metric": "demand_context_signal",
+      "value": 275100000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.45,
+      "method": "systems_revenue_context_for_cloud_transceiver_products",
+      "sourceMetricIds": ["systems_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Systems product commentary",
+          "value": "Systems growth was primarily driven by cloud transceiver product lines and initial optical circuit switch shipments.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "lumentum-2026q3-edge-optical-engine-to-pluggable-optical-module-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "optical_engine",
+        "target": "pluggable_optical_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.211415,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.48,
+      "method": "systems_revenue_growth_low_confidence_cloud_transceiver_proxy",
+      "sourceMetricIds": ["systems_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Systems revenue YoY",
+          "value": 1.211415,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Systems product commentary",
+          "value": "Systems growth was primarily driven by cloud transceiver product lines, partially offset by lower average selling prices.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "lumentum-2026q3-edge-pluggable-optical-module-to-data-center-switch-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pluggable_optical_module",
+        "target": "data_center_switch"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.211415,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.44,
+      "method": "systems_revenue_growth_low_confidence_cloud_transceiver_to_switch_proxy",
+      "sourceMetricIds": ["systems_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Systems revenue YoY",
+          "value": 1.211415,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Mapping limitation",
+          "value": "The report says cloud transceiver product lines drove Systems growth but does not disclose cloud transceiver revenue or split switch-side and server-side demand.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "lumentum-2026q3-edge-pluggable-optical-module-to-ai-server-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pluggable_optical_module",
+        "target": "ai_server"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.211415,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.38,
+      "method": "systems_revenue_growth_low_confidence_ai_interconnect_proxy",
+      "sourceMetricIds": ["systems_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Systems revenue YoY",
+          "value": 1.211415,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Mapping limitation",
+          "value": "Systems growth was driven by cloud transceiver product lines, but the report does not isolate AI server interconnect demand.",
+          "unit": "text"
+        }
+      ]
+    }
+  ],
+  "companySignals": [
+    {
+      "id": "lumentum-2026q3-company-watch-profile",
+      "companyId": "lumentum",
+      "period": "FY2026Q3",
+      "fields": {
+        "layer": "chip",
+        "techRoute": "III-V Laser / cloud optical components",
+        "stage": "mass_prod",
+        "massProductionEta": "已量产",
+        "keyCustomers": ["cloud data center operators", "AI/ML infrastructure providers", "network equipment manufacturers"],
+        "relatedNodeIds": ["cw_laser", "optical_engine", "pluggable_optical_module"]
+      },
+      "estimated": true,
+      "confidence": 0.68,
+      "method": "10q_components_and_cloud_transceiver_business_mapping",
+      "sourceMetricIds": ["components_revenue", "systems_revenue"]
+    }
+  ],
+  "timelineEvents": [
+    {
+      "id": "lumentum-2026q3-10q-published",
+      "date": "2026-05-05",
+      "type": "financial_report",
+      "title": "Lumentum 发布 FY2026 Q3 Form 10-Q",
+      "summary": "FY2026Q3 净收入 8.084 亿美元，同比约 +90.1%；Components 收入 5.333 亿美元，同比约 +77.3%。公司说明 Components 包含半导体激光芯片、激光子组件和激光光源，服务云数据中心、AI/ML 基础设施与网络设备客户。",
+      "relatedNodeIds": [
+        "cw_laser",
+        "optical_engine",
+        "pluggable_optical_module",
+        "data_center_switch",
+        "ai_server",
+        "cloud_dc"
+      ],
+      "relatedCompanyIds": ["lumentum"],
+      "sourceReportId": "2026-05-05_lumentum_2026q3"
+    }
+  ]
+}

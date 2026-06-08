@@ -9,7 +9,7 @@
     "marketSizeHint": "medium",
     "costRatio": "~8%",
     "altLimitNote": "III-V 外延片供应商集中，但已有多家量产",
-    "companies": ["lumentum", "coherent", "yuanjie_tech"]
+    "companies": ["lumentum", "coherent", "yuanjie_tech", "everbright_photonics"]
   },
   {
     "id": "silicon_wafer",
@@ -45,7 +45,7 @@
     "marketSizeHint": "medium",
     "costRatio": "~5%",
     "altLimitNote": "Ge-on-Si 工艺较成熟",
-    "companies": ["intel_photonics", "globalfoundries"]
+    "companies": ["intel_photonics", "globalfoundries", "everbright_photonics"]
   },
   {
     "id": "optical_engine",

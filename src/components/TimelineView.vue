@@ -25,48 +25,51 @@
         v-for="event in displayEvents"
         :key="event.date + event.title"
         :type="timelineType(event.type)"
-        :title="event.title"
-        :time="event.date"
       >
-        <template #header>
-          <n-space align="center" size="small">
-            <n-tag size="small" :type="eventTagType(event.type)">
-              {{ EVENT_TYPE_TEXT[event.type] || event.type }}
-            </n-tag>
-            <n-text strong>{{ event.title }}</n-text>
-          </n-space>
-        </template>
-        <n-text depth="2">{{ event.summary }}</n-text>
-        <div style="margin-top: 6px;">
-          <n-space size="small">
-            <n-button
-              v-for="nid in event.relatedNodeIds"
-              :key="nid"
-              text
-              type="primary"
-              size="small"
-              @click="handleNodeClick(nid)"
-            >
-              {{ nodeLabel(nid) }}
-            </n-button>
-          </n-space>
+        <div class="timeline-event">
+          <n-text depth="3" class="timeline-date">
+            {{ event.date }}
+          </n-text>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <n-space align="center" size="small">
+                <n-tag size="small" :type="eventTagType(event.type)">
+                  {{ EVENT_TYPE_TEXT[event.type] || event.type }}
+                </n-tag>
+                <n-text strong>{{ event.title }}</n-text>
+              </n-space>
+            </div>
+            <n-text depth="2">{{ event.summary }}</n-text>
+            <div style="margin-top: 6px;">
+              <n-space size="small">
+                <n-button
+                  v-for="nid in event.relatedNodeIds"
+                  :key="nid"
+                  text
+                  type="primary"
+                  size="small"
+                  @click="handleNodeClick(nid)"
+                >
+                  {{ nodeLabel(nid) }}
+                </n-button>
+              </n-space>
+            </div>
+            <n-space align="center" size="small" style="margin-top: 8px;">
+              <n-tooltip v-if="!event.sourceReportId" trigger="hover">
+                <template #trigger>
+                  <n-text depth="3" style="cursor: help; font-size: 12px;">
+                    🔮 影响预测
+                  </n-text>
+                </template>
+                未来将自动推导该事件对产业链的影响
+              </n-tooltip>
+              <n-text v-else depth="3" style="font-size: 12px;">
+                数据来自报告 JSON
+              </n-text>
+              <FeedbackButton :context="event.title" />
+            </n-space>
+          </div>
         </div>
-        <template #footer>
-          <n-space align="center" size="small">
-            <n-tooltip v-if="!event.sourceReportId" trigger="hover">
-              <template #trigger>
-                <n-text depth="3" style="cursor: help; font-size: 12px;">
-                  🔮 影响预测
-                </n-text>
-              </template>
-              未来将自动推导该事件对产业链的影响
-            </n-tooltip>
-            <n-text v-else depth="3" style="font-size: 12px;">
-              数据来自报告 JSON
-            </n-text>
-            <FeedbackButton :context="event.title" />
-          </n-space>
-        </template>
       </n-timeline-item>
     </n-timeline>
 
@@ -142,5 +145,33 @@ function eventTagType(type) {
 .timeline-view {
   padding: 16px;
   max-width: 800px;
+}
+
+.timeline-event {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.timeline-date {
+  font-size: 12px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.timeline-body {
+  min-width: 0;
+}
+
+.timeline-header {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 640px) {
+  .timeline-event {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
 }
 </style>

@@ -1,0 +1,242 @@
+{
+  "report": {
+    "id": "2026-04-18_everbright-photonics_2026q1",
+    "companyId": "everbright_photonics",
+    "companyName": "苏州长光华芯光电技术股份有限公司",
+    "stockCode": "688048",
+    "exchange": "SSE",
+    "title": "2026 年第一季度报告",
+    "type": "quarterly_report",
+    "period": "2026Q1",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-03-31",
+    "publishedAt": "2026-04-18",
+    "announcementNumber": "AN202604171821307340",
+    "currency": "CNY",
+    "amountUnit": "yuan",
+    "audited": false,
+    "sources": [
+      {
+        "name": "东方财富公告镜像：长光华芯 2026 年第一季度报告",
+        "type": "disclosure_mirror",
+        "url": "https://data.eastmoney.com/notices/detail/688048/AN202604171821307340.html",
+        "localPathIgnored": "raw/H2_AN202604171821307340_1.pdf",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-08"
+      },
+      {
+        "name": "东方财富公告镜像：长光华芯 2025 年年度报告，产品口径补充",
+        "type": "disclosure_mirror_product_context",
+        "url": "https://data.eastmoney.com/notices/detail/688048/AN202604171821307346.html",
+        "localPathIgnored": "raw/H2_AN202604171821307346_1_annual_context.pdf",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-08"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "营业收入",
+      "value": 129928713.96,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.3781
+    },
+    {
+      "id": "profit_total",
+      "label": "利润总额",
+      "value": 3068615.91,
+      "unit": "CNY",
+      "period": "2026Q1"
+    },
+    {
+      "id": "net_profit_attributable",
+      "label": "归属于上市公司股东的净利润",
+      "value": 4479634.09,
+      "unit": "CNY",
+      "period": "2026Q1"
+    },
+    {
+      "id": "net_profit_attributable_ex_nonrecurring",
+      "label": "归属于上市公司股东的扣除非经常性损益的净利润",
+      "value": -11567867.58,
+      "unit": "CNY",
+      "period": "2026Q1"
+    },
+    {
+      "id": "net_operating_cash_flow",
+      "label": "经营活动产生的现金流量净额",
+      "value": -131017635.31,
+      "unit": "CNY",
+      "period": "2026Q1"
+    },
+    {
+      "id": "rd_expense",
+      "label": "研发投入合计",
+      "value": 26401941.52,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": -0.0397
+    },
+    {
+      "id": "rd_expense_ratio",
+      "label": "研发投入占营业收入的比例",
+      "value": 0.2032,
+      "unit": "ratio",
+      "period": "2026Q1"
+    },
+    {
+      "id": "annual_revenue",
+      "label": "2025 年营业收入",
+      "value": 477377559.44,
+      "unit": "CNY",
+      "period": "2025",
+      "yoy": 0.7509
+    },
+    {
+      "id": "annual_high_power_single_tube_revenue",
+      "label": "2025 年高功率单管系列收入",
+      "value": 386179249.42,
+      "unit": "CNY",
+      "period": "2025",
+      "yoy": 0.8092
+    },
+    {
+      "id": "annual_high_power_bar_revenue",
+      "label": "2025 年高功率巴条系列收入",
+      "value": 29252912.46,
+      "unit": "CNY",
+      "period": "2025",
+      "yoy": -0.206
+    },
+    {
+      "id": "annual_vcsel_and_optical_communication_chip_revenue",
+      "label": "2025 年 VCSEL 及光通讯芯片系列收入",
+      "value": 41193768.25,
+      "unit": "CNY",
+      "period": "2025",
+      "yoy": 10.3679
+    }
+  ],
+  "graphSignals": [
+    {
+      "id": "everbright-2026q1-node-cw-laser-revenue-proxy",
+      "target": {
+        "type": "node",
+        "id": "cw_laser"
+      },
+      "metric": "revenue_proxy",
+      "value": 129928713.96,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.62,
+      "method": "quarterly_company_revenue_proxy_with_semiconductor_laser_product_context",
+      "sourceMetricIds": ["revenue", "annual_high_power_single_tube_revenue", "annual_vcsel_and_optical_communication_chip_revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年第一季度报告",
+          "metric": "营业收入同比增长",
+          "value": 0.3781,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "2025 年年度报告",
+          "metric": "产品范围",
+          "value": "公司主要产品包括高功率单管系列、高功率巴条系列、高效率 VCSEL 系列及光通信芯片系列；主营业务收入均来源于半导体激光芯片及其器件、模块等产品销售。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "everbright-2026q1-edge-cw-laser-to-optical-engine-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "cw_laser",
+        "target": "optical_engine"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.3781,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.56,
+      "method": "quarterly_revenue_growth_proxy_with_optical_communication_growth_context",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年第一季度报告",
+          "metric": "收入增长原因",
+          "value": "公司坚持横向拓展战略，一季度收入增长主要源于前期布局的光通信等业务的增长。",
+          "unit": "text"
+        },
+        {
+          "source": "2025 年年度报告",
+          "metric": "AI 数据中心与高速光互连背景",
+          "value": "公司称 AI 需求推动光模块向 800G 和 1.6T 演进，200-400mW CW DFB 光源成为高速光互连领域的核心增量器件。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "everbright-2026q1-edge-pd-array-to-optical-engine-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "pd_array",
+        "target": "optical_engine"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.3781,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.32,
+      "method": "quarterly_revenue_growth_low_confidence_pin_pd_product_coverage_proxy",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2025 年年度报告",
+          "metric": "产品范围",
+          "value": "光通信芯片系列产品列示 VCSEL、EML、DFB、PIN PD 系列，但报告未拆分 PIN PD 收入。",
+          "unit": "text"
+        }
+      ]
+    }
+  ],
+  "companySignals": [
+    {
+      "id": "everbright-2026q1-company-watch-profile",
+      "companyId": "everbright_photonics",
+      "period": "2026Q1",
+      "fields": {
+        "layer": "chip",
+        "techRoute": "半导体激光芯片 / VCSEL / DFB / EML / PIN PD",
+        "stage": "mass_prod",
+        "massProductionEta": "已量产",
+        "keyCustomers": ["光通信客户", "激光器客户", "数据中心相关终端客户"],
+        "relatedNodeIds": ["cw_laser", "pd_array"]
+      },
+      "estimated": true,
+      "confidence": 0.7,
+      "method": "quarterly_report_with_annual_product_catalog_mapping",
+      "sourceMetricIds": ["revenue", "annual_vcsel_and_optical_communication_chip_revenue"]
+    }
+  ],
+  "timelineEvents": [
+    {
+      "id": "everbright-2026q1-report-published",
+      "date": "2026-04-18",
+      "type": "financial_report",
+      "title": "长光华芯发布 2026 年第一季度报告",
+      "summary": "报告期 2026Q1，营业收入 1.299 亿元、同比 +37.8%；归母净利润 447.96 万元，由上年同期亏损转为盈利。公司称一季度收入增长主要源于前期布局的光通信等业务增长；2025 年报显示公司覆盖高功率半导体激光芯片、VCSEL、DFB、EML 和 PIN PD 等光通信芯片产品。",
+      "relatedNodeIds": [
+        "cw_laser",
+        "pd_array",
+        "optical_engine"
+      ],
+      "relatedCompanyIds": ["everbright_photonics"],
+      "sourceReportId": "2026-04-18_everbright-photonics_2026q1"
+    }
+  ]
+}

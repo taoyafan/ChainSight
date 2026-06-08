@@ -16,6 +16,11 @@ const routes = [
     name: 'watchlist',
     component: () => import('@/views/WatchlistView.vue'),
   },
+  {
+    path: '/node/:nodeId',
+    name: 'node-analysis',
+    component: () => import('@/views/NodeAnalysisView.vue'),
+  },
 ]
 
 const router = createRouter({
