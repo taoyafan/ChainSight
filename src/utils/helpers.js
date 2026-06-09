@@ -9,7 +9,7 @@ export const STATUS_TEXT = {
 }
 
 export const LAYER_TEXT = {
-  chip: '硅光芯片',
+  chip: '芯片/晶圆',
   engine: '光引擎',
   module: '光模块/模组',
   system: '系统集成',

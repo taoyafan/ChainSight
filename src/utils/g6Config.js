@@ -14,23 +14,11 @@ export const LAYER_ORDER = {
 }
 
 export const LAYER_LABELS = {
-  chip: '硅光芯片',
+  chip: '芯片/晶圆',
   engine: '光引擎',
   module: '光模块/模组',
   system: '系统集成',
   cloud: '云/算力',
-}
-
-export const STATUS_LABELS = {
-  RnD: '研发',
-  sampling: '送样',
-  mass_prod: '量产',
-}
-
-export const STATUS_COLORS = {
-  RnD: '#909399',
-  sampling: '#E6A23C',
-  mass_prod: '#67C23A',
 }
 
 const SIZE_MAP = { small: 90, medium: 120, large: 150 }
@@ -178,8 +166,9 @@ export function getGraphOptions(container, width, height) {
       style: {
         radius: 8,
         size: (d) => {
-          const w = SIZE_MAP[d.data?.marketSizeHint] || 80
-          return [w + 90, 78]
+          const baseWidth = (SIZE_MAP[d.data?.marketSizeHint] || 80) + 90
+          const labelWidth = 96 + String(d.data?.label || d.id || '').length * 14
+          return [Math.min(340, Math.max(baseWidth, labelWidth)), 78]
         },
         opacity: 1,
         fill: '#fff',
@@ -192,16 +181,6 @@ export function getGraphOptions(container, width, height) {
         labelFontSize: 24,
         labelFontWeight: 600,
         labelPlacement: 'center',
-        // 右下角状态标签通过 badges 实现
-        badges: (d) => [
-          {
-            text: STATUS_LABELS[d.data?.status] || '',
-            placement: 'right-bottom',
-            backgroundFill: STATUS_COLORS[d.data?.status] || '#909399',
-            fill: '#fff',
-            fontSize: 18,
-          },
-        ],
       },
       state: {
         selected: {
@@ -254,9 +233,11 @@ export function getGraphOptions(container, width, height) {
       state: {
         highlight: {
           opacity: 1,
+          lineWidth: (d) => d.data?.lineWidth || MIN_EDGE_WIDTH,
         },
         dim: {
           opacity: 0.15,
+          lineWidth: (d) => d.data?.lineWidth || MIN_EDGE_WIDTH,
         },
       },
     },

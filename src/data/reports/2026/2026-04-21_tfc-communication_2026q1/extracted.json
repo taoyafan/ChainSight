@@ -149,11 +149,11 @@
       "sourceMetricIds": ["gross_margin"]
     },
     {
-      "id": "tfc-2026q1-edge-optical-engine-to-pluggable-optical-module-growth-proxy",
+      "id": "tfc-2026q1-edge-optical-engine-to-silicon-photonic-pluggable-module-growth-proxy",
       "target": {
         "type": "edge",
         "source": "optical_engine",
-        "target": "pluggable_optical_module"
+        "target": "silicon_photonic_pluggable_module"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 0.4082,
@@ -190,7 +190,7 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["数据中心客户", "光模块厂商"],
-        "relatedNodeIds": ["optical_engine", "pluggable_optical_module"]
+        "relatedNodeIds": ["optical_engine", "silicon_photonic_pluggable_module"]
       },
       "estimated": true,
       "confidence": 0.68,
@@ -207,7 +207,7 @@
       "summary": "报告期 2026Q1，营业收入同比 +40.8%，归母净利润同比 +45.8%；公司说明增长主要受益于 AI 行业加速发展与全球数据中心建设，带动高速光器件产品需求持续稳定增长。图谱信号映射至光引擎/高速光器件进入可插拔光模块的链路。",
       "relatedNodeIds": [
         "optical_engine",
-        "pluggable_optical_module"
+        "silicon_photonic_pluggable_module"
       ],
       "relatedCompanyIds": ["tfc_communication"],
       "sourceReportId": "2026-04-21_tfc-communication_2026q1"

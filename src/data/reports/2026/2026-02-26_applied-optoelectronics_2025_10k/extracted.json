@@ -239,7 +239,7 @@
       "date": "2026-02-26",
       "type": "financial_report",
       "title": "AAOI 发布 2025 Form 10-K",
-      "summary": "2025 年收入 4.557 亿美元，其中 internet data center 收入 1.957 亿美元、同比约 +31.8%；报告明确说明数据中心光收发模块插入交换机和服务器。CATV 收入占比 53.8%，因此图谱只把 data center 收入作为当前 AI 数据中心链路的代理。",
+      "summary": "2025 年收入 4.557 亿美元，其中 internet data center 收入 1.957 亿美元、同比约 +31.8%；报告明确说明数据中心光收发模块插入交换机和服务器。CATV 收入占比 53.8%，因此图谱只把 data center 收入作为当前 EML/DFB 可插拔光模块链路的代理。",
       "relatedNodeIds": [
         "pluggable_optical_module",
         "data_center_switch",

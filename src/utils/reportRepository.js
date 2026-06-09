@@ -281,6 +281,41 @@ export function getNodeRevenueProxyItems(nodeId) {
   }))
 }
 
+export function getCompanyReportHighlight(companyId) {
+  if (!companyId) return { nodeIds: [], contextNodeIds: [], edgeKeys: [] }
+
+  const nodeIds = new Set()
+  const contextNodeIds = new Set()
+  const edgeKeys = new Set()
+
+  for (const item of companySignalsById[companyId] || []) {
+    for (const nodeId of item.signal.fields?.relatedNodeIds || []) {
+      nodeIds.add(nodeId)
+    }
+  }
+
+  for (const { report, signal } of graphSignals) {
+    const signalCompanyId = signal.companyId || report.companyId
+    if (signalCompanyId !== companyId) continue
+
+    const target = signal.target || {}
+    if (target.type === 'node' && target.id) {
+      nodeIds.add(target.id)
+    }
+    if (target.type === 'edge' && target.source && target.target) {
+      edgeKeys.add(edgeKey(target.source, target.target))
+      contextNodeIds.add(target.source)
+      contextNodeIds.add(target.target)
+    }
+  }
+
+  return {
+    nodeIds: [...nodeIds],
+    contextNodeIds: [...contextNodeIds].filter((id) => !nodeIds.has(id)),
+    edgeKeys: [...edgeKeys],
+  }
+}
+
 export function getBestEdgeGrowth(source, target) {
   return edgeGrowthByKey[edgeKey(source, target)]?.[0] || null
 }

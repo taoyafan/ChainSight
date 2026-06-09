@@ -180,11 +180,41 @@
       ]
     },
     {
-      "id": "everbright-2026q1-edge-pd-array-to-optical-engine-growth-proxy",
+      "id": "everbright-2026q1-edge-eml-laser-chip-to-pluggable-optical-module-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "eml_laser_chip",
+        "target": "pluggable_optical_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.3781,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.48,
+      "method": "quarterly_revenue_growth_low_confidence_eml_dfb_optical_communication_chip_proxy",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年第一季度报告",
+          "metric": "收入增长原因",
+          "value": "公司坚持横向拓展战略，一季度收入增长主要源于前期布局的光通信等业务的增长。",
+          "unit": "text"
+        },
+        {
+          "source": "2025 年年度报告",
+          "metric": "产品范围",
+          "value": "光通信芯片系列产品列示 VCSEL、EML、DFB、PIN PD 系列，但报告未拆分 EML/DFB 收入。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "everbright-2026q1-edge-pd-array-to-pluggable-optical-module-growth-proxy",
       "target": {
         "type": "edge",
         "source": "pd_array",
-        "target": "optical_engine"
+        "target": "pluggable_optical_module"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 0.3781,
@@ -192,7 +222,7 @@
       "period": "2026Q1",
       "estimated": true,
       "confidence": 0.32,
-      "method": "quarterly_revenue_growth_low_confidence_pin_pd_product_coverage_proxy",
+      "method": "quarterly_revenue_growth_low_confidence_pin_pd_to_pluggable_module_proxy",
       "sourceMetricIds": ["revenue"],
       "supportingContext": [
         {
@@ -215,7 +245,7 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["光通信客户", "激光器客户", "数据中心相关终端客户"],
-        "relatedNodeIds": ["cw_laser", "pd_array"]
+        "relatedNodeIds": ["cw_laser", "eml_laser_chip", "pd_array"]
       },
       "estimated": true,
       "confidence": 0.7,
@@ -232,8 +262,11 @@
       "summary": "报告期 2026Q1，营业收入 1.299 亿元、同比 +37.8%；归母净利润 447.96 万元，由上年同期亏损转为盈利。公司称一季度收入增长主要源于前期布局的光通信等业务增长；2025 年报显示公司覆盖高功率半导体激光芯片、VCSEL、DFB、EML 和 PIN PD 等光通信芯片产品。",
       "relatedNodeIds": [
         "cw_laser",
+        "eml_laser_chip",
         "pd_array",
-        "optical_engine"
+        "optical_engine",
+        "pluggable_optical_module",
+        "silicon_photonic_pluggable_module"
       ],
       "relatedCompanyIds": ["everbright_photonics"],
       "sourceReportId": "2026-04-18_everbright-photonics_2026q1"

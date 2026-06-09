@@ -163,7 +163,7 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["数据中心客户"],
-        "relatedNodeIds": ["cw_laser", "optical_engine"]
+        "relatedNodeIds": ["cw_laser"]
       },
       "estimated": true,
       "confidence": 0.74,
@@ -177,7 +177,7 @@
       "date": "2026-04-28",
       "type": "financial_report",
       "title": "源杰科技发布 2026 年第一季度报告",
-      "summary": "报告期 2026Q1，营业收入同比 +320.9%，归母净利润同比 +1153.1%；公司说明增长主要受益于客户需求增长、数据中心领域 CW 光源产品销售额增长和产品结构优化。图谱信号映射至 CW 激光器进入光引擎的上游链路。",
+      "summary": "报告期 2026Q1，营业收入同比 +320.9%，归母净利润同比 +1153.1%；公司说明增长主要受益于客户需求增长、数据中心领域 CW 光源产品销售额增长和产品结构优化。图谱信号映射至 CW 光源/激光芯片进入光引擎的上游链路。",
       "relatedNodeIds": [
         "cw_laser",
         "optical_engine"

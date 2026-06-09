@@ -38,6 +38,14 @@
         "publisher": "巨潮资讯网",
         "accessedAt": "2026-06-04",
         "usage": "用于支持主营业务映射：2025 年光通信收发模块收入占比 97.95%。"
+      },
+      {
+        "name": "证券时报e公司：中际旭创互动平台回复硅光方案占比",
+        "type": "investor_interaction_context",
+        "url": "https://www.stcn.com/article/detail/3816179.html",
+        "publisher": "证券时报e公司",
+        "accessedAt": "2026-06-08",
+        "usage": "用于补充产品平台口径：公司称目前 800G 和 1.6T 产品硅光方案占比超过一半，硅光方案比重有望持续提升。"
       }
     ]
   },
@@ -143,8 +151,8 @@
       "unit": "yoy_ratio",
       "period": "2026Q1",
       "estimated": true,
-      "confidence": 0.76,
-      "method": "company_revenue_growth_proxy",
+      "confidence": 0.62,
+      "method": "company_revenue_growth_proxy_without_platform_split",
       "sourceMetricIds": ["revenue"],
       "supportingContext": [
         {
@@ -158,6 +166,48 @@
           "metric": "境外收入占营业收入比重",
           "value": 0.9058,
           "unit": "ratio"
+        },
+        {
+          "source": "2025 年年度报告",
+          "metric": "产品平台",
+          "value": "公司高速光模块覆盖 EML 平台和硅光平台，但 2026Q1 报告未拆分两类平台收入或增速。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "innolight-2026q1-edge-silicon-photonic-pluggable-module-to-data-center-switch-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "silicon_photonic_pluggable_module",
+        "target": "data_center_switch"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.9212,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.62,
+      "method": "company_revenue_growth_proxy_without_platform_split",
+      "sourceMetricIds": ["revenue"],
+      "supportingContext": [
+        {
+          "source": "2026 年一季度报告",
+          "metric": "营业收入同比增长",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "2025 年年度报告",
+          "metric": "产品平台",
+          "value": "公司高速光模块覆盖 EML 平台和硅光平台，但 2026Q1 报告未披露硅光可插拔模块单独收入或增速。",
+          "unit": "text"
+        },
+        {
+          "source": "证券时报e公司 2026-04-26 互动平台报道",
+          "metric": "硅光方案趋势",
+          "value": "公司称目前 800G 和 1.6T 产品硅光方案占比超过一半，硅光方案比重有望持续提升；当前缺少可审计的硅光模块单独收入增速。",
+          "unit": "text"
         }
       ]
     },
@@ -203,11 +253,11 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["云数据中心客户", "通信设备商"],
-        "relatedNodeIds": ["pluggable_optical_module"]
+        "relatedNodeIds": ["pluggable_optical_module", "silicon_photonic_pluggable_module"]
       },
       "estimated": true,
-      "confidence": 0.76,
-      "method": "primary_business_and_industry_mapping",
+      "confidence": 0.74,
+      "method": "primary_business_and_platform_mapping_without_revenue_split",
       "sourceMetricIds": ["revenue"]
     }
   ],
@@ -217,9 +267,10 @@
       "date": "2026-04-17",
       "type": "financial_report",
       "title": "中际旭创发布 2026 年一季度报告",
-      "summary": "报告期 2026Q1，营业收入同比 +192.1%，归母净利润同比 +262.3%；结构化提取 4 条产业链图谱信号，主要映射至高速可插拔光模块进入交换机和 AI 服务器的设备侧链路。",
+      "summary": "报告期 2026Q1，营业收入同比 +192.1%，归母净利润同比 +262.3%；公司高速光模块覆盖 EML 平台和硅光平台，但报告未拆分两类平台收入。结构化提取将公司收入增速作为两类可插拔光模块进入交换机链路的共同 proxy。",
       "relatedNodeIds": [
         "pluggable_optical_module",
+        "silicon_photonic_pluggable_module",
         "data_center_switch",
         "ai_server"
       ],

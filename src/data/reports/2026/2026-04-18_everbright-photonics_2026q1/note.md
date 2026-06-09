@@ -8,7 +8,8 @@
 
 因此，观察表的 `relatedNodeIds` 只标记公司实际产品覆盖的上游芯片节点：
 
-- `cw_laser`：半导体激光芯片、VCSEL、DFB、EML 等光源相关产品。
+- `cw_laser`：CW 光源/激光芯片，主要对应硅光/CPO/OIO 外置连续光源。
+- `eml_laser_chip`：EML/DFB 光通信激光芯片，主要对应可插拔光模块的发射端芯片。
 - `pd_array`：年报产品表出现 PIN PD 系列，但未拆分收入，因此只作为产品覆盖和低置信度链路信号。
 
 不把长光华芯标成 `pluggable_optical_module`、`data_center_switch` 或 `ai_server` 的产品覆盖公司。
@@ -17,7 +18,8 @@
 
 - `cw_laser` 节点收入 proxy 使用 2026Q1 公司营业收入，置信度 0.62。原因是公司主营业务来自半导体激光芯片及器件、模块，但 Q1 未拆出数据中心 CW DFB 或光通信芯片收入。
 - `cw_laser -> optical_engine` 边使用 2026Q1 营业收入同比 +37.81% 作为增长 proxy，置信度 0.56。支撑是 Q1 报告明确称增长主要源于光通信等业务，年报也将 200-400mW CW DFB 光源与 800G/1.6T 高速光互连关联。
-- `pd_array -> optical_engine` 只写入低置信度增长 proxy，置信度 0.32。支撑是公司有 PIN PD 系列产品，但报告没有拆分 PIN PD 收入或增长。
+- `eml_laser_chip -> pluggable_optical_module` 边写入低置信度增长 proxy，置信度 0.48。支撑是公司有 EML/DFB 光通信芯片产品，但报告未拆分对应收入。
+- `pd_array -> pluggable_optical_module` 只写入低置信度增长 proxy，置信度 0.32。支撑是公司有 PIN PD 系列产品，但报告没有拆分 PIN PD 收入或增长。
 
 ## 关键数据
 
@@ -32,6 +34,6 @@
 
 ## 局限性
 
-这份 Q1 报告没有披露数据中心 CW 光源、DFB、EML、PIN PD 或光通信芯片单项收入，因此不能把公司全部收入当作纯 CPO 光源收入。它也不能直接支持可插拔光模块、交换机或 AI 服务器整机节点的产品覆盖。
+这份 Q1 报告没有披露数据中心 CW 光源、DFB、EML、PIN PD 或光通信芯片单项收入，因此不能把公司全部收入当作纯 CPO 光源收入。它也不能直接支持可插拔光模块、交换机或 AI 服务器整机节点的产品覆盖；可插拔光模块只作为 EML/DFB 与 PIN PD 的下游链路读穿。
 
 原始 PDF 和提取文本已保存在 `raw/`，该目录被 Git 忽略；结构化结果保存在同目录的 `extracted.json`。

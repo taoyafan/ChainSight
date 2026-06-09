@@ -118,11 +118,11 @@
       ]
     },
     {
-      "id": "coherent-2026q3-edge-optical-engine-to-pluggable-optical-module-growth-proxy",
+      "id": "coherent-2026q3-edge-optical-engine-to-silicon-photonic-pluggable-module-growth-proxy",
       "target": {
         "type": "edge",
         "source": "optical_engine",
-        "target": "pluggable_optical_module"
+        "target": "silicon_photonic_pluggable_module"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 0.405748,
@@ -167,6 +167,36 @@
           "source": "Fiscal 2026 Q3 Form 10-Q",
           "metric": "Mapping limitation",
           "value": "The segment includes components, optics and semiconductor devices but does not isolate laser-source revenue.",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "coherent-2026q3-edge-eml-laser-chip-to-pluggable-optical-module-growth-proxy",
+      "target": {
+        "type": "edge",
+        "source": "eml_laser_chip",
+        "target": "pluggable_optical_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 0.405748,
+      "unit": "yoy_ratio",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "confidence": 0.4,
+      "method": "datacenter_and_communications_revenue_growth_low_confidence_transceiver_laser_chip_proxy",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "supportingContext": [
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Datacenter & Communications revenue YoY",
+          "value": 0.405748,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "Fiscal 2026 Q3 Form 10-Q",
+          "metric": "Mapping limitation",
+          "value": "The segment includes transceivers, modules, components, optics and semiconductor devices but does not isolate EML/DFB laser chip revenue.",
           "unit": "text"
         }
       ]
@@ -283,7 +313,7 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["datacenter customers", "communications customers", "network equipment customers"],
-        "relatedNodeIds": ["cw_laser", "pd_array", "modulator", "optical_engine", "pluggable_optical_module"]
+        "relatedNodeIds": ["cw_laser", "eml_laser_chip", "pd_array", "modulator", "optical_engine", "pluggable_optical_module", "silicon_photonic_pluggable_module"]
       },
       "estimated": true,
       "confidence": 0.72,
@@ -300,10 +330,12 @@
       "summary": "FY2026Q3 收入 18.056 亿美元，同比约 +20.5%；Datacenter & Communications 分部收入 13.617 亿美元，同比约 +40.6%。该分部覆盖数据中心和通信市场中的 transceivers、systems、subsystems、modules、components、optics 和 semiconductor devices。",
       "relatedNodeIds": [
         "cw_laser",
+        "eml_laser_chip",
         "pd_array",
         "modulator",
         "optical_engine",
         "pluggable_optical_module",
+        "silicon_photonic_pluggable_module",
         "data_center_switch",
         "ai_server"
       ],

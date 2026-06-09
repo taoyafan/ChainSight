@@ -1,4 +1,4 @@
-# 报告插件
+﻿# 报告插件
 
 每个报告文件夹都是一个可插拔的数据包。系统不直接从 PDF、网页或研报正文画图，而是读取每个报告包里的结构化提取结果。
 
@@ -121,6 +121,8 @@ reports/
 ```
 
 `companySignals.fields.relatedNodeIds` 只表示公司实际产品或方案覆盖的节点。下游客户、应用场景和需求传导不要写入这里；如果报告只能支持“该产品增长传导到下游节点”，应写入 `graphSignals` 或 `timelineEvents.relatedNodeIds`，并用较低置信度、proxy 方法说明。
+
+光通信芯片节点应尽量拆清楚：`cw_laser` 表示面向硅光/CPO/OIO 的外置 CW 光源/激光芯片；`eml_laser_chip` 表示面向EML/DFB 可插拔光模块的 EML/DFB 发射端光通信激光芯片；`pd_array` 表示 PIN PD/探测器芯片。不要把 EML/DFB 光通信芯片简单并入 CW 光源，也不要把上游激光芯片厂商标成光模块或服务器厂商。
 
 如果同一家公司有多个报告信号，前端默认展示置信度最高、报告期较新的记录。
 

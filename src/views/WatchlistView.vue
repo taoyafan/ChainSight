@@ -11,10 +11,27 @@ import { NH3 } from 'naive-ui'
 import WatchTable from '@/components/WatchTable.vue'
 import { useGraphStore } from '@/stores/graphStore'
 import { useCompanyStore } from '@/stores/companyStore'
+import { getCompanyReportHighlight } from '@/utils/reportRepository'
 
 const router = useRouter()
 const graphStore = useGraphStore()
 const companyStore = useCompanyStore()
+
+function getCompanyHighlight(companyId) {
+  const reportHighlight = getCompanyReportHighlight(companyId)
+  const nodeIds = reportHighlight.nodeIds
+  const edgeKeySet = new Set(reportHighlight.edgeKeys)
+  const edgeIds = []
+
+  graphStore.edges.forEach((edge, index) => {
+    if (edgeKeySet.has(`${edge.source}->${edge.target}`)) edgeIds.push(`edge-${index}`)
+  })
+
+  return {
+    nodeIds,
+    edgeIds,
+  }
+}
 
 function handleGoToCompany(companyId) {
   const reportRow = companyStore.watchRows.find(c => c.id === companyId)
@@ -24,7 +41,9 @@ function handleGoToCompany(companyId) {
     : graphStore.nodes
       .filter(n => n.companies?.includes(companyId))
       .map(n => n.id)
-  graphStore.setHighlightNodes(relatedNodes)
+  const { nodeIds, edgeIds } = getCompanyHighlight(companyId)
+  const fallbackNodeIds = nodeIds.length > 0 ? nodeIds : relatedNodes
+  graphStore.setHighlightNodes(fallbackNodeIds, edgeIds)
   router.push({ name: 'topology' })
 }
 </script>

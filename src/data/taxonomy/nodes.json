@@ -1,19 +1,43 @@
 [
   {
+    "id": "iii_v_epi_wafer",
+    "label": "III-V 外延片/晶圆",
+    "layer": "chip",
+    "status": "mass_prod",
+    "bottleneck": true,
+    "bottleneckNote": "高性能 InP/GaAs 外延与晶圆工艺是激光芯片良率和一致性的上游约束",
+    "marketSizeHint": "medium",
+    "costRatio": "",
+    "altLimitNote": "外延片、晶圆加工和镀膜工艺决定激光芯片性能，优质产能集中度较高",
+    "companies": ["lumentum", "coherent", "yuanjie_tech", "everbright_photonics"]
+  },
+  {
     "id": "cw_laser",
-    "label": "CW 激光器",
+    "label": "CW 光源/激光芯片",
     "layer": "chip",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "medium",
     "costRatio": "~8%",
-    "altLimitNote": "III-V 外延片供应商集中，但已有多家量产",
+    "altLimitNote": "外置连续光源供给硅光/CPO/OIO 光引擎，不等同于传统 EML 光模块路线",
     "companies": ["lumentum", "coherent", "yuanjie_tech", "everbright_photonics"]
   },
   {
+    "id": "eml_laser_chip",
+    "label": "EML/DFB 光通信激光芯片",
+    "layer": "chip",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "medium",
+    "costRatio": "",
+    "altLimitNote": "面向高速可插拔光模块的发射端芯片，和外置 CW 光源路线不同",
+    "companies": ["lumentum", "coherent", "everbright_photonics"]
+  },
+  {
     "id": "silicon_wafer",
-    "label": "硅光晶圆",
+    "label": "硅光/SOI 晶圆",
     "layer": "chip",
     "status": "mass_prod",
     "bottleneck": true,
@@ -37,14 +61,14 @@
   },
   {
     "id": "pd_array",
-    "label": "光电探测器阵列",
+    "label": "PIN PD/探测器芯片",
     "layer": "chip",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "medium",
     "costRatio": "~5%",
-    "altLimitNote": "Ge-on-Si 工艺较成熟",
+    "altLimitNote": "可用于硅光光引擎接收端，也可用于传统可插拔光模块接收端",
     "companies": ["intel_photonics", "globalfoundries", "everbright_photonics"]
   },
   {
@@ -85,15 +109,27 @@
   },
   {
     "id": "pluggable_optical_module",
-    "label": "高速可插拔光模块",
+    "label": "EML/DFB 可插拔光模块",
     "layer": "module",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "large",
     "costRatio": "",
-    "altLimitNote": "当前 AI 数据中心高速互连的主流产品形态，区别于 CPO 共封装方案",
+    "altLimitNote": "传统可插拔光模块路线，发射端通常集成 EML/DFB 等光通信激光芯片，不经过独立硅光光引擎",
     "companies": ["zhongji_innolight"]
+  },
+  {
+    "id": "silicon_photonic_pluggable_module",
+    "label": "硅光可插拔光模块",
+    "layer": "module",
+    "status": "sampling",
+    "bottleneck": true,
+    "bottleneckNote": "硅光光引擎、外置光源和封装耦合的一致性仍在爬坡",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "将硅光光引擎封装进可插拔形态，区别于传统 EML/DFB 发射端路线和 CPO 共封装路线",
+    "companies": ["zhongji_innolight", "tfc_communication", "lumentum", "coherent"]
   },
   {
     "id": "switch_asic",

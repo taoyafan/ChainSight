@@ -74,11 +74,12 @@ async function applyBottleneck() {
 async function highlightNodes(ids) {
   if (!graph) return
   const highlightSet = new Set(ids)
-  const stateMap = buildStateMap((id, type) => {
+  const edgeHighlightSet = new Set(graphStore.highlightEdgeIds)
+  const stateMap = buildStateMap((id, type, edgeData) => {
     if (type === 'node') {
       return withBottleneckState(id, highlightSet.has(id) ? 'highlight' : 'dim')
     }
-    return 'dim'
+    return edgeHighlightSet.has(id) ? 'highlight' : 'dim'
   })
   await graph.setElementState(stateMap)
 }
@@ -101,7 +102,9 @@ function mountGraph() {
     data: graphData,
   })
 
-  graph.render()
+  Promise.resolve(graph.render()).then(() => {
+    refreshElementStates()
+  })
 
   graph.on('node:click', async (evt) => {
     const nodeId = evt.target?.id
@@ -160,6 +163,12 @@ watch(() => graphStore.analysisDate, async () => {
 watch(() => graphStore.highlightNodeIds, (ids) => {
   if (ids.length > 0 && !graphStore.selectedNodeId) {
     highlightNodes(ids)
+  }
+})
+
+watch(() => graphStore.highlightEdgeIds, () => {
+  if (graphStore.highlightNodeIds.length > 0 && !graphStore.selectedNodeId) {
+    highlightNodes(graphStore.highlightNodeIds)
   }
 })
 

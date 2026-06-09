@@ -125,10 +125,10 @@
       ]
     },
     {
-      "id": "lumentum-2026q3-node-pluggable-optical-module-systems-context-signal",
+      "id": "lumentum-2026q3-node-silicon-photonic-pluggable-module-systems-context-signal",
       "target": {
         "type": "node",
-        "id": "pluggable_optical_module"
+        "id": "silicon_photonic_pluggable_module"
       },
       "metric": "demand_context_signal",
       "value": 275100000,
@@ -148,11 +148,11 @@
       ]
     },
     {
-      "id": "lumentum-2026q3-edge-optical-engine-to-pluggable-optical-module-growth-proxy",
+      "id": "lumentum-2026q3-edge-optical-engine-to-silicon-photonic-pluggable-module-growth-proxy",
       "target": {
         "type": "edge",
         "source": "optical_engine",
-        "target": "pluggable_optical_module"
+        "target": "silicon_photonic_pluggable_module"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 1.211415,
@@ -249,7 +249,7 @@
         "stage": "mass_prod",
         "massProductionEta": "已量产",
         "keyCustomers": ["cloud data center operators", "AI/ML infrastructure providers", "network equipment manufacturers"],
-        "relatedNodeIds": ["cw_laser", "optical_engine", "pluggable_optical_module"]
+        "relatedNodeIds": ["cw_laser", "eml_laser_chip", "optical_engine", "silicon_photonic_pluggable_module"]
       },
       "estimated": true,
       "confidence": 0.68,
@@ -266,8 +266,9 @@
       "summary": "FY2026Q3 净收入 8.084 亿美元，同比约 +90.1%；Components 收入 5.333 亿美元，同比约 +77.3%。公司说明 Components 包含半导体激光芯片、激光子组件和激光光源，服务云数据中心、AI/ML 基础设施与网络设备客户。",
       "relatedNodeIds": [
         "cw_laser",
+        "eml_laser_chip",
         "optical_engine",
-        "pluggable_optical_module",
+        "silicon_photonic_pluggable_module",
         "data_center_switch",
         "ai_server",
         "cloud_dc"

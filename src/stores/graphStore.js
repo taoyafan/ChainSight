@@ -8,6 +8,7 @@ export const useGraphStore = defineStore('graph', () => {
   const edges = ref(edgesData)
   const selectedNodeId = ref(null)
   const highlightNodeIds = ref([])
+  const highlightEdgeIds = ref([])
   const showBottleneck = ref(false)
   const analysisDate = ref(new Date().toISOString().slice(0, 10))
 
@@ -38,18 +39,23 @@ export const useGraphStore = defineStore('graph', () => {
     if (nodeId) {
       const { all } = getNeighborIds(nodeId)
       highlightNodeIds.value = [nodeId, ...all]
+      highlightEdgeIds.value = []
     } else {
       highlightNodeIds.value = []
+      highlightEdgeIds.value = []
     }
   }
 
   function clearSelection() {
     selectedNodeId.value = null
     highlightNodeIds.value = []
+    highlightEdgeIds.value = []
   }
 
-  function setHighlightNodes(ids) {
+  function setHighlightNodes(ids, edgeIds = []) {
+    selectedNodeId.value = null
     highlightNodeIds.value = ids
+    highlightEdgeIds.value = edgeIds
   }
 
   function toggleBottleneck(val) {
@@ -61,7 +67,7 @@ export const useGraphStore = defineStore('graph', () => {
   }
 
   return {
-    nodes, edges, selectedNodeId, highlightNodeIds, showBottleneck, analysisDate,
+    nodes, edges, selectedNodeId, highlightNodeIds, highlightEdgeIds, showBottleneck, analysisDate,
     nodeMap, layerGroups,
     getNeighborIds, selectNode, clearSelection, setHighlightNodes, toggleBottleneck, setAnalysisDate
   }
