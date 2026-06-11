@@ -35,12 +35,7 @@ function getCompanyHighlight(companyId) {
 
 function handleGoToCompany(companyId) {
   const reportRow = companyStore.watchRows.find(c => c.id === companyId)
-  const reportNodes = reportRow?.relatedNodeIds || []
-  const relatedNodes = reportNodes.length > 0
-    ? reportNodes
-    : graphStore.nodes
-      .filter(n => n.companies?.includes(companyId))
-      .map(n => n.id)
+  const relatedNodes = reportRow?.relatedNodeIds || []
   const { nodeIds, edgeIds } = getCompanyHighlight(companyId)
   const fallbackNodeIds = nodeIds.length > 0 ? nodeIds : relatedNodes
   graphStore.setHighlightNodes(fallbackNodeIds, edgeIds)

@@ -1,7 +1,10 @@
 <template>
   <div style="padding: 16px;">
     <n-h3 style="margin-top: 0;">产业链变化时间线</n-h3>
-    <TimelineView @go-to-node="handleGoToNode" />
+    <TimelineView
+      @go-to-node="handleGoToNode"
+      @go-to-report="handleGoToReport"
+    />
   </div>
 </template>
 
@@ -17,5 +20,9 @@ const graphStore = useGraphStore()
 function handleGoToNode(nodeId) {
   graphStore.setHighlightNodes([nodeId])
   router.push({ name: 'topology' })
+}
+
+function handleGoToReport(reportId) {
+  router.push({ name: 'report-detail', params: { reportId } })
 }
 </script>

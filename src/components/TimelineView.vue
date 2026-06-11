@@ -1,6 +1,5 @@
 <template>
   <div class="timeline-view">
-    <!-- 筛选栏 -->
     <n-space align="center" style="margin-bottom: 16px;">
       <n-text>按环节筛选：</n-text>
       <n-select
@@ -19,11 +18,10 @@
       />
     </n-space>
 
-    <!-- 时间线 -->
     <n-timeline size="large">
       <n-timeline-item
         v-for="event in displayEvents"
-        :key="event.date + event.title"
+        :key="event.id || `${event.date}-${event.title}`"
         :type="timelineType(event.type)"
       >
         <div class="timeline-event">
@@ -36,11 +34,20 @@
                 <n-tag size="small" :type="eventTagType(event.type)">
                   {{ EVENT_TYPE_TEXT[event.type] || event.type }}
                 </n-tag>
-                <n-text strong>{{ event.title }}</n-text>
+                <n-button
+                  v-if="event.sourceReportId"
+                  text
+                  type="primary"
+                  class="timeline-title-button"
+                  @click="handleReportClick(event.sourceReportId)"
+                >
+                  {{ event.title }}
+                </n-button>
+                <n-text v-else strong>{{ event.title }}</n-text>
               </n-space>
             </div>
             <n-text depth="2">{{ event.summary }}</n-text>
-            <div style="margin-top: 6px;">
+            <div v-if="event.relatedNodeIds?.length" style="margin-top: 6px;">
               <n-space size="small">
                 <n-button
                   v-for="nid in event.relatedNodeIds"
@@ -57,11 +64,11 @@
             <n-space align="center" size="small" style="margin-top: 8px;">
               <n-tooltip v-if="!event.sourceReportId" trigger="hover">
                 <template #trigger>
-                  <n-text depth="3" style="cursor: help; font-size: 12px;">
-                    🔮 影响预测
+                  <n-text depth="3" class="forecast-note">
+                    影响预测
                   </n-text>
                 </template>
-                未来将自动推导该事件对产业链的影响
+                未绑定报告的事件后续可自动推导对产业链的影响
               </n-tooltip>
               <n-text v-else depth="3" style="font-size: 12px;">
                 数据来自报告 JSON
@@ -88,7 +95,7 @@ import { useEventStore } from '@/stores/eventStore'
 import { useGraphStore } from '@/stores/graphStore'
 import { EVENT_TYPE_TEXT, LAYER_TEXT } from '@/utils/helpers'
 
-const emit = defineEmits(['go-to-node'])
+const emit = defineEmits(['go-to-node', 'go-to-report'])
 
 const eventStore = useEventStore()
 const graphStore = useGraphStore()
@@ -114,7 +121,7 @@ const displayEvents = computed(() => {
   if (filterLayer.value) {
     const nodeMap = graphStore.nodeMap
     list = list.filter(e =>
-      e.relatedNodeIds.some(nid => nodeMap[nid]?.layer === filterLayer.value)
+      e.relatedNodeIds?.some(nid => nodeMap[nid]?.layer === filterLayer.value)
     )
   }
 
@@ -128,6 +135,10 @@ function nodeLabel(nodeId) {
 function handleNodeClick(nodeId) {
   graphStore.setHighlightNodes([nodeId])
   emit('go-to-node', nodeId)
+}
+
+function handleReportClick(reportId) {
+  emit('go-to-report', reportId)
 }
 
 function timelineType(type) {
@@ -144,12 +155,12 @@ function eventTagType(type) {
 <style scoped>
 .timeline-view {
   padding: 16px;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .timeline-event {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
+  grid-template-columns: 96px minmax(0, 1fr);
   gap: 14px;
   align-items: flex-start;
 }
@@ -166,6 +177,19 @@ function eventTagType(type) {
 
 .timeline-header {
   margin-bottom: 4px;
+}
+
+.timeline-title-button {
+  max-width: 100%;
+  font-weight: 700;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.35;
+}
+
+.forecast-note {
+  cursor: help;
+  font-size: 12px;
 }
 
 @media (max-width: 640px) {

@@ -179,8 +179,7 @@ src/
       status: 'mass_prod',     // R&D | sampling | mass_prod
       bottleneck: false,
       bottleneckNote: '',
-      marketSizeHint: 'large', // small | medium | large
-      companies: ['companyA', 'companyB']
+      marketSizeHint: 'large'  // small | medium | large
     }
   ],
   edges: [
@@ -243,7 +242,7 @@ src/
       type: 'financial_report',
       title: '中际旭创发布 2026 年一季度报告',
       summary: '营业收入同比 +192.1%，归母净利润同比 +262.3%。',
-      relatedNodeIds: ['pluggable_optical_module', 'data_center_switch'],
+      relatedNodeIds: ['eml_pluggable_module', 'data_center_switch'],
       relatedCompanyIds: ['zhongji_innolight'],
       sourceReportId: '2026-04-17_zhongji-innolight_2026q1'
     }

@@ -116,6 +116,10 @@ function normalizeReportPackage(extracted) {
       ...event,
       sourceReportId: event.sourceReportId || reportId,
     })),
+    productCategoryMetrics: extracted.productCategoryMetrics || [],
+    companyProductCoverage: extracted.companyProductCoverage || [],
+    productGrowthInputs: extracted.productGrowthInputs || [],
+    notes: extracted.notes || {},
   }
 }
 

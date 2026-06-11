@@ -12,6 +12,11 @@ const routes = [
     component: () => import('@/views/TimelineViewPage.vue'),
   },
   {
+    path: '/reports/:reportId',
+    name: 'report-detail',
+    component: () => import('@/views/ReportDetailView.vue'),
+  },
+  {
     path: '/watchlist',
     name: 'watchlist',
     component: () => import('@/views/WatchlistView.vue'),

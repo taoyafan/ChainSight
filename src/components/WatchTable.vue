@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="watch-table">
     <!-- 筛选栏 -->
     <n-space align="center" style="margin-bottom: 16px;">
@@ -93,15 +93,6 @@ const columns = [
     title: '报告期',
     key: 'period',
     width: 90,
-  },
-  {
-    title: '置信度',
-    key: 'confidence',
-    width: 90,
-    render(row) {
-      if (!Number.isFinite(row.confidence)) return '—'
-      return `${(row.confidence * 100).toFixed(0)}%`
-    },
   },
   {
     title: '来源',

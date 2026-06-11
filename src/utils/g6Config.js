@@ -31,6 +31,20 @@ const EDGE_GROWTH_METRICS = new Set([
   'revenue_growth_yoy_proxy',
   'demand_growth_signal',
 ])
+const COLLAPSE_BADGE_STYLE = {
+  placement: 'right-top',
+  offsetX: 8,
+  offsetY: -8,
+  fontSize: 18,
+  fontWeight: 700,
+  fill: '#fff',
+  backgroundFill: '#409EFF',
+  backgroundStroke: '#409EFF',
+  backgroundLineWidth: 1,
+  backgroundRadius: 12,
+  padding: [2, 8, 2, 8],
+  cursor: 'pointer',
+}
 
 function formatYoy(value) {
   if (!Number.isFinite(value)) return '暂无 YoY 数据'
@@ -99,8 +113,17 @@ function getGrowthEdgeStyle(growthValue) {
  * 将原始节点/边数据转为 G6 v5 graph data
  */
 export function buildGraphData(nodes, edges, analysisDate) {
+  const visibleNodeIds = new Set(nodes.map(n => n.id))
+  const showOpticalModuleCombo =
+    !visibleNodeIds.has('optical_module') &&
+    visibleNodeIds.has('eml_pluggable_module') &&
+    visibleNodeIds.has('silicon_photonic_pluggable_module')
+
   const g6Nodes = nodes.map(n => ({
     id: n.id,
+    combo: showOpticalModuleCombo && (
+      n.id === 'eml_pluggable_module' || n.id === 'silicon_photonic_pluggable_module'
+    ) ? 'optical_module_combo' : undefined,
     data: {
       label: n.label,
       layer: n.layer,
@@ -108,6 +131,7 @@ export function buildGraphData(nodes, edges, analysisDate) {
       bottleneck: n.bottleneck,
       bottleneckNote: n.bottleneckNote,
       marketSizeHint: n.marketSizeHint,
+      collapseControl: n.id === 'optical_module' ? '+' : '',
     },
   }))
 
@@ -142,7 +166,14 @@ export function buildGraphData(nodes, edges, analysisDate) {
     }
   })
 
-  return { nodes: g6Nodes, edges: g6Edges }
+  const combos = showOpticalModuleCombo
+    ? [{
+        id: 'optical_module_combo',
+        data: { label: '光模块', collapseControl: '-' },
+      }]
+    : []
+
+  return { nodes: g6Nodes, edges: g6Edges, combos }
 }
 
 /**
@@ -181,6 +212,10 @@ export function getGraphOptions(container, width, height) {
         labelFontSize: 24,
         labelFontWeight: 600,
         labelPlacement: 'center',
+        badges: (d) => d.data?.collapseControl
+          ? [{ ...COLLAPSE_BADGE_STYLE, text: d.data.collapseControl }]
+          : [],
+        badgePalette: false,
       },
       state: {
         selected: {
@@ -208,6 +243,30 @@ export function getGraphOptions(container, width, height) {
           shadowColor: 'rgba(245,108,108,0.16)',
           shadowBlur: 4,
         },
+      },
+    },
+    combo: {
+      type: 'rect',
+      style: {
+        padding: [38, 34, 34, 34],
+        radius: 8,
+        fill: 'rgba(64,158,255,0.04)',
+        stroke: '#409EFF',
+        lineDash: [8, 6],
+        lineWidth: 2,
+        labelText: (d) => d.data?.label || d.id,
+        labelPlacement: 'top',
+        labelFill: '#2563eb',
+        labelFontSize: 18,
+        labelFontWeight: 600,
+        labelBackground: true,
+        labelBackgroundFill: '#fff',
+        labelBackgroundOpacity: 0.9,
+        labelBackgroundRadius: 4,
+        badges: (d) => d.data?.collapseControl
+          ? [{ ...COLLAPSE_BADGE_STYLE, text: d.data.collapseControl }]
+          : [],
+        badgePalette: false,
       },
     },
     edge: {
@@ -270,6 +329,6 @@ export function getGraphOptions(container, width, height) {
       },
     ],
     behaviors: ['drag-canvas', 'zoom-canvas', 'drag-element'],
-    animation: true,
+    animation: false,
   }
 }

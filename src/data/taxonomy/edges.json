@@ -1,7 +1,7 @@
 [
   {
     "source": "iii_v_epi_wafer",
-    "target": "cw_laser",
+    "target": "cw_light_source",
     "transactionAmountQuarterUsd": 12000000,
     "label": "外延/晶圆供应"
   },
@@ -12,61 +12,109 @@
     "label": "外延/晶圆供应"
   },
   {
-    "source": "cw_laser",
-    "target": "optical_engine",
+    "source": "cw_light_source",
+    "target": "silicon_photonic_engine",
     "transactionAmountQuarterUsd": 28000000,
     "label": "外置光源供应"
   },
   {
     "source": "eml_laser_chip",
-    "target": "pluggable_optical_module",
+    "target": "eml_transmit_engine",
     "transactionAmountQuarterUsd": 70000000,
     "label": "发射端芯片供应"
   },
   {
-    "source": "silicon_wafer",
-    "target": "modulator",
+    "source": "eml_transmit_engine",
+    "target": "eml_pluggable_module",
+    "transactionAmountQuarterUsd": 70000000,
+    "label": "EML 光引擎集成"
+  },
+  {
+    "source": "optical_isolator",
+    "target": "silicon_photonic_pluggable_module",
+    "transactionAmountQuarterUsd": 9000000,
+    "label": "隔离器供应"
+  },
+  {
+    "source": "optical_isolator",
+    "target": "eml_transmit_engine",
+    "transactionAmountQuarterUsd": 12000000,
+    "label": "隔离器供应"
+  },
+  {
+    "source": "optical_isolator",
+    "target": "silicon_photonic_engine",
+    "transactionAmountQuarterUsd": 10000000,
+    "label": "隔离器供应"
+  },
+  {
+    "source": "optical_isolator",
+    "target": "eml_pluggable_module",
+    "transactionAmountQuarterUsd": 16000000,
+    "label": "隔离器供应"
+  },
+  {
+    "source": "faraday_rotator",
+    "target": "optical_isolator",
+    "transactionAmountQuarterUsd": 8000000,
+    "label": "磁光旋转器件供应"
+  },
+  {
+    "source": "soi_photonic_wafer",
+    "target": "silicon_photonic_modulator",
     "transactionAmountQuarterUsd": 18000000,
     "label": "晶圆代工"
   },
   {
-    "source": "silicon_wafer",
-    "target": "pd_array",
+    "source": "soi_photonic_wafer",
+    "target": "silicon_photonic_integrated_pd",
     "transactionAmountQuarterUsd": 14000000,
     "label": "晶圆代工"
   },
   {
-    "source": "modulator",
-    "target": "optical_engine",
+    "source": "silicon_photonic_modulator",
+    "target": "silicon_photonic_engine",
     "transactionAmountQuarterUsd": 32000000,
     "label": "调制器集成"
   },
   {
-    "source": "pd_array",
-    "target": "optical_engine",
+    "source": "silicon_photonic_integrated_pd",
+    "target": "silicon_photonic_engine",
     "transactionAmountQuarterUsd": 24000000,
     "label": "探测器集成"
   },
   {
-    "source": "pd_array",
-    "target": "pluggable_optical_module",
-    "transactionAmountQuarterUsd": 25000000,
-    "label": "接收端芯片供应"
+    "source": "silicon_photonic_integrated_pd",
+    "target": "cpo_module",
+    "transactionAmountQuarterUsd": 24000000,
+    "label": "CPO 接收端集成"
   },
   {
-    "source": "optical_engine",
+    "source": "eml_pd_module",
+    "target": "eml_pluggable_module",
+    "transactionAmountQuarterUsd": 25000000,
+    "label": "接收端模块供应"
+  },
+  {
+    "source": "silicon_photonic_fiber_array",
+    "target": "silicon_photonic_engine",
+    "transactionAmountQuarterUsd": 12000000,
+    "label": "硅光光纤耦合"
+  },
+  {
+    "source": "silicon_photonic_engine",
     "target": "cpo_module",
     "transactionAmountQuarterUsd": 120000000,
-    "label": "光引擎封装"
+    "label": "硅光引擎封装"
   },
   {
-    "source": "fiber_array",
+    "source": "cpo_fiber_array",
     "target": "cpo_module",
     "transactionAmountQuarterUsd": 16000000,
-    "label": "光纤耦合"
+    "label": "CPO 光纤耦合"
   },
   {
-    "source": "optical_engine",
+    "source": "silicon_photonic_engine",
     "target": "silicon_photonic_pluggable_module",
     "transactionAmountQuarterUsd": 180000000,
     "label": "硅光模块集成"
@@ -78,13 +126,19 @@
     "label": "硅光模块光口装配"
   },
   {
-    "source": "pluggable_optical_module",
+    "source": "silicon_photonic_pluggable_module",
+    "target": "ai_server",
+    "transactionAmountQuarterUsd": 220000000,
+    "label": "硅光高速互连"
+  },
+  {
+    "source": "eml_pluggable_module",
     "target": "ai_server",
     "transactionAmountQuarterUsd": 620000000,
     "label": "高速光互连"
   },
   {
-    "source": "pluggable_optical_module",
+    "source": "eml_pluggable_module",
     "target": "data_center_switch",
     "transactionAmountQuarterUsd": 760000000,
     "label": "交换机光口装配"

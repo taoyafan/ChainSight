@@ -70,7 +70,7 @@ const selectedNodeData = computed(() => {
 const selectedEdgeData = computed(() => {
   if (!selectedEdgeId.value) return null
   const index = Number(String(selectedEdgeId.value).replace('edge-', ''))
-  return Number.isInteger(index) ? graphStore.edges[index] || null : null
+  return Number.isInteger(index) ? graphStore.visibleEdges[index] || null : null
 })
 
 function handleNodeClick(nodeId) {

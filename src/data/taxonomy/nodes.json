@@ -8,47 +8,54 @@
     "bottleneckNote": "高性能 InP/GaAs 外延与晶圆工艺是激光芯片良率和一致性的上游约束",
     "marketSizeHint": "medium",
     "costRatio": "",
-    "altLimitNote": "外延片、晶圆加工和镀膜工艺决定激光芯片性能，优质产能集中度较高",
-    "companies": ["lumentum", "coherent", "yuanjie_tech", "everbright_photonics"]
+    "altLimitNote": "外延片、晶圆加工和镀膜工艺决定激光芯片性能，优质产能集中度较高"
   },
   {
-    "id": "cw_laser",
-    "label": "CW 光源/激光芯片",
+    "id": "cw_light_source",
+    "label": "CW 外置光源/激光芯片",
     "layer": "chip",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "medium",
     "costRatio": "~8%",
-    "altLimitNote": "外置连续光源供给硅光/CPO/OIO 光引擎，不等同于传统 EML 光模块路线",
-    "companies": ["lumentum", "coherent", "yuanjie_tech", "everbright_photonics"]
+    "altLimitNote": "外置连续波光源供给硅光/CPO/OIO 光引擎，和传统 EML/DFB 可插拔模块发射芯片分开统计"
   },
   {
     "id": "eml_laser_chip",
-    "label": "EML/DFB 光通信激光芯片",
+    "label": "EML/DFB 发射激光芯片",
     "layer": "chip",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "medium",
     "costRatio": "",
-    "altLimitNote": "面向高速可插拔光模块的发射端芯片，和外置 CW 光源路线不同",
-    "companies": ["lumentum", "coherent", "everbright_photonics"]
+    "altLimitNote": "面向 EML/DFB 可插拔光模块路线的发射端激光芯片，上游来自 III-V 外延/晶圆，下游进入 EML/DFB 发射光引擎"
   },
   {
-    "id": "silicon_wafer",
-    "label": "硅光/SOI 晶圆",
+    "id": "eml_transmit_engine",
+    "label": "EML/DFB 发射光引擎",
+    "layer": "engine",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "集成 EML/DFB 发射端、驱动/接收相关器件并进入 EML/DFB 可插拔光模块的光组件路径，区别于硅光引擎"
+  },
+  {
+    "id": "soi_photonic_wafer",
+    "label": "SOI 硅光晶圆",
     "layer": "chip",
     "status": "mass_prod",
     "bottleneck": true,
     "bottleneckNote": "先进制程产能集中在少数代工厂",
     "marketSizeHint": "large",
     "costRatio": "~15%",
-    "altLimitNote": "需要 45nm/90nm SOI 工艺，代工厂选择有限",
-    "companies": ["globalfoundries", "tsmc"]
+    "altLimitNote": "需要 45nm/90nm SOI 工艺，代工厂选择有限"
   },
   {
-    "id": "modulator",
+    "id": "silicon_photonic_modulator",
     "label": "硅光调制器",
     "layer": "chip",
     "status": "mass_prod",
@@ -56,44 +63,84 @@
     "bottleneckNote": "",
     "marketSizeHint": "medium",
     "costRatio": "~5%",
-    "altLimitNote": "集成于硅光芯片内部，随晶圆产能走",
-    "companies": ["intel_photonics", "cisco_photonics"]
+    "altLimitNote": "集成于硅光芯片内部，随晶圆产能走"
   },
   {
-    "id": "pd_array",
-    "label": "PIN PD/探测器芯片",
+    "id": "silicon_photonic_integrated_pd",
+    "label": "硅光集成 PD",
     "layer": "chip",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "medium",
     "costRatio": "~5%",
-    "altLimitNote": "可用于硅光光引擎接收端，也可用于传统可插拔光模块接收端",
-    "companies": ["intel_photonics", "globalfoundries", "everbright_photonics"]
+    "altLimitNote": "集成在硅光引擎或 CPO 模组接收端的探测器能力，区别于 EML/DFB 可插拔模块中的独立 PD 模块"
   },
   {
-    "id": "optical_engine",
-    "label": "光引擎",
+    "id": "eml_pd_module",
+    "label": "EML/DFB PD 模块",
+    "layer": "chip",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "medium",
+    "costRatio": "~5%",
+    "altLimitNote": "面向 EML/DFB 可插拔光模块接收端的独立 PD/探测器模块，区别于硅光或 CPO 内部集成 PD"
+  },
+  {
+    "id": "faraday_rotator",
+    "label": "法拉第旋转片",
+    "layer": "chip",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "small",
+    "costRatio": "",
+    "altLimitNote": "法拉第旋转片是光隔离器的核心磁光器件，用于使光偏振方向发生非互易旋转。"
+  },
+  {
+    "id": "optical_isolator",
+    "label": "光隔离器",
+    "layer": "engine",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "small",
+    "costRatio": "",
+    "altLimitNote": "光隔离器用于抑制反射光回传，保护可插拔光模块中的发射链路稳定性。"
+  },
+  {
+    "id": "silicon_photonic_engine",
+    "label": "硅光引擎",
     "layer": "engine",
     "status": "sampling",
     "bottleneck": true,
-    "bottleneckNote": "硅光芯片与激光器的混合集成良率仍是挑战",
+    "bottleneckNote": "硅光芯片、CW 光源、调制器、集成 PD 与光纤耦合的混合集成良率仍是挑战。",
     "marketSizeHint": "large",
     "costRatio": "~25%",
-    "altLimitNote": "异质集成/微转印技术尚在爬坡",
-    "companies": ["ranovus", "ayar_labs", "broadcom_cpo", "tfc_communication"]
+    "altLimitNote": "面向硅光可插拔模块、CPO/OIO 的硅光集成路径，区别于 EML/DFB 发射组件路径。"
   },
   {
-    "id": "fiber_array",
-    "label": "光纤阵列",
+    "id": "cpo_fiber_array",
+    "label": "CPO 光纤阵列",
     "layer": "engine",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "small",
     "costRatio": "~3%",
-    "altLimitNote": "供应较充足",
-    "companies": ["corning", "fujikura"]
+    "altLimitNote": "面向 CPO 共封装场景的高密度光纤耦合阵列，对装配精度和可靠性要求更高。"
+  },
+  {
+    "id": "silicon_photonic_fiber_array",
+    "label": "硅光光纤阵列",
+    "layer": "engine",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "small",
+    "costRatio": "~3%",
+    "altLimitNote": "面向硅光引擎/硅光可插拔模块的光纤耦合阵列，和 CPO 高密度光纤阵列分开统计。"
   },
   {
     "id": "cpo_module",
@@ -104,32 +151,42 @@
     "bottleneckNote": "高精度贴片设备产能极有限，2.5D/3D 封装良率待提升",
     "marketSizeHint": "large",
     "costRatio": "~30%",
-    "altLimitNote": "封测环节高度定制化，通用产线难以复用",
-    "companies": ["broadcom_cpo", "marvell_cpo", "osat_a"]
+    "altLimitNote": "封测环节高度定制化，通用产线难以复用"
   },
   {
-    "id": "pluggable_optical_module",
-    "label": "EML/DFB 可插拔光模块",
+    "id": "optical_module",
+    "label": "光模块",
     "layer": "module",
     "status": "mass_prod",
     "bottleneck": false,
     "bottleneckNote": "",
     "marketSizeHint": "large",
     "costRatio": "",
-    "altLimitNote": "传统可插拔光模块路线，发射端通常集成 EML/DFB 等光通信激光芯片，不经过独立硅光光引擎",
-    "companies": ["zhongji_innolight"]
+    "altLimitNote": "财报常见的粗口径光模块节点，用于承接未拆分到 EML/DFB 与硅光路线的收入或增速。"
+  },
+  {
+    "id": "eml_pluggable_module",
+    "label": "EML/DFB 可插拔光模块",
+    "parentId": "optical_module",
+    "layer": "module",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "传统 EML/DFB 可插拔光模块路线，发射端通常集成 EML/DFB 激光芯片，不等同于硅光可插拔光模块"
   },
   {
     "id": "silicon_photonic_pluggable_module",
     "label": "硅光可插拔光模块",
+    "parentId": "optical_module",
     "layer": "module",
     "status": "sampling",
     "bottleneck": true,
     "bottleneckNote": "硅光光引擎、外置光源和封装耦合的一致性仍在爬坡",
     "marketSizeHint": "large",
     "costRatio": "",
-    "altLimitNote": "将硅光光引擎封装进可插拔形态，区别于传统 EML/DFB 发射端路线和 CPO 共封装路线",
-    "companies": ["zhongji_innolight", "tfc_communication", "lumentum", "coherent"]
+    "altLimitNote": "将硅光光引擎封装进可插拔形态，区别于传统 EML/DFB 发射端路线和 CPO 共封装路线"
   },
   {
     "id": "switch_asic",
@@ -140,8 +197,7 @@
     "bottleneckNote": "",
     "marketSizeHint": "large",
     "costRatio": "~20%",
-    "altLimitNote": "Broadcom Memory / Marvell 双寡头",
-    "companies": ["broadcom_asic", "marvell_asic"]
+    "altLimitNote": "Broadcom Memory / Marvell 双寡头"
   },
   {
     "id": "cpo_switch",
@@ -152,8 +208,7 @@
     "bottleneckNote": "",
     "marketSizeHint": "large",
     "costRatio": "",
-    "altLimitNote": "系统集成方案仍在定义中",
-    "companies": ["arista", "cisco_system"]
+    "altLimitNote": "系统集成方案仍在定义中"
   },
   {
     "id": "data_center_switch",
@@ -164,8 +219,7 @@
     "bottleneckNote": "",
     "marketSizeHint": "large",
     "costRatio": "",
-    "altLimitNote": "当前高速可插拔光模块主要插入交换机光口，随云厂商网络部署需求变化",
-    "companies": ["arista", "cisco_system"]
+    "altLimitNote": "当前高速可插拔光模块主要插入交换机光口，随云厂商网络部署需求变化"
   },
   {
     "id": "ai_server",
@@ -176,8 +230,7 @@
     "bottleneckNote": "",
     "marketSizeHint": "large",
     "costRatio": "",
-    "altLimitNote": "",
-    "companies": ["nvidia_system", "hpe"]
+    "altLimitNote": ""
   },
   {
     "id": "cloud_dc",
@@ -188,7 +241,6 @@
     "bottleneckNote": "",
     "marketSizeHint": "large",
     "costRatio": "",
-    "altLimitNote": "终端需求方，对上游形成拉动",
-    "companies": ["aws", "azure", "google_cloud"]
+    "altLimitNote": "终端需求方，对上游形成拉动"
   }
 ]
