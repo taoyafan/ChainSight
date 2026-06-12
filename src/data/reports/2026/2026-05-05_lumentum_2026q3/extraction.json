@@ -26,6 +26,13 @@
       }
     ]
   },
+  "companyProfile": {
+    "layer": "chip",
+    "techRoute": "Cloud & Networking components / lasers / transceivers",
+    "keyCustomers": [
+      "cloud and networking customers"
+    ]
+  },
   "metrics": [
     {
       "id": "revenue",
@@ -65,20 +72,6 @@
       "yoy": 1.211415,
       "sourceText": "Cloud & Networking systems revenue was $275.1 million.",
       "sourceSection": "Revenue by product group"
-    },
-    {
-      "id": "gross_margin",
-      "label": "毛利率",
-      "value": 0.44161306284017815,
-      "unit": "ratio",
-      "period": "FY2026Q3",
-      "derived": true,
-      "formula": "gross_profit / revenue",
-      "sourceMetricIds": [
-        "revenue",
-        "gross_profit"
-      ],
-      "sourceSection": "Condensed consolidated statements of operations"
     }
   ],
   "productCategoryMetrics": [
@@ -123,262 +116,6 @@
         "eml_pluggable_module"
       ],
       "notes": "Broad systems/transceiver product group; the report does not identify the revenue as silicon photonic pluggable modules."
-    }
-  ],
-  "graphSignals": [
-    {
-      "id": "lumentum-2026q3-cw-to-optical-engine-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "cw_light_source",
-        "target": "silicon_photonic_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.772939,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "lumentum-2026q3-cw-to-optical-engine-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "components_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Cloud & Networking components revenue",
-          "metric": "components_revenue",
-          "value": 0.772939,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "Components revenue is the disclosed category that contains laser-related cloud and networking components.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "Use components revenue growth as the closest disclosed scope for CW laser contribution.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "lumentum-2026q3-pluggable-to-switch-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_pluggable_module",
-        "target": "data_center_switch"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 1.211415,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "lumentum-2026q3-pluggable-to-switch-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "systems_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Cloud & Networking systems revenue",
-          "metric": "systems_revenue",
-          "value": 1.211415,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "Systems revenue growth was primarily driven by cloud transceiver product lines.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "The systems category is not split by transceiver technology; do not label it as silicon photonic without explicit disclosure.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "lumentum-2026q3-eml-to-eml-engine-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_laser_chip",
-        "target": "eml_transmit_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.772939,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "lumentum-2026q3-eml-to-eml-engine-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "components_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Cloud & Networking components revenue",
-          "metric": "components_revenue",
-          "value": 0.772939,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "Components revenue is the disclosed category that contains laser-related cloud and networking components.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "Cloud & Networking components 增长作为 EML/DFB 发射激光芯片的宽口径 proxy；未披露 EML/DFB 单项收入。",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "lumentum-2026q3-pluggable-to-ai-server-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_pluggable_module",
-        "target": "ai_server"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 1.211415,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "lumentum-2026q3-pluggable-to-ai-server-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "systems_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Cloud & Networking systems revenue",
-          "metric": "systems_revenue",
-          "value": 1.211415,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "Systems revenue growth was primarily driven by cloud transceiver product lines.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "Cloud transceiver product lines 增长作为 AI 服务器高速光互连需求的宽口径 proxy；未披露 AI 服务器单项收入。",
-          "unit": "text"
-        }
-      ]
-    }
-  ],
-  "companySignals": [
-    {
-      "id": "lumentum-fy2026q3-company-watch-profile",
-      "companyId": "lumentum",
-      "period": "FY2026Q3",
-      "fields": {
-        "layer": "chip",
-        "techRoute": "Cloud & Networking components / lasers / transceivers",
-        "keyCustomers": [
-          "cloud and networking customers"
-        ],
-        "relatedNodeIds": [
-          "iii_v_epi_wafer",
-          "cw_light_source",
-          "eml_laser_chip",
-          "eml_pluggable_module"
-        ]
-      },
-      "estimated": true,
-      "confidence": 1,
-      "method": "derived_from_company_product_coverage",
-      "sourceMetricIds": [
-        "components_revenue",
-        "systems_revenue"
-      ]
-    }
-  ],
-  "timelineEvents": [
-    {
-      "id": "lumentum-2026q3-10q-published",
-      "date": "2026-05-05",
-      "type": "financial_report",
-      "title": "Lumentum 发布 FY2026 Q3 Form 10-Q",
-      "summary": "FY2026Q3 收入 8.084 亿美元；components 收入同比约 +77.3%，systems 收入同比约 +121.1%。",
-      "relatedNodeIds": [
-        "iii_v_epi_wafer",
-        "cw_light_source",
-        "eml_laser_chip",
-        "eml_pluggable_module",
-        "silicon_photonic_engine",
-        "data_center_switch",
-        "eml_transmit_engine",
-        "ai_server"
-      ],
-      "relatedCompanyIds": [
-        "lumentum"
-      ],
-      "sourceReportId": "2026-05-05_lumentum_2026q3"
     }
   ],
   "companyProductCoverage": [
@@ -521,7 +258,29 @@
       "notes": "Cloud transceiver product lines 增长作为 AI 服务器高速光互连需求的宽口径 proxy；未披露 AI 服务器单项收入。"
     }
   ],
-  "products": [],
+  "timelineEvents": [
+    {
+      "id": "lumentum-2026q3-10q-published",
+      "date": "2026-05-05",
+      "type": "financial_report",
+      "title": "Lumentum 发布 FY2026 Q3 Form 10-Q",
+      "summary": "FY2026Q3 收入 8.084 亿美元；components 收入同比约 +77.3%，systems 收入同比约 +121.1%。",
+      "relatedNodeIds": [
+        "iii_v_epi_wafer",
+        "cw_light_source",
+        "eml_laser_chip",
+        "eml_pluggable_module",
+        "silicon_photonic_engine",
+        "data_center_switch",
+        "eml_transmit_engine",
+        "ai_server"
+      ],
+      "relatedCompanyIds": [
+        "lumentum"
+      ],
+      "sourceReportId": "2026-05-05_lumentum_2026q3"
+    }
+  ],
   "notes": {
     "summary": "Lumentum 披露 Cloud & Networking components 和 systems 两个产品大类收入及增长；未拆分 CW、EML 或硅光模块单项收入。",
     "mappingAssumptions": [

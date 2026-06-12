@@ -33,6 +33,14 @@
       }
     ]
   },
+  "companyProfile": {
+    "layer": "engine",
+    "techRoute": "高速光器件 / 光引擎相关精密元件 / 硅光模块相关器件",
+    "keyCustomers": [
+      "数据中心客户",
+      "光模块厂商"
+    ]
+  },
   "metrics": [
     {
       "id": "revenue",
@@ -93,239 +101,9 @@
       "yoy": 0.4198,
       "sourceText": "研发费用 87,312,860.13 元，同比增长 41.98%。",
       "sourceSection": "利润表"
-    },
-    {
-      "id": "gross_profit",
-      "label": "毛利",
-      "value": 752985248.3999999,
-      "unit": "CNY",
-      "period": "2026Q1",
-      "yoy": 0.5026453287402035,
-      "derived": true,
-      "formula": "revenue - operating_cost",
-      "sourceMetricIds": [
-        "revenue",
-        "operating_cost"
-      ],
-      "sourceSection": "利润表"
-    },
-    {
-      "id": "gross_margin",
-      "label": "毛利率",
-      "value": 0.5660393372317963,
-      "unit": "ratio",
-      "period": "2026Q1",
-      "yoyChangePpt": 3.5577105430170786,
-      "derived": true,
-      "formula": "gross_profit / revenue",
-      "sourceMetricIds": [
-        "revenue",
-        "operating_cost"
-      ],
-      "sourceSection": "利润表"
     }
   ],
   "productCategoryMetrics": [],
-  "graphSignals": [
-    {
-      "id": "tfc-2026q1-eml-engine-to-pluggable-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_transmit_engine",
-        "target": "eml_pluggable_module"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.4082,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "tfc-2026q1-eml-engine-to-pluggable-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "公司整体营业收入",
-          "metric": "revenue",
-          "value": 0.4082,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "AI 行业发展及全球数据中心建设加速，带动高速光器件产品需求持续增长。",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "公司整体收入增速作为 EML/DFB 光引擎进入 EML/DFB 可插拔模块的 proxy；Q1 未披露该产品单项增速。",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "tfc-2026q1-silicon-engine-to-cpo-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "silicon_photonic_engine",
-        "target": "cpo_module"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.4082,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "tfc-2026q1-silicon-engine-to-cpo-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "公司整体营业收入",
-          "metric": "revenue",
-          "value": 0.4082,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "AI 行业发展及全球数据中心建设加速，带动高速光器件产品需求持续增长。",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "公司整体收入增速作为硅光引擎进入 CPO 模组的 proxy；Q1 未披露该产品单项增速。",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "tfc-2026q1-silicon-engine-to-silicon-pluggable-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "silicon_photonic_engine",
-        "target": "silicon_photonic_pluggable_module"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.4082,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "tfc-2026q1-silicon-engine-to-silicon-pluggable-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "公司整体营业收入",
-          "metric": "revenue",
-          "value": 0.4082,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "AI 行业发展及全球数据中心建设加速，带动高速光器件产品需求持续增长。",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "公司整体收入增速作为硅光引擎进入硅光可插拔模块的 proxy；Q1 未披露该产品单项增速。",
-          "unit": "text"
-        }
-      ]
-    }
-  ],
-  "companySignals": [
-    {
-      "id": "tfc-communication-2026q1-company-watch-profile",
-      "companyId": "tfc_communication",
-      "period": "2026Q1",
-      "fields": {
-        "layer": "engine",
-        "techRoute": "高速光器件 / 光引擎相关精密元件 / 硅光模块相关器件",
-        "keyCustomers": [
-          "数据中心客户",
-          "光模块厂商"
-        ],
-        "relatedNodeIds": [
-          "eml_transmit_engine",
-          "silicon_photonic_engine"
-        ]
-      },
-      "estimated": true,
-      "confidence": 1,
-      "method": "derived_from_company_product_coverage",
-      "sourceMetricIds": [
-        "revenue"
-      ]
-    }
-  ],
-  "timelineEvents": [
-    {
-      "id": "tfc-2026q1-report-published",
-      "date": "2026-04-21",
-      "type": "financial_report",
-      "title": "天孚通信发布 2026 年第一季度报告",
-      "summary": "2026Q1 营业收入同比 +40.8%，归母净利润同比 +45.8%；增长原因指向 AI 与全球数据中心建设带动高速光器件需求。",
-      "relatedNodeIds": [
-        "eml_transmit_engine",
-        "eml_pluggable_module",
-        "silicon_photonic_engine",
-        "cpo_module",
-        "silicon_photonic_pluggable_module"
-      ],
-      "relatedCompanyIds": [
-        "tfc_communication"
-      ],
-      "sourceReportId": "2026-04-21_tfc-communication_2026q1"
-    }
-  ],
   "companyProductCoverage": [
     {
       "companyId": "tfc_communication",
@@ -423,7 +201,26 @@
       "notes": "公司整体收入增速作为硅光引擎进入硅光可插拔模块的 proxy；Q1 未披露该产品单项增速。"
     }
   ],
-  "products": [],
+  "timelineEvents": [
+    {
+      "id": "tfc-2026q1-report-published",
+      "date": "2026-04-21",
+      "type": "financial_report",
+      "title": "天孚通信发布 2026 年第一季度报告",
+      "summary": "2026Q1 营业收入同比 +40.8%，归母净利润同比 +45.8%；增长原因指向 AI 与全球数据中心建设带动高速光器件需求。",
+      "relatedNodeIds": [
+        "eml_transmit_engine",
+        "eml_pluggable_module",
+        "silicon_photonic_engine",
+        "cpo_module",
+        "silicon_photonic_pluggable_module"
+      ],
+      "relatedCompanyIds": [
+        "tfc_communication"
+      ],
+      "sourceReportId": "2026-04-21_tfc-communication_2026q1"
+    }
+  ],
   "notes": {
     "summary": "天孚通信 Q1 披露公司整体收入增长和高速光器件需求增长原因，但没有披露分产品收入表。",
     "mappingAssumptions": [

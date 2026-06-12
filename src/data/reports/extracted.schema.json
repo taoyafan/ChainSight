@@ -39,6 +39,25 @@
     "timelineEvents": {
       "type": "array",
       "items": { "$ref": "#/$defs/timelineEvent" }
+    },
+    "companyProductCoverage": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/companyProductCoverage" }
+    },
+    "productGrowthInputs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/productGrowthInput" }
+    },
+    "products": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/product" }
+    },
+    "productCategoryMetrics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/productCategoryMetric" }
+    },
+    "notes": {
+      "$ref": "#/$defs/reportNotes"
     }
   },
   "$defs": {
@@ -151,6 +170,178 @@
           "items": { "type": "string" }
         },
         "sourceReportId": { "type": "string" }
+      }
+    },
+    "companyProductCoverage": {
+      "type": "object",
+      "required": [
+        "companyId",
+        "productNodeId",
+        "coverageEvidenceType",
+        "coverageSource",
+        "evidenceText",
+        "isRevenueProduct",
+        "notes"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "companyId": { "type": "string" },
+        "productNodeId": { "type": "string" },
+        "coverageEvidenceType": { "type": "string" },
+        "coverageSource": { "type": "string" },
+        "evidenceText": { "type": "string" },
+        "isRevenueProduct": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "productGrowthInput": {
+      "type": "object",
+      "required": [
+        "id",
+        "companyId",
+        "productNodeId",
+        "period",
+        "growthMetricId",
+        "growthValue",
+        "growthValueType",
+        "revenueScope",
+        "scopeLabel",
+        "shareOfScope",
+        "managementAttribution",
+        "hasProductRevenueAmount",
+        "hasProductRevenueGrowth",
+        "sourceMetricIds",
+        "graphTarget",
+        "notes"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "companyId": { "type": "string" },
+        "productNodeId": { "type": "string" },
+        "period": { "type": "string" },
+        "growthMetricId": { "type": "string" },
+        "growthValue": { "type": ["number", "null"] },
+        "growthValueType": { "type": "string" },
+        "revenueScope": { "type": "string" },
+        "scopeLabel": { "type": "string" },
+        "shareOfScope": { "type": "string" },
+        "managementAttribution": { "type": "string" },
+        "attributionEvidenceText": { "type": "string" },
+        "hasProductRevenueAmount": { "type": "boolean" },
+        "hasProductRevenueGrowth": { "type": "boolean" },
+        "sourceMetricIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "graphTarget": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["type", "id"],
+              "properties": {
+                "type": { "const": "node" },
+                "id": { "type": "string" }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["type", "source", "target"],
+              "properties": {
+                "type": { "const": "edge" },
+                "source": { "type": "string" },
+                "target": { "type": "string" }
+              }
+            }
+          ]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "product": {
+      "type": "object",
+      "required": ["productNodeId", "coverage"],
+      "additionalProperties": true,
+      "properties": {
+        "productNodeId": { "type": "string" },
+        "coverage": {
+          "type": "object",
+          "required": ["evidenceType", "source", "evidenceText", "commercializationType", "isRevenueProduct", "notes"],
+          "additionalProperties": true,
+          "properties": {
+            "evidenceType": { "type": "string" },
+            "source": { "type": "string" },
+            "evidenceText": { "type": "string" },
+            "commercializationType": { "type": "string" },
+            "isRevenueProduct": { "type": "boolean" },
+            "notes": { "type": "string" }
+          }
+        },
+        "financial": {
+          "type": ["object", "null"],
+          "additionalProperties": true
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["target", "salesStatus", "edgeAttribution", "evidenceText", "sourceMetricIds", "notes"],
+            "additionalProperties": true,
+            "properties": {
+              "target": { "type": "string" },
+              "salesStatus": { "type": "string" },
+              "edgeAttribution": { "type": "string" },
+              "evidenceText": { "type": "string" },
+              "sourceMetricIds": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "productCategoryMetric": {
+      "type": "object",
+      "required": ["id", "categoryName", "period", "unit", "sourceSection", "sourceText", "mappedNodeIds", "notes"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "categoryName": { "type": "string" },
+        "period": { "type": "string" },
+        "revenue": { "type": ["number", "null"] },
+        "operatingCost": { "type": ["number", "null"] },
+        "grossProfit": { "type": ["number", "null"] },
+        "grossMargin": { "type": ["number", "null"] },
+        "revenueYoy": { "type": ["number", "null"] },
+        "operatingCostYoy": { "type": ["number", "null"] },
+        "grossProfitYoy": { "type": ["number", "null"] },
+        "grossMarginChangePpt": { "type": ["number", "null"] },
+        "unit": { "type": "string" },
+        "sourceSection": { "type": "string" },
+        "sourceText": { "type": "string" },
+        "mappedNodeIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "reportNotes": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "summary": { "type": "string" },
+        "mappingAssumptions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
       }
     }
   }

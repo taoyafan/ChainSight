@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "report-kit": "node scripts/report-kit.mjs"
   },
   "dependencies": {
     "@antv/g6": "^5.1.1",

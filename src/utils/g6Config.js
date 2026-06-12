@@ -52,6 +52,12 @@ function formatYoy(value) {
   return `${sign}${(value * 100).toFixed(1)}% YoY`
 }
 
+function formatYoyLabel(value) {
+  if (!Number.isFinite(value)) return ''
+  const sign = value > 0 ? '+' : ''
+  return `${sign}${(value * 100).toFixed(0)}%`
+}
+
 function escapeHtml(value) {
   return String(value ?? '')
     .replaceAll('&', '&amp;')
@@ -277,14 +283,10 @@ export function getGraphOptions(container, width, height) {
         lineWidth: (d) => d.data?.lineWidth || MIN_EDGE_WIDTH,
         endArrow: true,
         endArrowSize: 6,
-        labelText: (d) => {
-          const label = d.data?.label || ''
-          const count = d.data?.contributionCount || 0
-          return count > 0 ? `${label} · ${count}报告` : label
-        },
+        labelText: (d) => formatYoyLabel(d.data?.growthYoy),
         labelFill: '#909399',
-        labelFontSize: 18,
-        labelBackground: true,
+        labelFontSize: 14,
+        labelBackground: (d) => Number.isFinite(d.data?.growthYoy),
         labelBackgroundFill: '#fff',
         labelBackgroundOpacity: 0.85,
         labelBackgroundRadius: 3,

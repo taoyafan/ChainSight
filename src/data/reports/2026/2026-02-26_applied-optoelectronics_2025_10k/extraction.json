@@ -26,6 +26,17 @@
       }
     ]
   },
+  "companyProfile": {
+    "layer": "module",
+    "techRoute": "Data center optical transceivers / internally manufactured laser chips",
+    "keyCustomers": [
+      "Microsoft",
+      "Digicomm",
+      "hyperscale data center customers",
+      "equipment suppliers",
+      "CATV MSOs"
+    ]
+  },
   "metrics": [
     {
       "id": "revenue",
@@ -181,156 +192,6 @@
       "notes": "Not mapped to the current data center optical topology."
     }
   ],
-  "graphSignals": [
-    {
-      "id": "aaoi-2025-pluggable-to-data-center-switch-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_pluggable_module",
-        "target": "data_center_switch"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.317845117845,
-      "unit": "yoy_ratio",
-      "period": "2025",
-      "estimated": true,
-      "confidence": 0.85,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "aaoi-2025-pluggable-to-data-center-switch-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "high_over_80",
-          "label": "A 在所用收入分类中占比极高（>80%）"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "internet_data_center_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Internet data center market revenue",
-          "metric": "internet_data_center_revenue",
-          "value": 0.317845117845,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The 10-K describes internet data center optical transceivers as products that plug into data center switches and servers.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "high_over_80",
-          "value": "The internet data center market category is the closest disclosed revenue scope for data center pluggable optical modules.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "aaoi-2025-pluggable-to-ai-server-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_pluggable_module",
-        "target": "ai_server"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.317845117845,
-      "unit": "yoy_ratio",
-      "period": "2025",
-      "estimated": true,
-      "confidence": 0.85,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "aaoi-2025-pluggable-to-ai-server-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "high_over_80",
-          "label": "A 在所用收入分类中占比极高（>80%）"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "internet_data_center_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Internet data center market revenue",
-          "metric": "internet_data_center_revenue",
-          "value": 0.317845117845,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The 10-K describes data center optical transceivers as plugging into servers as well as switches.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "high_over_80",
-          "value": "Server-side usage is disclosed but not split from switch-side usage.",
-          "unit": "text"
-        }
-      ]
-    }
-  ],
-  "companySignals": [
-    {
-      "id": "applied-optoelectronics-2025-company-watch-profile",
-      "companyId": "applied_optoelectronics",
-      "period": "2025",
-      "fields": {
-        "layer": "module",
-        "techRoute": "Data center optical transceivers / internally manufactured laser chips",
-        "keyCustomers": [
-          "Microsoft",
-          "Digicomm",
-          "hyperscale data center customers",
-          "equipment suppliers",
-          "CATV MSOs"
-        ],
-        "relatedNodeIds": [
-          "eml_pluggable_module",
-          "eml_laser_chip"
-        ]
-      },
-      "estimated": true,
-      "confidence": 1,
-      "method": "derived_from_company_product_coverage",
-      "sourceMetricIds": [
-        "internet_data_center_revenue"
-      ]
-    }
-  ],
-  "timelineEvents": [
-    {
-      "id": "aaoi-2025-10k-published",
-      "date": "2026-02-26",
-      "type": "financial_report",
-      "title": "AAOI 发布 2025 Form 10-K",
-      "summary": "2025 年收入 4.557 亿美元；internet data center 收入 1.957 亿美元，同比约 +31.8%。",
-      "relatedNodeIds": [
-        "eml_pluggable_module",
-        "data_center_switch",
-        "ai_server"
-      ],
-      "relatedCompanyIds": [
-        "applied_optoelectronics"
-      ],
-      "sourceReportId": "2026-02-26_applied-optoelectronics_2025_10k"
-    }
-  ],
   "companyProductCoverage": [
     {
       "companyId": "applied_optoelectronics",
@@ -403,7 +264,24 @@
       "notes": "Server-side usage is disclosed but not split from switch-side usage."
     }
   ],
-  "products": [],
+  "timelineEvents": [
+    {
+      "id": "aaoi-2025-10k-published",
+      "date": "2026-02-26",
+      "type": "financial_report",
+      "title": "AAOI 发布 2025 Form 10-K",
+      "summary": "2025 年收入 4.557 亿美元；internet data center 收入 1.957 亿美元，同比约 +31.8%。",
+      "relatedNodeIds": [
+        "eml_pluggable_module",
+        "data_center_switch",
+        "ai_server"
+      ],
+      "relatedCompanyIds": [
+        "applied_optoelectronics"
+      ],
+      "sourceReportId": "2026-02-26_applied-optoelectronics_2025_10k"
+    }
+  ],
   "notes": {
     "summary": "AAOI 2025 年披露 internet data center 收入及同比增速，可用于数据中心可插拔光模块链路的增长 proxy。",
     "mappingAssumptions": [

@@ -1,0 +1,38 @@
+{
+  "report": {
+    "id": "",
+    "companyId": "",
+    "companyName": "",
+    "title": "",
+    "type": "",
+    "period": "",
+    "periodStart": "",
+    "periodEnd": "",
+    "publishedAt": "",
+    "currency": "",
+    "amountUnit": "",
+    "sources": []
+  },
+  "financialMetrics": [
+    {
+      "id": "",
+      "label": "",
+      "value": null,
+      "unit": "",
+      "period": "",
+      "yoy": null,
+      "sourceText": "",
+      "sourceSection": ""
+    }
+  ],
+  "reportedItems": [
+    {
+      "id": "",
+      "label": "",
+      "text": "",
+      "metrics": [],
+      "sourceText": "",
+      "sourceSection": ""
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "reportId": "",
+  "productNodes": [
+    {
+      "nodeId": "",
+      "coverage": {
+        "commercializationType": "external_sales",
+        "factIds": [],
+        "evidenceText": "",
+        "notes": ""
+      },
+      "financial": {
+        "period": "",
+        "growthMetricId": "revenue",
+        "growthValue": null,
+        "growthValueType": "yoy_ratio",
+        "revenueScope": "company_total",
+        "scopeLabel": "",
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "not_mentioned",
+        "attributionEvidenceText": "",
+        "sourceMetricIds": ["revenue"],
+        "notes": ""
+      }
+    }
+  ],
+  "downstreamAttributions": [
+    {
+      "downstreamNodeId": "",
+      "sourceProductNodeId": null,
+      "factIds": [],
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "not_mentioned",
+      "attributionEvidenceText": "",
+      "sourceMetricIds": ["revenue"],
+      "notes": ""
+    }
+  ]
+}

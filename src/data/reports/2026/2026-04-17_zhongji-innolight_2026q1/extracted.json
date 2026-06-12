@@ -1,51 +1,24 @@
 {
   "report": {
     "id": "2026-04-17_zhongji-innolight_2026q1",
-    "companyId": "zhongji_innolight",
+    "companyId": "zhongji-innolight",
     "companyName": "中际旭创股份有限公司",
     "stockCode": "300308",
     "exchange": "SZSE",
-    "title": "2026 年一季度报告",
+    "title": "2026 年第一季度报告",
     "type": "quarterly_report",
     "period": "2026Q1",
     "periodStart": "2026-01-01",
     "periodEnd": "2026-03-31",
     "publishedAt": "2026-04-17",
-    "announcementNumber": "2026-042",
     "currency": "CNY",
     "amountUnit": "yuan",
     "audited": false,
     "sources": [
       {
-        "name": "巨潮资讯网：中际旭创 2026 年一季度报告",
-        "type": "official_disclosure_pdf",
-        "url": "https://static.cninfo.com.cn/finalpage/2026-04-17/1225111941.PDF",
-        "localPathIgnored": "raw/1225111941.PDF",
-        "publisher": "巨潮资讯网",
-        "accessedAt": "2026-06-04"
-      },
-      {
-        "name": "东方财富公告镜像：中际旭创 2026 年第一季度报告",
-        "type": "disclosure_mirror",
-        "url": "https://data.eastmoney.com/notices/detail/300308/AN202604161821269635.html",
-        "publisher": "东方财富网",
-        "accessedAt": "2026-06-04"
-      },
-      {
-        "name": "巨潮资讯网：中际旭创 2025 年年度报告",
-        "type": "official_disclosure_pdf_context",
-        "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225056459.PDF",
-        "publisher": "巨潮资讯网",
-        "accessedAt": "2026-06-04",
-        "usage": "用于支持主营业务映射：2025 年光通信收发模块收入占比 97.95%。"
-      },
-      {
-        "name": "证券时报e公司：中际旭创互动平台回复硅光方案占比",
-        "type": "investor_interaction_context",
-        "url": "https://www.stcn.com/article/detail/3816179.html",
-        "publisher": "证券时报e公司",
-        "accessedAt": "2026-06-08",
-        "usage": "用于补充产品平台口径：公司称目前 800G 和 1.6T 产品硅光方案占比超过一半，硅光方案比重有望持续提升。"
+        "type": "pdf",
+        "path": "src/data/reports/2026/2026-04-17_zhongji-innolight_2026q1/raw/1225111941.PDF",
+        "title": "中际旭创股份有限公司 2026 年第一季度报告"
       }
     ]
   },
@@ -56,94 +29,223 @@
       "value": 19496398083.95,
       "unit": "CNY",
       "period": "2026Q1",
-      "yoy": 1.9212
+      "yoy": 1.9212,
+      "sourceText": "营业收入（元） 19,496,398,083.95 6,674,176,487.23 192.12%",
+      "sourceSection": "一、主要财务数据 / （一）主要会计数据和财务指标"
     },
     {
       "id": "operating_cost",
       "label": "营业成本",
       "value": 10516721119.21,
       "unit": "CNY",
-      "period": "2026Q1"
-    },
-    {
-      "id": "gross_profit",
-      "label": "毛利",
-      "value": 8979676964.74,
-      "unit": "CNY",
       "period": "2026Q1",
-      "derived": true,
-      "formula": "revenue - operating_cost"
+      "yoy": 1.4893,
+      "sourceText": "营业成本 10,516,721,119.21 4,224,687,051.60 148.93%",
+      "sourceSection": "一、主要财务数据 / （三）主要会计数据和财务指标发生变动的情况及原因"
     },
     {
-      "id": "gross_margin",
-      "label": "毛利率",
-      "value": 0.460581330257733,
-      "unit": "ratio",
-      "period": "2026Q1",
-      "derived": true,
-      "formula": "gross_profit / revenue"
-    },
-    {
-      "id": "net_profit_attributable",
+      "id": "net_profit_attributable_to_parent",
       "label": "归属于上市公司股东的净利润",
       "value": 5734501526.83,
       "unit": "CNY",
       "period": "2026Q1",
-      "yoy": 2.6228
+      "yoy": 2.6228,
+      "sourceText": "归属于上市公司股东的净利润（元） 5,734,501,526.83 1,582,876,128.67 262.28%",
+      "sourceSection": "一、主要财务数据 / （一）主要会计数据和财务指标"
     },
     {
-      "id": "net_operating_cash_flow",
+      "id": "net_profit_attributable_to_parent_ex_nonrecurring",
+      "label": "归属于上市公司股东的扣除非经常性损益的净利润",
+      "value": 5717748340.78,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 2.6456,
+      "sourceText": "归属于上市公司股东的扣除非经常性损益的净利润（元） 5,717,748,340.78 1,568,385,287.19 264.56%",
+      "sourceSection": "一、主要财务数据 / （一）主要会计数据和财务指标"
+    },
+    {
+      "id": "operating_cash_flow_net",
       "label": "经营活动产生的现金流量净额",
       "value": 3367573676.62,
       "unit": "CNY",
       "period": "2026Q1",
-      "yoy": 0.5558
-    }
-  ],
-  "graphSignals": [
+      "yoy": 0.5558,
+      "sourceText": "经营活动产生的现金流量净额（元） 3,367,573,676.62 2,164,459,570.16 55.58%",
+      "sourceSection": "一、主要财务数据 / （一）主要会计数据和财务指标"
+    },
     {
-      "id": "innolight-2026q1-node-pluggable-optical-module-revenue-proxy",
-      "target": {
-        "type": "node",
-        "id": "pluggable_optical_module"
-      },
-      "metric": "revenue_proxy",
-      "value": 19496398083.95,
+      "id": "rd_expense",
+      "label": "研发费用",
+      "value": 644688508.14,
       "unit": "CNY",
       "period": "2026Q1",
+      "yoy": 1.2205,
+      "sourceText": "研发费用 644,688,508.14 290,341,050.19 122.05%",
+      "sourceSection": "一、主要财务数据 / （三）主要会计数据和财务指标发生变动的情况及原因"
+    },
+    {
+      "id": "gross_profit",
+      "label": "毛利",
+      "value": 8979676964.740002,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 2.666168760188316,
+      "derived": true,
+      "formula": "revenue - operating_cost",
+      "sourceMetricIds": [
+        "revenue",
+        "operating_cost"
+      ],
+      "sourceSection": "一、主要财务数据 / （三）主要会计数据和财务指标发生变动的情况及原因"
+    },
+    {
+      "id": "gross_margin",
+      "label": "毛利率",
+      "value": 0.4605813302577327,
+      "unit": "ratio",
+      "period": "2026Q1",
+      "yoyChangePpt": 9.359053688253132,
+      "derived": true,
+      "formula": "gross_profit / revenue",
+      "sourceMetricIds": [
+        "revenue",
+        "operating_cost"
+      ],
+      "sourceSection": "一、主要财务数据 / （三）主要会计数据和财务指标发生变动的情况及原因"
+    }
+  ],
+  "productCategoryMetrics": [],
+  "graphSignals": [
+    {
+      "id": "2026-04-17-zhongji-innolight-2026q1-optical_module-node-growth",
+      "target": {
+        "type": "node",
+        "id": "optical_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.9212,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
       "estimated": true,
-      "confidence": 0.82,
-      "method": "primary_business_proxy",
-      "sourceMetricIds": ["revenue"],
+      "confidence": 1,
+      "method": "derived_from_mapping_product_node",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:optical_module:2026Q1",
+      "confidenceModel": "share_attribution_matrix",
+      "confidenceFactors": {
+        "shareOfScope": {
+          "key": "high_over_80",
+          "label": "A 在所用收入分类中占比极高（>80%）"
+        },
+        "managementAttribution": {
+          "key": "core_driver",
+          "label": "管理层明确点名 A 是主要/核心驱动"
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
       "supportingContext": [
         {
-          "source": "2025 年年度报告",
-          "metric": "光通信收发模块收入占营业收入比重",
-          "value": 0.9795,
-          "unit": "ratio"
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "management_attribution",
+          "metric": "core_driver",
+          "value": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+          "unit": "text"
+        },
+        {
+          "source": "share_of_scope",
+          "metric": "high_over_80",
+          "value": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。",
+          "unit": "text"
         }
       ]
     },
     {
-      "id": "innolight-2026q1-node-pluggable-optical-module-gross-margin-proxy",
-      "target": {
-        "type": "node",
-        "id": "pluggable_optical_module"
-      },
-      "metric": "gross_margin_proxy",
-      "value": 0.460581330257733,
-      "unit": "ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.72,
-      "method": "company_level_margin_proxy",
-      "sourceMetricIds": ["gross_margin"]
-    },
-    {
-      "id": "innolight-2026q1-edge-pluggable-optical-module-to-data-center-switch-growth-proxy",
+      "id": "2026-04-17-zhongji-innolight-2026q1-optical_module-to-ai_server-growth",
       "target": {
         "type": "edge",
-        "source": "pluggable_optical_module",
+        "source": "optical_module",
+        "target": "ai_server"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.9212,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.85,
+      "method": "derived_from_product_node_and_downstream_attribution",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:optical_module:2026Q1",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
+      "confidenceFactors": {
+        "productNode": {
+          "shareOfScope": {
+            "key": "high_over_80",
+            "label": "A 在所用收入分类中占比极高（>80%）"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "supportingContext": [
+        {
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "management_attribution",
+          "metric": "core_driver",
+          "value": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+          "unit": "text"
+        },
+        {
+          "source": "share_of_scope",
+          "metric": "high_over_80",
+          "value": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "core_driver",
+          "value": "终端客户对算力基础设施的强劲投入。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告未直接写 AI 服务器，但算力基础设施投入是增长主因；作为相关下游归因。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-17-zhongji-innolight-2026q1-optical_module-to-data_center_switch-growth",
+      "target": {
+        "type": "edge",
+        "source": "optical_module",
         "target": "data_center_switch"
       },
       "metric": "revenue_growth_yoy_proxy",
@@ -151,32 +253,321 @@
       "unit": "yoy_ratio",
       "period": "2026Q1",
       "estimated": true,
-      "confidence": 0.62,
-      "method": "company_revenue_growth_proxy_without_platform_split",
-      "sourceMetricIds": ["revenue"],
+      "confidence": 0.6,
+      "method": "derived_from_product_node_and_downstream_attribution",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:optical_module:2026Q1",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
+      "confidenceFactors": {
+        "productNode": {
+          "shareOfScope": {
+            "key": "high_over_80",
+            "label": "A 在所用收入分类中占比极高（>80%）"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
       "supportingContext": [
         {
-          "source": "2025 年年度报告",
-          "metric": "光通信收发模块收入占营业收入比重",
-          "value": 0.9795,
-          "unit": "ratio"
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
         },
         {
-          "source": "2025 年年度报告",
-          "metric": "境外收入占营业收入比重",
-          "value": 0.9058,
-          "unit": "ratio"
+          "source": "management_attribution",
+          "metric": "core_driver",
+          "value": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+          "unit": "text"
         },
         {
-          "source": "2025 年年度报告",
-          "metric": "产品平台",
-          "value": "公司高速光模块覆盖 EML 平台和硅光平台，但 2026Q1 报告未拆分两类平台收入或增速。",
+          "source": "share_of_scope",
+          "metric": "high_over_80",
+          "value": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "mentioned_contributor",
+          "value": "终端客户对算力基础设施的强劲投入。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告未直接写数据中心交换机；该节点作为算力基础设施网络侧相关下游，归因低于 AI 服务器。",
           "unit": "text"
         }
       ]
     },
     {
-      "id": "innolight-2026q1-edge-silicon-photonic-pluggable-module-to-data-center-switch-growth-proxy",
+      "id": "2026-04-17-zhongji-innolight-2026q1-eml_pluggable_module-node-growth",
+      "target": {
+        "type": "node",
+        "id": "eml_pluggable_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.9212,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.35,
+      "method": "derived_from_mapping_product_node",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:eml_pluggable_module:2026Q1",
+      "confidenceModel": "share_attribution_matrix",
+      "confidenceFactors": {
+        "shareOfScope": {
+          "key": "medium_30_80_or_unknown",
+          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+        },
+        "managementAttribution": {
+          "key": "not_mentioned",
+          "label": "管理层未提及 A"
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "supportingContext": [
+        {
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "management_attribution",
+          "metric": "not_mentioned",
+          "value": "未提及",
+          "unit": "text"
+        },
+        {
+          "source": "share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-17-zhongji-innolight-2026q1-eml_pluggable_module-to-ai_server-growth",
+      "target": {
+        "type": "edge",
+        "source": "eml_pluggable_module",
+        "target": "ai_server"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.9212,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.298,
+      "method": "derived_from_product_node_and_downstream_attribution",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:eml_pluggable_module:2026Q1",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
+      "confidenceFactors": {
+        "productNode": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "not_mentioned",
+            "label": "管理层未提及 A"
+          }
+        },
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "supportingContext": [
+        {
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "management_attribution",
+          "metric": "not_mentioned",
+          "value": "未提及",
+          "unit": "text"
+        },
+        {
+          "source": "share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "core_driver",
+          "value": "终端客户对算力基础设施的强劲投入。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告未直接写 AI 服务器，但算力基础设施投入是增长主因；作为相关下游归因。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-17-zhongji-innolight-2026q1-eml_pluggable_module-to-data_center_switch-growth",
+      "target": {
+        "type": "edge",
+        "source": "eml_pluggable_module",
+        "target": "data_center_switch"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.9212,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.21,
+      "method": "derived_from_product_node_and_downstream_attribution",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:eml_pluggable_module:2026Q1",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
+      "confidenceFactors": {
+        "productNode": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "not_mentioned",
+            "label": "管理层未提及 A"
+          }
+        },
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "supportingContext": [
+        {
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "management_attribution",
+          "metric": "not_mentioned",
+          "value": "未提及",
+          "unit": "text"
+        },
+        {
+          "source": "share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "mentioned_contributor",
+          "value": "终端客户对算力基础设施的强劲投入。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告未直接写数据中心交换机；该节点作为算力基础设施网络侧相关下游，归因低于 AI 服务器。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-17-zhongji-innolight-2026q1-silicon_photonic_pluggable_module-node-growth",
+      "target": {
+        "type": "node",
+        "id": "silicon_photonic_pluggable_module"
+      },
+      "metric": "revenue_growth_yoy_proxy",
+      "value": 1.9212,
+      "unit": "yoy_ratio",
+      "period": "2026Q1",
+      "estimated": true,
+      "confidence": 0.35,
+      "method": "derived_from_mapping_product_node",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:silicon_photonic_pluggable_module:2026Q1",
+      "confidenceModel": "share_attribution_matrix",
+      "confidenceFactors": {
+        "shareOfScope": {
+          "key": "medium_30_80_or_unknown",
+          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+        },
+        "managementAttribution": {
+          "key": "not_mentioned",
+          "label": "管理层未提及 A"
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "supportingContext": [
+        {
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
+        },
+        {
+          "source": "management_attribution",
+          "metric": "not_mentioned",
+          "value": "未提及",
+          "unit": "text"
+        },
+        {
+          "source": "share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。",
+          "unit": "text"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-17-zhongji-innolight-2026q1-silicon_photonic_pluggable_module-to-data_center_switch-growth",
       "target": {
         "type": "edge",
         "source": "silicon_photonic_pluggable_module",
@@ -187,35 +578,74 @@
       "unit": "yoy_ratio",
       "period": "2026Q1",
       "estimated": true,
-      "confidence": 0.62,
-      "method": "company_revenue_growth_proxy_without_platform_split",
-      "sourceMetricIds": ["revenue"],
+      "confidence": 0.21,
+      "method": "derived_from_product_node_and_downstream_attribution",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:silicon_photonic_pluggable_module:2026Q1",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
+      "confidenceFactors": {
+        "productNode": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "not_mentioned",
+            "label": "管理层未提及 A"
+          }
+        },
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
       "supportingContext": [
         {
-          "source": "2026 年一季度报告",
-          "metric": "营业收入同比增长",
+          "source": "公司整体营业收入",
+          "metric": "revenue",
           "value": 1.9212,
           "unit": "yoy_ratio"
         },
         {
-          "source": "2025 年年度报告",
-          "metric": "产品平台",
-          "value": "公司高速光模块覆盖 EML 平台和硅光平台，但 2026Q1 报告未披露硅光可插拔模块单独收入或增速。",
+          "source": "management_attribution",
+          "metric": "not_mentioned",
+          "value": "未提及",
           "unit": "text"
         },
         {
-          "source": "证券时报e公司 2026-04-26 互动平台报道",
-          "metric": "硅光方案趋势",
-          "value": "公司称目前 800G 和 1.6T 产品硅光方案占比超过一半，硅光方案比重有望持续提升；当前缺少可审计的硅光模块单独收入增速。",
+          "source": "share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "mentioned_contributor",
+          "value": "终端客户对算力基础设施的强劲投入。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告未直接写数据中心交换机；该节点作为算力基础设施网络侧相关下游，归因低于 AI 服务器。",
           "unit": "text"
         }
       ]
     },
     {
-      "id": "innolight-2026q1-edge-pluggable-optical-module-to-ai-server-growth-proxy",
+      "id": "2026-04-17-zhongji-innolight-2026q1-silicon_photonic_pluggable_module-to-ai_server-growth",
       "target": {
         "type": "edge",
-        "source": "pluggable_optical_module",
+        "source": "silicon_photonic_pluggable_module",
         "target": "ai_server"
       },
       "metric": "revenue_growth_yoy_proxy",
@@ -223,59 +653,740 @@
       "unit": "yoy_ratio",
       "period": "2026Q1",
       "estimated": true,
-      "confidence": 0.6,
-      "method": "company_revenue_growth_proxy",
-      "sourceMetricIds": ["revenue"],
+      "confidence": 0.298,
+      "method": "derived_from_product_node_and_downstream_attribution",
+      "derived": true,
+      "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:silicon_photonic_pluggable_module:2026Q1",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
+      "confidenceFactors": {
+        "productNode": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "not_mentioned",
+            "label": "管理层未提及 A"
+          }
+        },
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        }
+      },
+      "sourceMetricIds": [
+        "revenue"
+      ],
       "supportingContext": [
         {
-          "source": "2025 年年度报告",
-          "metric": "光通信收发模块收入占营业收入比重",
-          "value": 0.9795,
-          "unit": "ratio"
+          "source": "公司整体营业收入",
+          "metric": "revenue",
+          "value": 1.9212,
+          "unit": "yoy_ratio"
         },
         {
-          "source": "2026 年一季度报告",
-          "metric": "未拆分交换机侧与服务器侧光模块收入，因此服务器侧链路置信度低于整体数据中心交换机链路",
-          "value": 0.6,
-          "unit": "confidence"
+          "source": "management_attribution",
+          "metric": "not_mentioned",
+          "value": "未提及",
+          "unit": "text"
+        },
+        {
+          "source": "share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "core_driver",
+          "value": "终端客户对算力基础设施的强劲投入。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告未直接写 AI 服务器，但算力基础设施投入是增长主因；作为相关下游归因。",
+          "unit": "text"
         }
       ]
     }
   ],
   "companySignals": [
     {
-      "id": "innolight-2026q1-company-watch-profile",
-      "companyId": "zhongji_innolight",
+      "id": "zhongji-innolight-2026q1-company-watch-profile",
+      "companyId": "zhongji-innolight",
       "period": "2026Q1",
       "fields": {
-        "layer": "module",
-        "techRoute": "高速可插拔光模块",
-        "stage": "mass_prod",
-        "massProductionEta": "已量产",
-        "keyCustomers": ["云数据中心客户", "通信设备商"],
-        "relatedNodeIds": ["pluggable_optical_module", "silicon_photonic_pluggable_module"]
+        "layer": "",
+        "techRoute": "",
+        "keyCustomers": [],
+        "relatedNodeIds": [
+          "optical_module",
+          "eml_pluggable_module",
+          "silicon_photonic_pluggable_module"
+        ]
       },
       "estimated": true,
-      "confidence": 0.74,
-      "method": "primary_business_and_platform_mapping_without_revenue_split",
-      "sourceMetricIds": ["revenue"]
+      "confidence": 1,
+      "method": "derived_from_mapping_product_coverage",
+      "sourceMetricIds": [
+        "revenue"
+      ]
     }
   ],
   "timelineEvents": [
     {
-      "id": "innolight-2026q1-report-published",
+      "id": "zhongji-innolight-2026q1-report-published",
       "date": "2026-04-17",
       "type": "financial_report",
-      "title": "中际旭创发布 2026 年一季度报告",
-      "summary": "报告期 2026Q1，营业收入同比 +192.1%，归母净利润同比 +262.3%；公司高速光模块覆盖 EML 平台和硅光平台，但报告未拆分两类平台收入。结构化提取将公司收入增速作为两类可插拔光模块进入交换机链路的共同 proxy。",
+      "title": "中际旭创股份有限公司发布 2026 年第一季度报告",
+      "summary": "中际旭创股份有限公司发布2026Q1报告。",
       "relatedNodeIds": [
-        "pluggable_optical_module",
+        "optical_module",
+        "eml_pluggable_module",
         "silicon_photonic_pluggable_module",
+        "ai_server",
         "data_center_switch",
-        "ai_server"
+        "cloud_dc"
       ],
-      "relatedCompanyIds": ["zhongji_innolight"],
+      "relatedCompanyIds": [
+        "zhongji-innolight"
+      ],
       "sourceReportId": "2026-04-17_zhongji-innolight_2026q1"
     }
-  ]
+  ],
+  "companyProductCoverage": [
+    {
+      "companyId": "zhongji-innolight",
+      "productNodeId": "optical_module",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "2026 年第一季度报告",
+      "evidenceText": "公司产品出货持续增长。",
+      "isRevenueProduct": true,
+      "commercializationType": "external_sales",
+      "notes": "报告未拆分具体产品路线；光模块父节点用于承接公司产品的粗口径增长。"
+    },
+    {
+      "companyId": "zhongji-innolight",
+      "productNodeId": "eml_pluggable_module",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "2026 年第一季度报告",
+      "evidenceText": "公司产品出货持续增长。",
+      "isRevenueProduct": true,
+      "commercializationType": "external_sales",
+      "notes": "报告未点名 EML/DFB 可插拔光模块；作为光模块子节点强制列出，防止漏写。"
+    },
+    {
+      "companyId": "zhongji-innolight",
+      "productNodeId": "silicon_photonic_pluggable_module",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "2026 年第一季度报告",
+      "evidenceText": "公司产品出货持续增长。",
+      "isRevenueProduct": true,
+      "commercializationType": "external_sales",
+      "notes": "报告未点名硅光可插拔光模块；作为光模块子节点强制列出，防止漏写。"
+    }
+  ],
+  "productGrowthInputs": [
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "high_over_80",
+      "managementAttribution": "core_driver",
+      "attributionEvidenceText": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-optical_module-node-growth-input",
+      "productNodeId": "optical_module",
+      "graphTarget": {
+        "type": "node",
+        "id": "optical_module"
+      },
+      "confidence": 1
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "high_over_80",
+      "managementAttribution": "core_driver",
+      "attributionEvidenceText": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-optical_module-to-ai_server-growth-input",
+      "productNodeId": "optical_module",
+      "graphTarget": {
+        "type": "edge",
+        "source": "optical_module",
+        "target": "ai_server"
+      },
+      "confidence": 0.85
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "high_over_80",
+      "managementAttribution": "core_driver",
+      "attributionEvidenceText": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-optical_module-to-data_center_switch-growth-input",
+      "productNodeId": "optical_module",
+      "graphTarget": {
+        "type": "edge",
+        "source": "optical_module",
+        "target": "data_center_switch"
+      },
+      "confidence": 0.6
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "not_mentioned",
+      "attributionEvidenceText": "",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-eml_pluggable_module-node-growth-input",
+      "productNodeId": "eml_pluggable_module",
+      "graphTarget": {
+        "type": "node",
+        "id": "eml_pluggable_module"
+      },
+      "confidence": 0.35
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "not_mentioned",
+      "attributionEvidenceText": "",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-eml_pluggable_module-to-ai_server-growth-input",
+      "productNodeId": "eml_pluggable_module",
+      "graphTarget": {
+        "type": "edge",
+        "source": "eml_pluggable_module",
+        "target": "ai_server"
+      },
+      "confidence": 0.298
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "not_mentioned",
+      "attributionEvidenceText": "",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-eml_pluggable_module-to-data_center_switch-growth-input",
+      "productNodeId": "eml_pluggable_module",
+      "graphTarget": {
+        "type": "edge",
+        "source": "eml_pluggable_module",
+        "target": "data_center_switch"
+      },
+      "confidence": 0.21
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "not_mentioned",
+      "attributionEvidenceText": "",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-silicon_photonic_pluggable_module-node-growth-input",
+      "productNodeId": "silicon_photonic_pluggable_module",
+      "graphTarget": {
+        "type": "node",
+        "id": "silicon_photonic_pluggable_module"
+      },
+      "confidence": 0.35
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "not_mentioned",
+      "attributionEvidenceText": "",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-silicon_photonic_pluggable_module-to-data_center_switch-growth-input",
+      "productNodeId": "silicon_photonic_pluggable_module",
+      "graphTarget": {
+        "type": "edge",
+        "source": "silicon_photonic_pluggable_module",
+        "target": "data_center_switch"
+      },
+      "confidence": 0.21
+    },
+    {
+      "period": "2026Q1",
+      "growthMetricId": "revenue",
+      "growthValue": 1.9212,
+      "growthValueType": "yoy_ratio",
+      "revenueScope": "company_total",
+      "scopeLabel": "公司整体营业收入",
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "not_mentioned",
+      "attributionEvidenceText": "",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。",
+      "id": "2026-04-17-zhongji-innolight-2026q1-silicon_photonic_pluggable_module-to-ai_server-growth-input",
+      "productNodeId": "silicon_photonic_pluggable_module",
+      "graphTarget": {
+        "type": "edge",
+        "source": "silicon_photonic_pluggable_module",
+        "target": "ai_server"
+      },
+      "confidence": 0.298
+    }
+  ],
+  "products": [],
+  "mapping": {
+    "productNodes": [
+      {
+        "nodeId": "optical_module",
+        "coverage": {
+          "commercializationType": "external_sales",
+          "factIds": [
+            "item_001"
+          ],
+          "evidenceText": "公司产品出货持续增长。",
+          "notes": "报告未拆分具体产品路线；光模块父节点用于承接公司产品的粗口径增长。"
+        },
+        "financial": {
+          "period": "2026Q1",
+          "growthMetricId": "revenue",
+          "growthValue": 1.9212,
+          "growthValueType": "yoy_ratio",
+          "revenueScope": "company_total",
+          "scopeLabel": "公司整体营业收入",
+          "shareOfScope": "high_over_80",
+          "managementAttribution": "core_driver",
+          "attributionEvidenceText": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+          "sourceMetricIds": [
+            "revenue"
+          ],
+          "notes": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。"
+        }
+      },
+      {
+        "nodeId": "eml_pluggable_module",
+        "coverage": {
+          "commercializationType": "external_sales",
+          "factIds": [
+            "item_001"
+          ],
+          "evidenceText": "公司产品出货持续增长。",
+          "notes": "报告未点名 EML/DFB 可插拔光模块；作为光模块子节点强制列出，防止漏写。"
+        },
+        "financial": {
+          "period": "2026Q1",
+          "growthMetricId": "revenue",
+          "growthValue": 1.9212,
+          "growthValueType": "yoy_ratio",
+          "revenueScope": "company_total",
+          "scopeLabel": "公司整体营业收入",
+          "shareOfScope": "medium_30_80_or_unknown",
+          "managementAttribution": "not_mentioned",
+          "attributionEvidenceText": "",
+          "sourceMetricIds": [
+            "revenue"
+          ],
+          "notes": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。"
+        }
+      },
+      {
+        "nodeId": "silicon_photonic_pluggable_module",
+        "coverage": {
+          "commercializationType": "external_sales",
+          "factIds": [
+            "item_001"
+          ],
+          "evidenceText": "公司产品出货持续增长。",
+          "notes": "报告未点名硅光可插拔光模块；作为光模块子节点强制列出，防止漏写。"
+        },
+        "financial": {
+          "period": "2026Q1",
+          "growthMetricId": "revenue",
+          "growthValue": 1.9212,
+          "growthValueType": "yoy_ratio",
+          "revenueScope": "company_total",
+          "scopeLabel": "公司整体营业收入",
+          "shareOfScope": "medium_30_80_or_unknown",
+          "managementAttribution": "not_mentioned",
+          "attributionEvidenceText": "",
+          "sourceMetricIds": [
+            "revenue"
+          ],
+          "notes": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。"
+        }
+      }
+    ],
+    "downstreamAttributions": [
+      {
+        "downstreamNodeId": "ai_server",
+        "sourceProductNodeId": null,
+        "factIds": [
+          "item_001"
+        ],
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "core_driver",
+        "attributionEvidenceText": "终端客户对算力基础设施的强劲投入。",
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "notes": "报告未直接写 AI 服务器，但算力基础设施投入是增长主因；作为相关下游归因。"
+      },
+      {
+        "downstreamNodeId": "data_center_switch",
+        "sourceProductNodeId": null,
+        "factIds": [
+          "item_001"
+        ],
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "mentioned_contributor",
+        "attributionEvidenceText": "终端客户对算力基础设施的强劲投入。",
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "notes": "报告未直接写数据中心交换机；该节点作为算力基础设施网络侧相关下游，归因低于 AI 服务器。"
+      },
+      {
+        "downstreamNodeId": "cloud_dc",
+        "sourceProductNodeId": null,
+        "factIds": [
+          "item_001"
+        ],
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "core_driver",
+        "attributionEvidenceText": "终端客户对算力基础设施的强劲投入。",
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "notes": "终端客户和算力基础设施投入可映射到云厂商数据中心需求，但产品节点不直接连到该节点。"
+      }
+    ],
+    "productNodeSignals": [
+      {
+        "id": "2026-04-17-zhongji-innolight-2026q1-optical_module-node-growth",
+        "target": {
+          "type": "node",
+          "id": "optical_module"
+        },
+        "metric": "revenue_growth_yoy_proxy",
+        "value": 1.9212,
+        "unit": "yoy_ratio",
+        "period": "2026Q1",
+        "estimated": true,
+        "confidence": 1,
+        "method": "derived_from_mapping_product_node",
+        "derived": true,
+        "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:optical_module:2026Q1",
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "high_over_80",
+            "label": "A 在所用收入分类中占比极高（>80%）"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "公司整体营业收入",
+            "metric": "revenue",
+            "value": 1.9212,
+            "unit": "yoy_ratio"
+          },
+          {
+            "source": "management_attribution",
+            "metric": "core_driver",
+            "value": "营业收入增长主要原因是受益于终端客户对算力基础设施的强劲投入，公司产品出货持续增长。",
+            "unit": "text"
+          },
+          {
+            "source": "share_of_scope",
+            "metric": "high_over_80",
+            "value": "公司整体收入作为光模块父节点 proxy；报告未披露产品路线拆分。",
+            "unit": "text"
+          }
+        ]
+      },
+      {
+        "id": "2026-04-17-zhongji-innolight-2026q1-eml_pluggable_module-node-growth",
+        "target": {
+          "type": "node",
+          "id": "eml_pluggable_module"
+        },
+        "metric": "revenue_growth_yoy_proxy",
+        "value": 1.9212,
+        "unit": "yoy_ratio",
+        "period": "2026Q1",
+        "estimated": true,
+        "confidence": 0.35,
+        "method": "derived_from_mapping_product_node",
+        "derived": true,
+        "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:eml_pluggable_module:2026Q1",
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "not_mentioned",
+            "label": "管理层未提及 A"
+          }
+        },
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "公司整体营业收入",
+            "metric": "revenue",
+            "value": 1.9212,
+            "unit": "yoy_ratio"
+          },
+          {
+            "source": "management_attribution",
+            "metric": "not_mentioned",
+            "value": "未提及",
+            "unit": "text"
+          },
+          {
+            "source": "share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "公司整体收入不能直接代表 EML/DFB 子路线；报告未披露该子路线收入、占比或增速。",
+            "unit": "text"
+          }
+        ]
+      },
+      {
+        "id": "2026-04-17-zhongji-innolight-2026q1-silicon_photonic_pluggable_module-node-growth",
+        "target": {
+          "type": "node",
+          "id": "silicon_photonic_pluggable_module"
+        },
+        "metric": "revenue_growth_yoy_proxy",
+        "value": 1.9212,
+        "unit": "yoy_ratio",
+        "period": "2026Q1",
+        "estimated": true,
+        "confidence": 0.35,
+        "method": "derived_from_mapping_product_node",
+        "derived": true,
+        "derivedFrom": "2026-04-17_zhongji-innolight_2026q1:silicon_photonic_pluggable_module:2026Q1",
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "not_mentioned",
+            "label": "管理层未提及 A"
+          }
+        },
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "公司整体营业收入",
+            "metric": "revenue",
+            "value": 1.9212,
+            "unit": "yoy_ratio"
+          },
+          {
+            "source": "management_attribution",
+            "metric": "not_mentioned",
+            "value": "未提及",
+            "unit": "text"
+          },
+          {
+            "source": "share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "公司整体收入不能直接代表硅光子路线；报告未披露该子路线收入、占比或增速。",
+            "unit": "text"
+          }
+        ]
+      }
+    ],
+    "downstreamSignals": [
+      {
+        "downstreamNodeId": "ai_server",
+        "sourceProductNodeId": null,
+        "confidence": 0.85,
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "factIds": [
+          "item_001"
+        ],
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "downstream_attribution",
+            "metric": "core_driver",
+            "value": "终端客户对算力基础设施的强劲投入。",
+            "unit": "text"
+          },
+          {
+            "source": "downstream_share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "报告未直接写 AI 服务器，但算力基础设施投入是增长主因；作为相关下游归因。",
+            "unit": "text"
+          }
+        ]
+      },
+      {
+        "downstreamNodeId": "data_center_switch",
+        "sourceProductNodeId": null,
+        "confidence": 0.6,
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
+        },
+        "factIds": [
+          "item_001"
+        ],
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "downstream_attribution",
+            "metric": "mentioned_contributor",
+            "value": "终端客户对算力基础设施的强劲投入。",
+            "unit": "text"
+          },
+          {
+            "source": "downstream_share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "报告未直接写数据中心交换机；该节点作为算力基础设施网络侧相关下游，归因低于 AI 服务器。",
+            "unit": "text"
+          }
+        ]
+      },
+      {
+        "downstreamNodeId": "cloud_dc",
+        "sourceProductNodeId": null,
+        "confidence": 0.85,
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "factIds": [
+          "item_001"
+        ],
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "downstream_attribution",
+            "metric": "core_driver",
+            "value": "终端客户对算力基础设施的强劲投入。",
+            "unit": "text"
+          },
+          {
+            "source": "downstream_share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "终端客户和算力基础设施投入可映射到云厂商数据中心需求，但产品节点不直接连到该节点。",
+            "unit": "text"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": {}
 }

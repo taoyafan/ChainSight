@@ -1,0 +1,166 @@
+{
+  "_comment": "标准 JSON 不支持 // 注释；需要给 AI/人工看的说明可写在 _comment 字段，脚本生成 extracted.json 时会忽略所有 _ 开头字段。",
+  "report": {
+    "id": "",
+    "companyId": "",
+    "companyName": "",
+    "stockCode": "",
+    "exchange": "",
+    "title": "",
+    "type": "quarterly_report",
+    "period": "",
+    "periodStart": "",
+    "periodEnd": "",
+    "publishedAt": "",
+    "currency": "CNY",
+    "amountUnit": "yuan",
+    "audited": false,
+    "sources": []
+  },
+  "companyProfile": {
+    "layer": "",
+    "techRoute": "",
+    "keyCustomers": []
+  },
+  "metrics": [
+    {
+      "id": "revenue",
+      "label": "营业收入",
+      "value": null,
+      "unit": "CNY",
+      "period": "",
+      "yoy": null,
+      "sourceText": "",
+      "sourceSection": ""
+    },
+    {
+      "id": "operating_cost",
+      "label": "营业成本",
+      "value": null,
+      "unit": "CNY",
+      "period": "",
+      "yoy": null,
+      "sourceText": "",
+      "sourceSection": ""
+    }
+  ],
+  "productCategoryMetrics": [
+    {
+      "id": "",
+      "categoryName": "",
+      "period": "",
+      "revenue": null,
+      "operatingCost": null,
+      "grossProfit": null,
+      "grossMargin": null,
+      "revenueYoy": null,
+      "operatingCostYoy": null,
+      "grossProfitYoy": null,
+      "grossMarginChangePpt": null,
+      "unit": "CNY",
+      "sourceSection": "",
+      "sourceText": "",
+      "mappedNodeIds": [],
+      "notes": ""
+    }
+  ],
+  "products": [
+    {
+      "productNodeId": "",
+      "coverage": {
+        "evidenceType": "current_report",
+        "source": "",
+        "evidenceText": "",
+        "commercializationType": "external_sales",
+        "isRevenueProduct": true,
+        "notes": ""
+      },
+      "financial": {
+        "period": "",
+        "growthMetricId": "revenue",
+        "growthValue": null,
+        "growthValueType": "yoy_ratio",
+        "revenueScope": "company_total",
+        "scopeLabel": "",
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "not_mentioned",
+        "attributionEvidenceText": "",
+        "hasProductRevenueAmount": false,
+        "hasProductRevenueGrowth": false,
+        "sourceMetricIds": ["revenue"],
+        "notes": ""
+      },
+      "edges": [
+        {
+          "target": "",
+          "salesStatus": "external_sales",
+          "edgeAttribution": "covered_but_split_not_disclosed",
+          "evidenceText": "",
+          "sourceMetricIds": ["revenue"],
+          "notes": ""
+        }
+      ],
+      "notes": ""
+    }
+  ],
+  "timelineEvents": [],
+  "notes": {
+    "summary": "",
+    "mappingAssumptions": [],
+    "limitations": []
+  },
+  "_allowedValues": {
+    "coverageEvidenceType": [
+      "current_report",
+      "annual_report",
+      "prospectus",
+      "official_product_catalog",
+      "announcement_or_ir",
+      "credible_third_party",
+      "inferred"
+    ],
+    "growthValueType": [
+      "yoy_ratio",
+      "amount",
+      "qualitative_growth",
+      "not_disclosed"
+    ],
+    "revenueScope": [
+      "product",
+      "product_category",
+      "segment",
+      "company_total",
+      "group_total",
+      "not_disclosed"
+    ],
+    "shareOfScope": [
+      "high_over_80",
+      "medium_30_80_or_unknown",
+      "low_under_30_or_mixed"
+    ],
+    "managementAttribution": [
+      "core_driver",
+      "mentioned_contributor",
+      "not_mentioned"
+    ],
+    "commercializationType": [
+      "external_sales",
+      "internal_use_only",
+      "r_and_d_or_sampling",
+      "not_revenue_product"
+    ],
+    "salesStatus": [
+      "external_sales",
+      "possible_sales",
+      "not_sold",
+      "internal_only"
+    ],
+    "edgeAttribution": [
+      "direct_revenue_disclosed",
+      "direct_customer_or_application_named",
+      "covered_but_split_not_disclosed",
+      "possible_route_only",
+      "not_applicable"
+    ]
+  }
+}

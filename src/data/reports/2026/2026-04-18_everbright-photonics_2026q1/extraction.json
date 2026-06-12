@@ -33,6 +33,14 @@
       }
     ]
   },
+  "companyProfile": {
+    "layer": "chip",
+    "techRoute": "半导体激光芯片 / VCSEL / DFB / EML / PIN PD",
+    "keyCustomers": [
+      "光通信客户",
+      "激光器客户"
+    ]
+  },
   "metrics": [
     {
       "id": "revenue",
@@ -62,36 +70,6 @@
       "period": "2026Q1",
       "sourceText": "归属于上市公司股东的净利润 9,553,814.68 元。",
       "sourceSection": "主要会计数据和财务指标"
-    },
-    {
-      "id": "gross_profit",
-      "label": "毛利",
-      "value": 39094505.61999999,
-      "unit": "CNY",
-      "period": "2026Q1",
-      "yoy": 0.44387502235820464,
-      "derived": true,
-      "formula": "revenue - operating_cost",
-      "sourceMetricIds": [
-        "revenue",
-        "operating_cost"
-      ],
-      "sourceSection": "利润表"
-    },
-    {
-      "id": "gross_margin",
-      "label": "毛利率",
-      "value": 0.30089196166473003,
-      "unit": "ratio",
-      "period": "2026Q1",
-      "yoyChangePpt": 1.3706986546230204,
-      "derived": true,
-      "formula": "gross_profit / revenue",
-      "sourceMetricIds": [
-        "revenue",
-        "operating_cost"
-      ],
-      "sourceSection": "利润表"
     }
   ],
   "productCategoryMetrics": [
@@ -101,8 +79,8 @@
       "period": "2025",
       "revenue": 386179249.42,
       "operatingCost": 264310569.3,
-      "grossProfit": 121868680.12,
-      "grossMargin": 0.31557542333782496,
+      "grossProfit": null,
+      "grossMargin": null,
       "revenueYoy": null,
       "operatingCostYoy": null,
       "grossProfitYoy": null,
@@ -111,11 +89,7 @@
       "sourceSection": "2025 年年度报告：营业收入、营业成本的分解信息",
       "sourceText": "高功率单管系列营业收入 386,179,249.42 元，营业成本 264,310,569.30 元。",
       "mappedNodeIds": [],
-      "notes": "年度报告上下文；当前图谱未单设高功率工业激光芯片节点。",
-      "grossProfitDerived": true,
-      "grossProfitFormula": "revenue - operatingCost",
-      "grossMarginDerived": true,
-      "grossMarginFormula": "grossProfit / revenue"
+      "notes": "年度报告上下文；当前图谱未单设高功率工业激光芯片节点。"
     },
     {
       "id": "everbright-2025-high-power-bar",
@@ -123,8 +97,8 @@
       "period": "2025",
       "revenue": 29252912.46,
       "operatingCost": 9556771.83,
-      "grossProfit": 19696140.630000003,
-      "grossMargin": 0.673305287360095,
+      "grossProfit": null,
+      "grossMargin": null,
       "revenueYoy": null,
       "operatingCostYoy": null,
       "grossProfitYoy": null,
@@ -133,11 +107,7 @@
       "sourceSection": "2025 年年度报告：营业收入、营业成本的分解信息",
       "sourceText": "高功率巴条系列营业收入 29,252,912.46 元，营业成本 9,556,771.83 元。",
       "mappedNodeIds": [],
-      "notes": "年度报告上下文；当前图谱未单设高功率工业激光芯片节点。",
-      "grossProfitDerived": true,
-      "grossProfitFormula": "revenue - operatingCost",
-      "grossMarginDerived": true,
-      "grossMarginFormula": "grossProfit / revenue"
+      "notes": "年度报告上下文；当前图谱未单设高功率工业激光芯片节点。"
     },
     {
       "id": "everbright-2025-vcsel-optical-communication",
@@ -145,8 +115,8 @@
       "period": "2025",
       "revenue": 41193768.25,
       "operatingCost": 35918385.49,
-      "grossProfit": 5275382.759999998,
-      "grossMargin": 0.1280626411253357,
+      "grossProfit": null,
+      "grossMargin": null,
       "revenueYoy": null,
       "operatingCostYoy": null,
       "grossProfitYoy": null,
@@ -159,11 +129,7 @@
         "eml_laser_chip",
         "eml_pd_module"
       ],
-      "notes": "年度报告上下文；该分类混合 VCSEL、DFB、EML、PIN PD 等产品，未拆分到单个图谱节点。",
-      "grossProfitDerived": true,
-      "grossProfitFormula": "revenue - operatingCost",
-      "grossMarginDerived": true,
-      "grossMarginFormula": "grossProfit / revenue"
+      "notes": "年度报告上下文；该分类混合 VCSEL、DFB、EML、PIN PD 等产品，未拆分到单个图谱节点。"
     },
     {
       "id": "everbright-2025-scrap-sales",
@@ -171,8 +137,8 @@
       "period": "2025",
       "revenue": 10948643.8,
       "operatingCost": 10948643.8,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "grossProfit": null,
+      "grossMargin": null,
       "revenueYoy": null,
       "operatingCostYoy": null,
       "grossProfitYoy": null,
@@ -181,11 +147,7 @@
       "sourceSection": "2025 年年度报告：营业收入、营业成本的分解信息",
       "sourceText": "废料销售营业收入 10,948,643.80 元，营业成本 10,948,643.80 元。",
       "mappedNodeIds": [],
-      "notes": "非当前图谱节点。",
-      "grossProfitDerived": true,
-      "grossProfitFormula": "revenue - operatingCost",
-      "grossMarginDerived": true,
-      "grossMarginFormula": "grossProfit / revenue"
+      "notes": "非当前图谱节点。"
     },
     {
       "id": "everbright-2025-other",
@@ -193,8 +155,8 @@
       "period": "2025",
       "revenue": 9802985.51,
       "operatingCost": 2713019.9,
-      "grossProfit": 7089965.609999999,
-      "grossMargin": 0.7232455462437993,
+      "grossProfit": null,
+      "grossMargin": null,
       "revenueYoy": null,
       "operatingCostYoy": null,
       "grossProfitYoy": null,
@@ -203,214 +165,7 @@
       "sourceSection": "2025 年年度报告：营业收入、营业成本的分解信息",
       "sourceText": "其他营业收入 9,802,985.51 元，营业成本 2,713,019.90 元。",
       "mappedNodeIds": [],
-      "notes": "非当前图谱节点。",
-      "grossProfitDerived": true,
-      "grossProfitFormula": "revenue - operatingCost",
-      "grossMarginDerived": true,
-      "grossMarginFormula": "grossProfit / revenue"
-    }
-  ],
-  "graphSignals": [
-    {
-      "id": "everbright-2026q1-cw-to-optical-engine-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "cw_light_source",
-        "target": "silicon_photonic_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.3781,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "everbright-2026q1-cw-to-optical-engine-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "公司整体营业收入",
-          "metric": "revenue",
-          "value": 0.3781,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "报告和年度上下文提到光通信等业务获得认可并形成批量出货/产品矩阵。",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "使用公司整体收入增速作为低置信度 proxy；光通信分类占公司收入比例低且混合多种芯片。",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "everbright-2026q1-eml-to-pluggable-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_laser_chip",
-        "target": "eml_transmit_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.3781,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "everbright-2026q1-eml-to-pluggable-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "公司整体营业收入",
-          "metric": "revenue",
-          "value": 0.3781,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "年度上下文披露公司形成 DFB、EML、PIN 光通信芯片产品矩阵。",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "未披露 EML 单独收入；使用公司整体收入增速作为低置信度 proxy。",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "everbright-2026q1-pd-to-pluggable-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_pd_module",
-        "target": "eml_pluggable_module"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.3781,
-      "unit": "yoy_ratio",
-      "period": "2026Q1",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "everbright-2026q1-pd-to-pluggable-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "公司整体营业收入",
-          "metric": "revenue",
-          "value": 0.3781,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "年度上下文披露公司形成 DFB、EML、PIN 光通信芯片产品矩阵。",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "未披露 PIN PD 单独收入；使用公司整体收入增速作为低置信度 proxy。",
-          "unit": "text"
-        }
-      ]
-    }
-  ],
-  "companySignals": [
-    {
-      "id": "everbright-photonics-2026q1-company-watch-profile",
-      "companyId": "everbright_photonics",
-      "period": "2026Q1",
-      "fields": {
-        "layer": "chip",
-        "techRoute": "半导体激光芯片 / VCSEL / DFB / EML / PIN PD",
-        "keyCustomers": [
-          "光通信客户",
-          "激光器客户"
-        ],
-        "relatedNodeIds": [
-          "iii_v_epi_wafer",
-          "cw_light_source",
-          "eml_laser_chip",
-          "eml_pd_module"
-        ]
-      },
-      "estimated": true,
-      "confidence": 1,
-      "method": "derived_from_company_product_coverage",
-      "sourceMetricIds": [
-        "revenue"
-      ]
-    }
-  ],
-  "timelineEvents": [
-    {
-      "id": "everbright-2026q1-report-published",
-      "date": "2026-04-18",
-      "type": "financial_report",
-      "title": "长光华芯发布 2026 年第一季度报告",
-      "summary": "2026Q1 营业收入同比 +37.8%；公司覆盖 CW/DFB/EML/PIN 等光通信芯片，但 Q1 未拆分单项收入。",
-      "relatedNodeIds": [
-        "iii_v_epi_wafer",
-        "cw_light_source",
-        "eml_laser_chip",
-        "eml_pd_module",
-        "silicon_photonic_engine",
-        "eml_pluggable_module"
-      ],
-      "relatedCompanyIds": [
-        "everbright_photonics"
-      ],
-      "sourceReportId": "2026-04-18_everbright-photonics_2026q1"
+      "notes": "非当前图谱节点。"
     }
   ],
   "companyProductCoverage": [
@@ -528,7 +283,27 @@
       "notes": "未披露 PIN PD 单独收入；使用公司整体收入增速作为低置信度 proxy。"
     }
   ],
-  "products": [],
+  "timelineEvents": [
+    {
+      "id": "everbright-2026q1-report-published",
+      "date": "2026-04-18",
+      "type": "financial_report",
+      "title": "长光华芯发布 2026 年第一季度报告",
+      "summary": "2026Q1 营业收入同比 +37.8%；公司覆盖 CW/DFB/EML/PIN 等光通信芯片，但 Q1 未拆分单项收入。",
+      "relatedNodeIds": [
+        "iii_v_epi_wafer",
+        "cw_light_source",
+        "eml_laser_chip",
+        "eml_pd_module",
+        "silicon_photonic_engine",
+        "eml_pluggable_module"
+      ],
+      "relatedCompanyIds": [
+        "everbright_photonics"
+      ],
+      "sourceReportId": "2026-04-18_everbright-photonics_2026q1"
+    }
+  ],
   "notes": {
     "summary": "长光华芯 Q1 披露公司整体收入增长；年度上下文提供产品平台和分产品收入成本表。",
     "mappingAssumptions": [

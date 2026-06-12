@@ -1,0 +1,78 @@
+{
+  "version": 3,
+  "model": "share_attribution_matrix",
+  "edgeModel": "edge_sales_attribution_matrix",
+  "description": "Product revenue-growth confidence derived from two extracted facts: product share in the selected revenue scope and management attribution clarity.",
+  "confidenceMatrix": {
+    "high_over_80": {
+      "core_driver": 1,
+      "mentioned_contributor": 0.85,
+      "not_mentioned": 0.75
+    },
+    "medium_30_80_or_unknown": {
+      "core_driver": 0.85,
+      "mentioned_contributor": 0.6,
+      "not_mentioned": 0.35
+    },
+    "low_under_30_or_mixed": {
+      "core_driver": 0.75,
+      "mentioned_contributor": 0.45,
+      "not_mentioned": 0.1
+    }
+  },
+  "edgeConfidenceMatrix": {
+    "external_sales": {
+      "direct_revenue_disclosed": 1,
+      "direct_customer_or_application_named": 0.85,
+      "covered_but_split_not_disclosed": 0.6,
+      "possible_route_only": 0.25,
+      "not_applicable": 0
+    },
+    "possible_sales": {
+      "direct_revenue_disclosed": 0.7,
+      "direct_customer_or_application_named": 0.5,
+      "covered_but_split_not_disclosed": 0.3,
+      "possible_route_only": 0.15,
+      "not_applicable": 0
+    },
+    "not_sold": {
+      "direct_revenue_disclosed": 0,
+      "direct_customer_or_application_named": 0,
+      "covered_but_split_not_disclosed": 0,
+      "possible_route_only": 0,
+      "not_applicable": 0
+    },
+    "internal_only": {
+      "direct_revenue_disclosed": 0,
+      "direct_customer_or_application_named": 0,
+      "covered_but_split_not_disclosed": 0,
+      "possible_route_only": 0,
+      "not_applicable": 0
+    }
+  },
+  "labels": {
+    "shareOfScope": {
+      "high_over_80": "A 在所用收入分类中占比极高（>80%）",
+      "medium_30_80_or_unknown": "A 在所用收入分类中占比中等（30%-80%）或占比不详",
+      "low_under_30_or_mixed": "A 在所用收入分类中占比低（<30%），或该收入分类至少混入 5 个不相关/非等价节点"
+    },
+    "managementAttribution": {
+      "core_driver": "管理层明确点名 A 是主要/核心驱动",
+      "mentioned_contributor": "管理层笼统提及 A 有贡献",
+      "not_mentioned": "管理层未提及 A"
+    },
+    "salesStatus": {
+      "external_sales": "确认对该下游销售",
+      "possible_sales": "可能销售但财报未确认",
+      "not_sold": "明确不销售",
+      "internal_only": "内部使用"
+    },
+    "edgeAttribution": {
+      "direct_revenue_disclosed": "直接披露该下游收入或增速",
+      "direct_customer_or_application_named": "明确点名该下游、客户或应用",
+      "covered_but_split_not_disclosed": "确认覆盖但未披露拆分",
+      "possible_route_only": "仅技术路线可能",
+      "not_applicable": "不适用"
+    }
+  }
+}

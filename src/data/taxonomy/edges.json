@@ -178,5 +178,17 @@
     "target": "cloud_dc",
     "transactionAmountQuarterUsd": 950000000,
     "label": "服务器部署"
+  },
+  {
+    "source": "optical_module",
+    "target": "ai_server",
+    "transactionAmountQuarterUsd": 840000000,
+    "label": "光模块高速互连"
+  },
+  {
+    "source": "optical_module",
+    "target": "data_center_switch",
+    "transactionAmountQuarterUsd": 940000000,
+    "label": "光模块光口装配"
   }
 ]
