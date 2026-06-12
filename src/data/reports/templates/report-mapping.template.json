@@ -35,5 +35,22 @@
       "sourceMetricIds": ["revenue"],
       "notes": ""
     }
+  ],
+  "qualitativeSignals": [
+    {
+      "id": "",
+      "factIds": [],
+      "signalType": "demand_growth",
+      "direction": "positive",
+      "strength": "medium",
+      "timeHorizon": "current_quarter",
+      "targets": [
+        { "type": "node", "id": "" },
+        { "type": "edge", "source": "", "target": "" },
+        { "type": "company", "id": "" }
+      ],
+      "evidenceText": "",
+      "notes": ""
+    }
   ]
 }

@@ -11,7 +11,18 @@
     "publishedAt": "",
     "currency": "",
     "amountUnit": "",
-    "sources": []
+    "sources": [
+      {
+        "id": "",
+        "name": "",
+        "role": "primary",
+        "type": "",
+        "url": "",
+        "localPathIgnored": "",
+        "publisher": "",
+        "accessedAt": ""
+      }
+    ]
   },
   "financialMetrics": [
     {
@@ -21,6 +32,7 @@
       "unit": "",
       "period": "",
       "yoy": null,
+      "sourceId": "",
       "sourceText": "",
       "sourceSection": ""
     }
@@ -30,7 +42,13 @@
       "id": "",
       "label": "",
       "text": "",
+      "factType": "",
+      "sentiment": "",
+      "magnitude": "unknown",
+      "timeHorizon": "unknown",
       "metrics": [],
+      "sourceId": "",
+      "sourceRole": "primary",
       "sourceText": "",
       "sourceSection": ""
     }

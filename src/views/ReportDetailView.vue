@@ -53,11 +53,30 @@
 
       <section class="panel">
         <div class="panel-heading">
-          <n-h3 style="margin: 0;">产品增长输入</n-h3>
+          <n-h3 style="margin: 0;">图谱信号</n-h3>
         </div>
+        <n-h4 class="signal-section-title">产品节点</n-h4>
         <n-data-table
-          :columns="productColumns"
-          :data="productRows"
+          :columns="nodeSignalColumns"
+          :data="productNodeRows"
+          :pagination="false"
+          :bordered="true"
+          striped
+          size="small"
+        />
+        <n-h4 class="signal-section-title">下游节点</n-h4>
+        <n-data-table
+          :columns="downstreamSignalColumns"
+          :data="downstreamSignalRows"
+          :pagination="false"
+          :bordered="true"
+          striped
+          size="small"
+        />
+        <n-h4 class="signal-section-title">边</n-h4>
+        <n-data-table
+          :columns="edgeSignalColumns"
+          :data="edgeSignalRows"
           :pagination="false"
           :bordered="true"
           striped
@@ -65,13 +84,13 @@
         />
       </section>
 
-      <section class="panel">
+      <section v-if="qualitativeSignalRows.length" class="panel">
         <div class="panel-heading">
-          <n-h3 style="margin: 0;">图谱信号</n-h3>
+          <n-h3 style="margin: 0;">文字信号</n-h3>
         </div>
         <n-data-table
-          :columns="signalColumns"
-          :data="signalRows"
+          :columns="qualitativeSignalColumns"
+          :data="qualitativeSignalRows"
           :pagination="false"
           :bordered="true"
           striped
@@ -139,9 +158,16 @@ import { computed, h } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import {
   NButton, NDataTable, NEmpty, NH2, NH3, NList, NListItem,
-  NPopover, NSpace, NTag, NText, NThing
+  NH4, NPopover, NSpace, NTag, NText, NThing
 } from 'naive-ui'
 import { reportPackages } from '@/utils/reportRepository'
+import {
+  QUALITATIVE_SIGNAL_TEXT,
+  QUALITATIVE_STRENGTH_TEXT,
+  QUALITATIVE_TIME_HORIZON_TEXT,
+  isConstraintSignal,
+  qualitativeSignalTone,
+} from '@/utils/qualitativeSignals'
 import { useGraphStore } from '@/stores/graphStore'
 
 const route = useRoute()
@@ -175,20 +201,6 @@ const metricMap = computed(() =>
   Object.fromEntries(metricRows.value.map((metric) => [metric.id, metric]))
 )
 
-const graphSignalById = computed(() =>
-  Object.fromEntries((reportPackage.value?.graphSignals || []).map((signal) => [signal.id, signal]))
-)
-
-const productRows = computed(() =>
-  (reportPackage.value?.productGrowthInputs || []).map((item) => ({
-    ...item,
-    productLabel: nodeLabel(item.productNodeId),
-    growthMetricLabel: metricMap.value[item.growthMetricId]?.displayLabel || METRIC_TEXT[item.growthMetricId] || item.growthMetricId,
-    confidence: graphSignalById.value[item.id]?.confidence,
-    confidenceFactors: graphSignalById.value[item.id]?.confidenceFactors,
-  }))
-)
-
 const categoryRows = computed(() =>
   (reportPackage.value?.productCategoryMetrics || []).map((item) => ({
     ...item,
@@ -196,62 +208,63 @@ const categoryRows = computed(() =>
   }))
 )
 
-const signalRows = computed(() => {
-  const pack = reportPackage.value
-  if (!pack) return []
+const productNodeRows = computed(() =>
+  (reportPackage.value?.mapping?.productNodes || []).map((product) => {
+    const signal = (reportPackage.value?.mapping?.productNodeSignals || [])
+      .find((item) => item.target?.type === 'node' && item.target.id === product.nodeId)
+    const financial = product.financial || {}
+    const coverage = product.coverage || {}
+    return {
+      rowKey: `product-${product.nodeId}`,
+      nodeId: product.nodeId,
+      productLabel: nodeLabel(product.nodeId),
+      commercializationType: coverage.commercializationType,
+      metricLabel: financial.growthMetricId
+        ? metricMap.value[financial.growthMetricId]?.displayLabel || METRIC_TEXT[financial.growthMetricId] || financial.growthMetricId
+        : '产品覆盖',
+      value: financial.growthValue,
+      unit: financial.growthValueType,
+      period: financial.period || report.value.period,
+      confidence: signal?.confidence,
+      shareOfScope: financial.shareOfScope,
+      managementAttribution: financial.managementAttribution,
+      confidenceFactors: signal?.confidenceFactors || {},
+      evidenceText: coverage.evidenceText,
+      attributionEvidenceText: financial.attributionEvidenceText,
+      notes: financial.notes || coverage.notes,
+    }
+  })
+)
 
-  const rows = (pack.graphSignals || []).map((signal) => ({
+const downstreamSignalRows = computed(() =>
+  (reportPackage.value?.mapping?.downstreamSignals || []).map((signal, index) => ({
+    ...signal,
+    rowKey: `downstream-${signal.sourceProductNodeId || 'any'}-${signal.downstreamNodeId || index}`,
+    sourceProductLabel: signal.sourceProductNodeId ? nodeLabel(signal.sourceProductNodeId) : '未指定产品',
+    downstreamLabel: nodeLabel(signal.downstreamNodeId),
+    confidenceFactors: signal.confidenceFactors || {},
+    supportingContext: signal.supportingContext || [],
+  }))
+)
+
+const edgeSignalRows = computed(() =>
+  (reportPackage.value?.graphSignals || [])
+    .filter((signal) => signal.target?.type === 'edge')
+    .map(toSignalRow)
+)
+
+const qualitativeSignalRows = computed(() =>
+  (reportPackage.value?.qualitativeSignals || []).map((signal) => ({
     ...signal,
     rowKey: signal.id,
-    targetLabel: formatTarget(signal.target),
-    targetTypeLabel: signal.target?.type === 'edge' ? '\u8fde\u7ebf' : '\u8282\u70b9',
-    metricLabel: SIGNAL_METRIC_TEXT[signal.metric] || signal.metric,
+    signalTypeLabel: QUALITATIVE_SIGNAL_TEXT[signal.signalType] || signal.signalType,
+    directionLabel: qualitativeSignalTone(signal).text,
+    strengthLabel: QUALITATIVE_STRENGTH_TEXT[signal.strength] || signal.strength || '-',
+    timeHorizonLabel: QUALITATIVE_TIME_HORIZON_TEXT[signal.timeHorizon] || signal.timeHorizon || '-',
+    targetLabels: (signal.targets || []).map(formatQualitativeTarget).join(', '),
+    isConstraint: isConstraintSignal(signal),
   }))
-
-  const existingNodeTargets = new Set(
-    rows
-      .filter((row) => row.target?.type === 'node')
-      .map((row) => row.target.id)
-  )
-
-  for (const item of pack.companyProductCoverage || []) {
-    if (!item.productNodeId || existingNodeTargets.has(item.productNodeId)) continue
-    rows.push({
-      rowKey: 'coverage-' + item.companyId + '-' + item.productNodeId,
-      target: { type: 'node', id: item.productNodeId },
-      targetLabel: nodeLabel(item.productNodeId),
-      targetTypeLabel: '\u8282\u70b9',
-      metricLabel: '\u4ea7\u54c1\u8986\u76d6',
-      value: null,
-      unit: '',
-      period: report.value.period,
-      confidence: null,
-      supportingContext: [{ value: item.evidenceText || item.notes || '', unit: 'text' }],
-    })
-    existingNodeTargets.add(item.productNodeId)
-  }
-
-  for (const item of pack.productCategoryMetrics || []) {
-    for (const nodeId of item.mappedNodeIds || []) {
-      if (!nodeId || existingNodeTargets.has(nodeId)) continue
-      rows.push({
-        rowKey: 'category-' + item.id + '-' + nodeId,
-        target: { type: 'node', id: nodeId },
-        targetLabel: nodeLabel(nodeId),
-        targetTypeLabel: '\u8282\u70b9',
-        metricLabel: '\u4ea7\u54c1\u5927\u7c7b\u6620\u5c04',
-        value: item.revenue,
-        unit: item.unit,
-        period: item.period || report.value.period,
-        confidence: null,
-        supportingContext: [{ value: item.sourceText || item.notes || '', unit: 'text' }],
-      })
-      existingNodeTargets.add(nodeId)
-    }
-  }
-
-  return rows
-})
+)
 
 
 const metricColumns = [
@@ -283,23 +296,23 @@ const metricColumns = [
 ]
 
 
-const productColumns = [
-  { title: '产品/节点', key: 'productLabel', width: 160 },
-  { title: '增长口径', key: 'growthMetricLabel', width: 130 },
+const productNodeColumns = [
+  { title: '产品节点', key: 'productLabel', width: 190 },
+  { title: '指标', key: 'metricLabel', width: 150 },
   {
-    title: '增长值',
-    key: 'growthValue',
-    width: 100,
+    title: '值',
+    key: 'value',
+    width: 110,
     render(row) {
-      return formatTypedValue(row.growthValue, row.growthValueType)
+      return formatTypedValue(row.value, row.unit)
     },
   },
   {
-    title: '收入范围',
-    key: 'scopeLabel',
-    width: 150,
+    title: '商业化',
+    key: 'commercializationType',
+    width: 120,
     render(row) {
-      return row.scopeLabel || row.revenueScope || '-'
+      return COMMERCIALIZATION_TEXT[row.commercializationType] || row.commercializationType || '-'
     },
   },
   {
@@ -307,7 +320,8 @@ const productColumns = [
     key: 'shareOfScope',
     width: 140,
     render(row) {
-      return h('span', { class: 'compact-text' }, SHARE_SHORT_TEXT[row.shareOfScope] || row.shareOfScope || '-')
+      const factor = row.confidenceFactors?.shareOfScope
+      return h('span', { class: 'compact-text' }, SHARE_SHORT_TEXT[factor?.key] || SHARE_SHORT_TEXT[row.shareOfScope] || row.shareOfScope || '-')
     },
   },
   {
@@ -315,7 +329,8 @@ const productColumns = [
     key: 'managementAttribution',
     width: 120,
     render(row) {
-      return h('span', { class: 'compact-text' }, ATTRIBUTION_SHORT_TEXT[row.managementAttribution] || row.managementAttribution || '-')
+      const factor = row.confidenceFactors?.managementAttribution
+      return h('span', { class: 'compact-text' }, ATTRIBUTION_SHORT_TEXT[factor?.key] || ATTRIBUTION_SHORT_TEXT[row.managementAttribution] || row.managementAttribution || '-')
     },
   },
   {
@@ -329,31 +344,13 @@ const productColumns = [
   {
     title: '证据/备注',
     key: 'notes',
-    width: 230,
     render(row) {
-      const parts = evidenceParts(row)
-      if (!parts.length) return '-'
-
-      return h('div', { class: 'evidence-brief' }, [
-        h('span', { class: 'evidence-summary' }, compactText(parts[0], 42)),
-        h(NPopover, { trigger: 'click', placement: 'left', width: 560 }, {
-          trigger: () => h(NButton, { text: true, type: 'primary', size: 'tiny' }, () => '详情'),
-          default: () => h('div', { class: 'evidence-popover' }, [
-            h('p', [
-              h('strong', '占比档位：'),
-              row.confidenceFactors?.shareOfScope?.label || SHARE_TEXT[row.shareOfScope] || row.shareOfScope || '-',
-            ]),
-            h('p', [
-              h('strong', '归因：'),
-              row.confidenceFactors?.managementAttribution?.label || ATTRIBUTION_TEXT[row.managementAttribution] || row.managementAttribution || '-',
-            ]),
-            ...parts.map((part) => h('p', part)),
-          ]),
-        }),
-      ])
+      return renderEvidenceCell(evidenceParts(row))
     },
   },
 ]
+
+const nodeSignalColumns = productNodeColumns
 
 const categoryColumns = [
   { title: '产品大类', key: 'categoryName', width: 180 },
@@ -407,9 +404,8 @@ const categoryColumns = [
   },
 ]
 
-const signalColumns = [
-  { title: '\u7c7b\u578b', key: 'targetTypeLabel', width: 80 },
-  { title: '\u76ee\u6807', key: 'targetLabel', width: 240 },
+const edgeSignalColumns = [
+  { title: '\u8fb9', key: 'targetLabel', width: 280 },
   { title: '\u6307\u6807', key: 'metricLabel', width: 170 },
   {
     title: '\u503c',
@@ -433,6 +429,90 @@ const signalColumns = [
     width: 90,
     render(row) {
       return formatPercent(row.confidence)
+    },
+  },
+]
+
+const downstreamSignalColumns = [
+  { title: '\u4e0b\u6e38\u8282\u70b9', key: 'downstreamLabel', width: 190 },
+  { title: '\u6765\u6e90\u4ea7\u54c1', key: 'sourceProductLabel', width: 190 },
+  {
+    title: '\u5360\u6bd4\u6863\u4f4d',
+    key: 'shareOfScope',
+    width: 140,
+    render(row) {
+      const factor = row.confidenceFactors?.shareOfScope
+      return h('span', { class: 'compact-text' }, SHARE_SHORT_TEXT[factor?.key] || factor?.key || '-')
+    },
+  },
+  {
+    title: '\u5f52\u56e0',
+    key: 'managementAttribution',
+    width: 120,
+    render(row) {
+      const factor = row.confidenceFactors?.managementAttribution
+      return h('span', { class: 'compact-text' }, ATTRIBUTION_SHORT_TEXT[factor?.key] || factor?.key || '-')
+    },
+  },
+  {
+    title: '\u7f6e\u4fe1\u5ea6',
+    key: 'confidence',
+    width: 90,
+    render(row) {
+      return formatPercent(row.confidence)
+    },
+  },
+  {
+    title: '\u8bc1\u636e',
+    key: 'supportingContext',
+    render(row) {
+      const parts = (row.supportingContext || []).map((item) => item.value).filter(Boolean)
+      return renderEvidenceCell(parts)
+    },
+  },
+]
+
+const qualitativeSignalColumns = [
+  {
+    title: '方向',
+    key: 'directionLabel',
+    width: 120,
+    render(row) {
+      const tone = qualitativeSignalTone(row)
+      return h(NTag, { size: 'small', type: tone.tagType }, () => row.directionLabel)
+    },
+  },
+  {
+    title: '事件',
+    key: 'signalTypeLabel',
+    width: 150,
+    render(row) {
+      const tone = qualitativeSignalTone(row)
+      return h(NTag, {
+        size: 'small',
+        color: { color: tone.color, textColor: '#fff', borderColor: tone.color },
+      }, () => row.signalTypeLabel)
+    },
+  },
+  {
+    title: '强度/时间',
+    key: 'strengthLabel',
+    width: 150,
+    render(row) {
+      return `${row.strengthLabel} · ${row.timeHorizonLabel}`
+    },
+  },
+  { title: '关联对象', key: 'targetLabels', width: 260 },
+  {
+    title: '证据',
+    key: 'evidenceText',
+    render(row) {
+      const parts = [
+        row.evidenceText,
+        row.isConstraint ? '产能/供应瓶颈按绿色处理：代表需求强，但兑现受供给约束。' : '',
+        row.notes,
+      ].filter(Boolean)
+      return renderEvidenceCell(parts)
     },
   },
 ]
@@ -461,28 +541,23 @@ const SIGNAL_METRIC_TEXT = {
   demand_context_signal: '需求背景信号',
 }
 
-const SHARE_TEXT = {
-  high_over_80: 'A 在分类中占比极高（>80%）',
-  medium_30_80_or_unknown: 'A 在分类中占比中等（30%-80%）或占比不详',
-  low_under_30_or_mixed: 'A 在分类中占比低（<30%）或分类包含多项无关业务',
-}
-
 const SHARE_SHORT_TEXT = {
   high_over_80: '>80%',
   medium_30_80_or_unknown: '30%-80% / 不详',
   low_under_30_or_mixed: '<30% / 混合',
 }
 
-const ATTRIBUTION_TEXT = {
-  core_driver: '明确点名 A 是主要/核心驱动',
-  mentioned_contributor: '笼统提及 A 有贡献',
-  not_mentioned: '未提及 A',
-}
-
 const ATTRIBUTION_SHORT_TEXT = {
   core_driver: '核心驱动',
   mentioned_contributor: '有贡献',
   not_mentioned: '未提及',
+}
+
+const COMMERCIALIZATION_TEXT = {
+  external_sales: '对外销售',
+  internal_use_only: '内部自用',
+  r_and_d_or_sampling: '研发/送样',
+  not_revenue_product: '非收入产品',
 }
 
 
@@ -494,6 +569,22 @@ function formatTarget(target = {}) {
   if (target.type === 'edge') return `${nodeLabel(target.source)} -> ${nodeLabel(target.target)}`
   if (target.type === 'node') return nodeLabel(target.id)
   return target.id || target.type || '-'
+}
+
+function formatQualitativeTarget(target = {}) {
+  if (target.type === 'edge') return `边: ${nodeLabel(target.source)} -> ${nodeLabel(target.target)}`
+  if (target.type === 'node') return `节点: ${nodeLabel(target.id)}`
+  if (target.type === 'company') return `公司: ${target.id}`
+  return target.id || target.type || '-'
+}
+
+function toSignalRow(signal) {
+  return {
+    ...signal,
+    rowKey: signal.id,
+    targetLabel: formatTarget(signal.target),
+    metricLabel: SIGNAL_METRIC_TEXT[signal.metric] || signal.metric,
+  }
 }
 
 function formatTypedValue(value, unit) {
@@ -528,10 +619,23 @@ function formatPercent(value) {
 
 function evidenceParts(row) {
   return [
+    row.evidenceText,
     row.attributionEvidenceText,
     row.shareOfScopeEvidenceText,
     row.notes,
   ].filter(Boolean)
+}
+
+function renderEvidenceCell(parts) {
+  if (!parts.length) return '-'
+
+  return h('div', { class: 'evidence-brief' }, [
+    h('span', { class: 'evidence-summary' }, compactText(parts[0], 42)),
+    h(NPopover, { trigger: 'click', placement: 'left', width: 560 }, {
+      trigger: () => h(NButton, { text: true, type: 'primary', size: 'tiny' }, () => '详情'),
+      default: () => h('div', { class: 'evidence-popover' }, parts.map((part) => h('p', part))),
+    }),
+  ])
 }
 
 function compactText(value, maxLength) {
@@ -609,6 +713,13 @@ function compactText(value, maxLength) {
   min-width: 0;
 }
 
+.signal-section-title {
+  margin: 18px 0 10px;
+}
+
+.signal-section-title:first-of-type {
+  margin-top: 0;
+}
 
 .compact-text {
   display: inline-block;

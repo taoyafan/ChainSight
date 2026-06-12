@@ -17,33 +17,22 @@
     "audited": false,
     "sources": [
       {
-        "name": "东方财富公告镜像：源杰科技 2026 年第一季度报告",
-        "type": "disclosure_mirror",
+        "id": "yuanjie_2026q1_eastmoney_notice_text",
+        "name": "东方财富公告正文缓存：源杰科技 2026 年第一季度报告",
+        "role": "primary",
+        "type": "disclosure_text_cache",
         "url": "https://data.eastmoney.com/notices/detail/688498/AN202604271821622147.html",
-        "localPathIgnored": "raw/AN202604271821622147.html",
+        "localPathIgnored": "raw/yuanjie_2026q1_eastmoney_notice.txt",
         "publisher": "东方财富网",
         "accessedAt": "2026-06-05"
       },
       {
-        "name": "东方财富公告 PDF：源杰科技 2026 年第一季度报告",
-        "type": "disclosure_mirror_pdf",
-        "url": "https://pdf.dfcfw.com/pdf/H2_AN202604271821622147_1.pdf?1777315183000.pdf",
-        "localPathIgnored": "raw/H2_AN202604271821622147_1.pdf",
-        "publisher": "东方财富网",
-        "accessedAt": "2026-06-05"
-      },
-      {
-        "name": "东方财富公告内容接口分页缓存",
-        "type": "disclosure_mirror_json_cache",
-        "localPathIgnored": "raw/eastmoney_content_page*.json",
-        "publisher": "东方财富网",
-        "accessedAt": "2026-06-05"
-      },
-      {
-        "name": "新浪财经研报镜像：华泰证券《源杰科技(688498)：公司CW光芯片业务步入收获期》",
-        "type": "third_party_research_mirror",
+        "id": "huatai_yuanjie_cw_chip_2026_04_28",
+        "name": "华泰证券：源杰科技(688498)：公司CW光芯片业务步入收获期",
+        "role": "supporting",
+        "type": "third_party_research_text_cache",
         "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/830705072216/index.phtml",
-        "localPathIgnored": "raw/sina_huatai_yuanjie_cw_chip_2026-04-28.html",
+        "localPathIgnored": "raw/sina_huatai_yuanjie_cw_chip_2026-04-28.txt",
         "publisher": "新浪财经 / 华泰证券股份有限公司",
         "accessedAt": "2026-06-10"
       }
@@ -57,6 +46,7 @@
       "unit": "CNY",
       "period": "2026Q1",
       "yoy": 3.2094,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "营业收入 355,278,486.49 元，同比增长 320.94%。",
       "sourceSection": "主要会计数据和财务指标"
     },
@@ -67,6 +57,7 @@
       "unit": "CNY",
       "period": "2026Q1",
       "yoy": 0.6873,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "营业成本 78,843,893.33 元，上年同期 46,723,352.39 元。",
       "sourceSection": "利润表"
     },
@@ -77,6 +68,7 @@
       "unit": "CNY",
       "period": "2026Q1",
       "yoy": 11.513,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "利润总额 211,353,903.33 元，同比增长 1,151.30%。",
       "sourceSection": "主要会计数据和财务指标"
     },
@@ -87,6 +79,7 @@
       "unit": "CNY",
       "period": "2026Q1",
       "yoy": 11.5307,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "归属于上市公司股东的净利润 179,441,968.61 元，同比增长 1,153.07%。",
       "sourceSection": "主要会计数据和财务指标"
     },
@@ -97,6 +90,7 @@
       "unit": "CNY",
       "period": "2026Q1",
       "yoy": 11.7364,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "归属于上市公司股东的扣除非经常性损益的净利润 177,939,676.39 元，同比增长 1,173.64%。",
       "sourceSection": "主要会计数据和财务指标"
     },
@@ -106,6 +100,8 @@
       "value": 39650807.07,
       "unit": "CNY",
       "period": "2026Q1",
+      "yoy": null,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "经营活动产生的现金流量净额 39,650,807.07 元。",
       "sourceSection": "主要会计数据和财务指标"
     },
@@ -116,6 +112,7 @@
       "unit": "CNY",
       "period": "2026Q1",
       "yoy": 0.7794,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "研发投入合计 20,650,110.32 元，同比增长 77.94%。",
       "sourceSection": "主要会计数据和财务指标"
     },
@@ -125,6 +122,8 @@
       "value": 0.0581,
       "unit": "ratio",
       "period": "2026Q1",
+      "yoy": null,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
       "sourceText": "研发投入占营业收入的比例 5.81%。",
       "sourceSection": "主要会计数据和财务指标"
     },
@@ -162,11 +161,10 @@
   "productCategoryMetrics": [],
   "graphSignals": [
     {
-      "id": "yuanjie-2026q1-cw-laser-growth-input",
+      "id": "2026-04-28-yuanjie-tech-2026q1-cw_light_source-node-growth",
       "target": {
-        "type": "edge",
-        "source": "cw_light_source",
-        "target": "silicon_photonic_engine"
+        "type": "node",
+        "id": "cw_light_source"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 3.2094,
@@ -174,9 +172,9 @@
       "period": "2026Q1",
       "estimated": true,
       "confidence": 0.85,
-      "method": "derived_from_product_growth_input",
+      "method": "derived_from_mapping_product_node",
       "derived": true,
-      "derivedFrom": "yuanjie-2026q1-cw-laser-growth-input",
+      "derivedFrom": "2026-04-28_yuanjie-tech_2026q1:cw_light_source:2026Q1",
       "confidenceModel": "share_attribution_matrix",
       "confidenceFactors": {
         "shareOfScope": {
@@ -201,42 +199,54 @@
         {
           "source": "management_attribution",
           "metric": "core_driver",
-          "value": "数据中心领域 CW 光源产品销售额实现增长",
+          "value": "数据中心领域 CW 光源产品销售额增长。",
           "unit": "text"
         },
         {
           "source": "share_of_scope",
           "metric": "medium_30_80_or_unknown",
-          "value": "Q1 未披露 CW 光源单独收入金额或同比增速；用公司整体收入同比作为增长 proxy。",
+          "value": "报告未披露 CW 光源产品级收入或同比增速；用公司整体营业收入同比作为 CW 光源节点增长 proxy。",
           "unit": "text"
         }
       ]
     },
     {
-      "id": "yuanjie-2026q1-eml-laser-chip-growth-input",
+      "id": "2026-04-28-yuanjie-tech-2026q1-cw_light_source-to-silicon_photonic_engine-growth",
       "target": {
         "type": "edge",
-        "source": "eml_laser_chip",
-        "target": "eml_transmit_engine"
+        "source": "cw_light_source",
+        "target": "silicon_photonic_engine"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 3.2094,
       "unit": "yoy_ratio",
       "period": "2026Q1",
       "estimated": true,
-      "confidence": 0.1,
-      "method": "derived_from_product_growth_input",
+      "confidence": 0.722,
+      "method": "derived_from_product_node_and_downstream_attribution",
       "derived": true,
-      "derivedFrom": "yuanjie-2026q1-eml-laser-chip-growth-input",
-      "confidenceModel": "share_attribution_matrix",
+      "derivedFrom": "2026-04-28_yuanjie-tech_2026q1:cw_light_source:2026Q1",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
       "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
+        "productNode": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
         },
-        "managementAttribution": {
-          "key": "not_mentioned",
-          "label": "管理层未提及 A"
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
         }
       },
       "sourceMetricIds": [
@@ -251,14 +261,26 @@
         },
         {
           "source": "management_attribution",
-          "metric": "not_mentioned",
-          "value": "未提及",
+          "metric": "core_driver",
+          "value": "数据中心领域 CW 光源产品销售额增长。",
           "unit": "text"
         },
         {
           "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "公司覆盖 EML/DFB 产品，但 2026Q1 未提及 EML/DFB 收入或增速；第三方研报显示 EML 仍处客户验证/推进阶段，Q1 增长未归因于 EML，因此按 low_under_30_or_mixed 档位处理，并用公司整体收入同比作为低置信度 proxy。",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告未披露 CW 光源产品级收入或同比增速；用公司整体营业收入同比作为 CW 光源节点增长 proxy。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "core_driver",
+          "value": "数据中心领域 CW 光源产品销售额增长。",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "报告只披露数据中心领域 CW 光源销售额增长，没有披露具体下游形态或产品级收入占比；基于 taxonomy 中 cw_light_source -> silicon_photonic_engine 的真实边生成低拆分度边信号。",
           "unit": "text"
         }
       ]
@@ -270,20 +292,17 @@
       "companyId": "yuanjie_tech",
       "period": "2026Q1",
       "fields": {
-        "layer": "chip",
-        "techRoute": "III-V 外延/晶圆能力 / CW 光源 / DFB/EML 光通信激光芯片",
-        "keyCustomers": [
-          "数据中心客户"
-        ],
+        "layer": "",
+        "techRoute": "",
+        "keyCustomers": [],
         "relatedNodeIds": [
-          "iii_v_epi_wafer",
           "cw_light_source",
           "eml_laser_chip"
         ]
       },
       "estimated": true,
       "confidence": 1,
-      "method": "derived_from_company_product_coverage",
+      "method": "derived_from_mapping_product_coverage",
       "sourceMetricIds": [
         "revenue"
       ]
@@ -291,16 +310,15 @@
   ],
   "timelineEvents": [
     {
-      "id": "yuanjie-2026q1-report-published",
+      "id": "yuanjie-tech-2026q1-report-published",
       "date": "2026-04-28",
       "type": "financial_report",
-      "title": "源杰科技发布 2026 年第一季度报告",
-      "summary": "报告期 2026Q1，营业收入同比 +320.9%，归母净利润同比 +1153.1%；公司说明增长主要受益于客户需求增长、数据中心领域 CW 光源产品销售额增长和产品结构优化。",
+      "title": "陕西源杰半导体科技股份有限公司发布 2026 年第一季度报告",
+      "summary": "陕西源杰半导体科技股份有限公司发布2026Q1报告。",
       "relatedNodeIds": [
         "cw_light_source",
-        "silicon_photonic_engine",
         "eml_laser_chip",
-        "eml_pluggable_module"
+        "silicon_photonic_engine"
       ],
       "relatedCompanyIds": [
         "yuanjie_tech"
@@ -311,37 +329,27 @@
   "companyProductCoverage": [
     {
       "companyId": "yuanjie_tech",
-      "productNodeId": "iii_v_epi_wafer",
-      "coverageEvidenceType": "annual_report",
-      "coverageSource": "公司定期报告/产品与技术路线披露",
-      "evidenceText": "公司具备 III-V 族化合物半导体外延、芯片设计及制造相关能力。",
-      "isRevenueProduct": false,
-      "notes": "本节点只记录能力覆盖；2026Q1 未披露该节点收入或增速，因此不生成输出边。"
-    },
-    {
-      "companyId": "yuanjie_tech",
       "productNodeId": "cw_light_source",
       "coverageEvidenceType": "current_report",
       "coverageSource": "2026 年第一季度报告",
-      "evidenceText": "报告说明数据中心领域 CW 光源产品销售额实现增长。",
+      "evidenceText": "报告直接披露数据中心领域 CW 光源产品销售额增长。",
       "isRevenueProduct": true,
-      "notes": "2026Q1 点名 CW 光源增长，但未披露 CW 单独收入金额或同比增速。"
+      "commercializationType": "external_sales",
+      "notes": "2026Q1 点名 CW 光源销售额增长，但未披露 CW 光源单独收入金额、收入占比或同比增速。"
     },
     {
       "companyId": "yuanjie_tech",
       "productNodeId": "eml_laser_chip",
-      "coverageEvidenceType": "official_product_catalog",
-      "coverageSource": "公司产品目录/公开产品信息",
-      "evidenceText": "公司覆盖 DFB/EML 光通信激光芯片产品。",
-      "isRevenueProduct": true,
-      "notes": "2026Q1 未单独披露 EML/DFB 收入、占比或同比增速；华泰证券 2026-04-28 研报显示 EML 仍处客户验证/推进阶段。"
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "2026 年第一季度报告",
+      "evidenceText": "华泰证券研报称，根据公司 2025 年年报，100G PAM4 EML 产品完成客户验证，200G PAM4 EML 产品开始推进客户验证。",
+      "isRevenueProduct": false,
+      "commercializationType": "r_and_d_or_sampling",
+      "notes": "辅助来源支持 EML 产品验证状态；本期 2026Q1 财报没有披露 EML/DFB 收入、占比或增长归因，因此不生成 EML 财务或边增长信号。"
     }
   ],
   "productGrowthInputs": [
     {
-      "id": "yuanjie-2026q1-cw-laser-growth-input",
-      "companyId": "yuanjie_tech",
-      "productNodeId": "cw_light_source",
       "period": "2026Q1",
       "growthMetricId": "revenue",
       "growthValue": 3.2094,
@@ -350,60 +358,191 @@
       "scopeLabel": "公司整体营业收入",
       "shareOfScope": "medium_30_80_or_unknown",
       "managementAttribution": "core_driver",
-      "attributionEvidenceText": "数据中心领域 CW 光源产品销售额实现增长",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
+      "attributionEvidenceText": "数据中心领域 CW 光源产品销售额增长。",
       "sourceMetricIds": [
         "revenue"
       ],
+      "notes": "报告未披露 CW 光源产品级收入或同比增速；用公司整体营业收入同比作为 CW 光源节点增长 proxy。",
+      "id": "2026-04-28-yuanjie-tech-2026q1-cw_light_source-node-growth-input",
+      "productNodeId": "cw_light_source",
       "graphTarget": {
-        "type": "edge",
-        "source": "cw_light_source",
-        "target": "silicon_photonic_engine"
+        "type": "node",
+        "id": "cw_light_source"
       },
-      "notes": "Q1 未披露 CW 光源单独收入金额或同比增速；用公司整体收入同比作为增长 proxy。"
+      "confidence": 0.85
     },
     {
-      "id": "yuanjie-2026q1-eml-laser-chip-growth-input",
-      "companyId": "yuanjie_tech",
-      "productNodeId": "eml_laser_chip",
       "period": "2026Q1",
       "growthMetricId": "revenue",
       "growthValue": 3.2094,
       "growthValueType": "yoy_ratio",
       "revenueScope": "company_total",
       "scopeLabel": "公司整体营业收入",
-      "shareOfScope": "low_under_30_or_mixed",
-      "managementAttribution": "not_mentioned",
-      "attributionEvidenceText": "",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "core_driver",
+      "attributionEvidenceText": "数据中心领域 CW 光源产品销售额增长。",
       "sourceMetricIds": [
         "revenue"
       ],
+      "notes": "报告未披露 CW 光源产品级收入或同比增速；用公司整体营业收入同比作为 CW 光源节点增长 proxy。",
+      "id": "2026-04-28-yuanjie-tech-2026q1-cw_light_source-to-silicon_photonic_engine-growth-input",
+      "productNodeId": "cw_light_source",
       "graphTarget": {
         "type": "edge",
-        "source": "eml_laser_chip",
-        "target": "eml_transmit_engine"
+        "source": "cw_light_source",
+        "target": "silicon_photonic_engine"
       },
-      "notes": "公司覆盖 EML/DFB 产品，但 2026Q1 未提及 EML/DFB 收入或增速；第三方研报显示 EML 仍处客户验证/推进阶段，Q1 增长未归因于 EML，因此按 low_under_30_or_mixed 档位处理，并用公司整体收入同比作为低置信度 proxy。",
-      "shareOfScopeEvidenceSource": "新浪财经研报镜像：华泰证券《源杰科技(688498)：公司CW光芯片业务步入收获期》",
-      "shareOfScopeEvidenceText": "华泰证券研报将公司 1Q26 高增长主因归于数据中心领域 CW 光源产品销售额增长；同时称 100G PAM4 EML 完成客户验证、200G PAM4 EML 开始推进客户验证，并在风险提示中写入 EML 芯片研发进展不及预期。"
+      "confidence": 0.722
     }
   ],
   "products": [],
-  "notes": {
-    "summary": "源杰科技 2026Q1 披露公司整体收入同比 +320.94%，并明确说明数据中心领域 CW 光源产品销售额增长；未披露 CW、EML/DFB 的单独收入、占比或同比增速。",
-    "mappingAssumptions": [
-      "CW 光源映射到 cw_light_source -> silicon_photonic_engine。",
-      "EML/DFB 光通信激光芯片映射到 eml_laser_chip -> eml_transmit_engine。",
-      "III-V 外延/晶圆只作为产品/能力覆盖节点，不从本季报生成输出边。"
+  "mapping": {
+    "productNodes": [
+      {
+        "nodeId": "cw_light_source",
+        "coverage": {
+          "commercializationType": "external_sales",
+          "factIds": [
+            "item_002_cw_light_source_sales_growth"
+          ],
+          "evidenceText": "报告直接披露数据中心领域 CW 光源产品销售额增长。",
+          "notes": "2026Q1 点名 CW 光源销售额增长，但未披露 CW 光源单独收入金额、收入占比或同比增速。"
+        },
+        "financial": {
+          "period": "2026Q1",
+          "growthMetricId": "revenue",
+          "growthValue": 3.2094,
+          "growthValueType": "yoy_ratio",
+          "revenueScope": "company_total",
+          "scopeLabel": "公司整体营业收入",
+          "shareOfScope": "medium_30_80_or_unknown",
+          "managementAttribution": "core_driver",
+          "attributionEvidenceText": "数据中心领域 CW 光源产品销售额增长。",
+          "sourceMetricIds": [
+            "revenue"
+          ],
+          "notes": "报告未披露 CW 光源产品级收入或同比增速；用公司整体营业收入同比作为 CW 光源节点增长 proxy。"
+        }
+      },
+      {
+        "nodeId": "eml_laser_chip",
+        "coverage": {
+          "commercializationType": "r_and_d_or_sampling",
+          "factIds": [
+            "item_005_eml_customer_verification"
+          ],
+          "evidenceText": "华泰证券研报称，根据公司 2025 年年报，100G PAM4 EML 产品完成客户验证，200G PAM4 EML 产品开始推进客户验证。",
+          "notes": "辅助来源支持 EML 产品验证状态；本期 2026Q1 财报没有披露 EML/DFB 收入、占比或增长归因，因此不生成 EML 财务或边增长信号。"
+        },
+        "financial": null
+      }
     ],
-    "limitations": [
-      "公司整体收入同比不是 CW 或 EML/DFB 的产品级同比。",
-      "Q1 报告没有披露 EML/DFB 的收入分类、占比或增长归因。",
-      "置信度由脚本根据 shareOfScope 与 managementAttribution 二维矩阵计算。",
-      "EML 占比档位使用华泰证券 2026-04-28 研报作为第三方辅助证据；该研报未披露 EML 具体收入金额，因此不能写成确定小于 30%，只按 low_under_30_or_mixed 档位处理。"
+    "downstreamAttributions": [
+      {
+        "downstreamNodeId": "silicon_photonic_engine",
+        "sourceProductNodeId": "cw_light_source",
+        "factIds": [
+          "item_002_cw_light_source_sales_growth"
+        ],
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "core_driver",
+        "attributionEvidenceText": "数据中心领域 CW 光源产品销售额增长。",
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "notes": "报告只披露数据中心领域 CW 光源销售额增长，没有披露具体下游形态或产品级收入占比；基于 taxonomy 中 cw_light_source -> silicon_photonic_engine 的真实边生成低拆分度边信号。"
+      }
+    ],
+    "productNodeSignals": [
+      {
+        "id": "2026-04-28-yuanjie-tech-2026q1-cw_light_source-node-growth",
+        "target": {
+          "type": "node",
+          "id": "cw_light_source"
+        },
+        "metric": "revenue_growth_yoy_proxy",
+        "value": 3.2094,
+        "unit": "yoy_ratio",
+        "period": "2026Q1",
+        "estimated": true,
+        "confidence": 0.85,
+        "method": "derived_from_mapping_product_node",
+        "derived": true,
+        "derivedFrom": "2026-04-28_yuanjie-tech_2026q1:cw_light_source:2026Q1",
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "公司整体营业收入",
+            "metric": "revenue",
+            "value": 3.2094,
+            "unit": "yoy_ratio"
+          },
+          {
+            "source": "management_attribution",
+            "metric": "core_driver",
+            "value": "数据中心领域 CW 光源产品销售额增长。",
+            "unit": "text"
+          },
+          {
+            "source": "share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "报告未披露 CW 光源产品级收入或同比增速；用公司整体营业收入同比作为 CW 光源节点增长 proxy。",
+            "unit": "text"
+          }
+        ]
+      }
+    ],
+    "downstreamSignals": [
+      {
+        "downstreamNodeId": "silicon_photonic_engine",
+        "sourceProductNodeId": "cw_light_source",
+        "confidence": 0.85,
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "factIds": [
+          "item_002_cw_light_source_sales_growth"
+        ],
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "downstream_attribution",
+            "metric": "core_driver",
+            "value": "数据中心领域 CW 光源产品销售额增长。",
+            "unit": "text"
+          },
+          {
+            "source": "downstream_share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "报告只披露数据中心领域 CW 光源销售额增长，没有披露具体下游形态或产品级收入占比；基于 taxonomy 中 cw_light_source -> silicon_photonic_engine 的真实边生成低拆分度边信号。",
+            "unit": "text"
+          }
+        ]
+      }
     ]
-  }
+  },
+  "notes": {}
 }

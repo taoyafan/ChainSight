@@ -21,6 +21,37 @@
         </n-alert>
 
         <n-card size="small" style="margin-top: 16px;" :bordered="true">
+          <template #header>文字信号</template>
+          <n-list v-if="qualitativeItems.length" bordered>
+            <n-list-item v-for="item in qualitativeItems" :key="item.signal.id">
+              <n-thing>
+                <template #header>
+                  <n-space align="center" size="small">
+                    <n-tag size="tiny" :color="signalTagColor(item.signal)">
+                      {{ signalTypeText(item.signal.signalType) }}
+                    </n-tag>
+                    <n-tag size="tiny" :type="signalTagType(item.signal)">
+                      {{ signalToneText(item.signal) }}
+                    </n-tag>
+                    <n-text depth="3">{{ item.report.companyName || item.signal.companyId }}</n-text>
+                  </n-space>
+                </template>
+                <template #description>
+                  <n-space vertical size="small">
+                    <n-text>{{ item.signal.evidenceText }}</n-text>
+                    <n-text depth="3">
+                      {{ strengthText(item.signal.strength) }} · {{ timeHorizonText(item.signal.timeHorizon) }}
+                      <template v-if="isConstraint(item.signal)"> · 需求强但兑现受供给约束</template>
+                    </n-text>
+                  </n-space>
+                </template>
+              </n-thing>
+            </n-list-item>
+          </n-list>
+          <n-empty v-else size="small" description="暂无文字信号" />
+        </n-card>
+
+        <n-card size="small" style="margin-top: 16px;" :bordered="true">
           <template #header>收入 proxy 份额</template>
           <n-space v-if="revenueItems.length" vertical size="small">
             <div
@@ -87,7 +118,18 @@ import {
 } from 'naive-ui'
 import FeedbackButton from './FeedbackButton.vue'
 import { STATUS_TEXT } from '@/utils/helpers'
-import { getNodeRevenueProxyItems, getNodeWatchRows } from '@/utils/reportRepository'
+import {
+  getNodeQualitativeSignals,
+  getNodeRevenueProxyItems,
+  getNodeWatchRows,
+} from '@/utils/reportRepository'
+import {
+  QUALITATIVE_SIGNAL_TEXT,
+  QUALITATIVE_STRENGTH_TEXT,
+  QUALITATIVE_TIME_HORIZON_TEXT,
+  isConstraintSignal,
+  qualitativeSignalTone,
+} from '@/utils/qualitativeSignals'
 
 const props = defineProps({
   node: { type: Object, default: null },
@@ -124,6 +166,7 @@ const NODE_INTRO = {
 
 const nodeCompanies = computed(() => getNodeWatchRows(props.node?.id))
 const revenueItems = computed(() => getNodeRevenueProxyItems(props.node?.id))
+const qualitativeItems = computed(() => getNodeQualitativeSignals(props.node?.id))
 const nodeIntro = computed(() => NODE_INTRO[props.node?.id] || '')
 
 const statusType = computed(() => {
@@ -148,6 +191,34 @@ function handleAnalysisClick() {
 function formatPercent(value) {
   if (!Number.isFinite(value)) return '—'
   return `${(value * 100).toFixed(value >= 0.1 ? 0 : 1)}%`
+}
+function signalTypeText(type) {
+  return QUALITATIVE_SIGNAL_TEXT[type] || type || '-'
+}
+
+function signalToneText(signal) {
+  return qualitativeSignalTone(signal).text
+}
+
+function signalTagType(signal) {
+  return qualitativeSignalTone(signal).tagType
+}
+
+function signalTagColor(signal) {
+  const tone = qualitativeSignalTone(signal)
+  return { color: tone.color, textColor: '#fff', borderColor: tone.color }
+}
+
+function strengthText(strength) {
+  return `强度 ${QUALITATIVE_STRENGTH_TEXT[strength] || strength || '-'}`
+}
+
+function timeHorizonText(timeHorizon) {
+  return QUALITATIVE_TIME_HORIZON_TEXT[timeHorizon] || timeHorizon || '-'
+}
+
+function isConstraint(signal) {
+  return isConstraintSignal(signal)
 }
 </script>
 

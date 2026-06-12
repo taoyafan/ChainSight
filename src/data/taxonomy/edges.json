@@ -12,6 +12,18 @@
     "label": "外延/晶圆供应"
   },
   {
+    "source": "iii_v_epi_wafer",
+    "target": "vcsel_laser_chip",
+    "transactionAmountQuarterUsd": 8000000,
+    "label": "外延/晶圆供应"
+  },
+  {
+    "source": "iii_v_epi_wafer",
+    "target": "high_speed_photodiode",
+    "transactionAmountQuarterUsd": 9000000,
+    "label": "外延/晶圆供应"
+  },
+  {
     "source": "cw_light_source",
     "target": "silicon_photonic_engine",
     "transactionAmountQuarterUsd": 28000000,
@@ -96,6 +108,18 @@
     "label": "接收端模块供应"
   },
   {
+    "source": "high_speed_photodiode",
+    "target": "eml_pd_module",
+    "transactionAmountQuarterUsd": 18000000,
+    "label": "探测器器件供应"
+  },
+  {
+    "source": "vcsel_laser_chip",
+    "target": "optical_module",
+    "transactionAmountQuarterUsd": 22000000,
+    "label": "短距发射芯片供应"
+  },
+  {
     "source": "silicon_photonic_fiber_array",
     "target": "silicon_photonic_engine",
     "transactionAmountQuarterUsd": 12000000,
@@ -106,6 +130,12 @@
     "target": "cpo_module",
     "transactionAmountQuarterUsd": 120000000,
     "label": "硅光引擎封装"
+  },
+  {
+    "source": "silicon_photonic_engine",
+    "target": "npo_module",
+    "transactionAmountQuarterUsd": 90000000,
+    "label": "近封装光引擎集成"
   },
   {
     "source": "cpo_fiber_array",
@@ -150,6 +180,18 @@
     "label": "模组上板"
   },
   {
+    "source": "npo_module",
+    "target": "data_center_switch",
+    "transactionAmountQuarterUsd": 220000000,
+    "label": "近封装光互连"
+  },
+  {
+    "source": "dci_coherent_transceiver_zr",
+    "target": "data_center_switch",
+    "transactionAmountQuarterUsd": 180000000,
+    "label": "DCI 相干互连"
+  },
+  {
     "source": "switch_asic",
     "target": "cpo_switch",
     "transactionAmountQuarterUsd": 310000000,
@@ -172,6 +214,12 @@
     "target": "cloud_dc",
     "transactionAmountQuarterUsd": 880000000,
     "label": "网络部署"
+  },
+  {
+    "source": "optical_circuit_switch",
+    "target": "cloud_dc",
+    "transactionAmountQuarterUsd": 180000000,
+    "label": "光层网络重构"
   },
   {
     "source": "ai_server",

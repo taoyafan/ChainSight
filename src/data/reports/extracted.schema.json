@@ -32,6 +32,10 @@
       "type": "array",
       "items": { "$ref": "#/$defs/graphSignal" }
     },
+    "qualitativeSignals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/qualitativeSignal" }
+    },
     "companySignals": {
       "type": "array",
       "items": { "$ref": "#/$defs/companySignal" }
@@ -58,6 +62,10 @@
     },
     "notes": {
       "$ref": "#/$defs/reportNotes"
+    },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": true
     }
   },
   "$defs": {
@@ -114,6 +122,85 @@
           "type": "array",
           "items": { "type": "string" }
         }
+      }
+    },
+    "qualitativeSignal": {
+      "type": "object",
+      "required": [
+        "id",
+        "factIds",
+        "signalType",
+        "direction",
+        "strength",
+        "timeHorizon",
+        "targets",
+        "evidenceText",
+        "notes"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "factIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "signalType": {
+          "enum": [
+            "demand_growth",
+            "capacity_expansion",
+            "supply_constraint",
+            "long_term_order",
+            "new_product_ramp",
+            "technology_route",
+            "pricing_or_margin",
+            "customer_design_win",
+            "inventory_or_working_capital",
+            "risk_or_uncertainty"
+          ]
+        },
+        "direction": { "enum": ["positive", "negative", "neutral", "mixed"] },
+        "strength": { "enum": ["strong", "medium", "weak", "unknown"] },
+        "timeHorizon": { "enum": ["current_quarter", "next_12_months", "multi_year", "unknown"] },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "required": ["type", "id"],
+                "properties": {
+                  "type": { "const": "node" },
+                  "id": { "type": "string" }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["type", "source", "target"],
+                "properties": {
+                  "type": { "const": "edge" },
+                  "source": { "type": "string" },
+                  "target": { "type": "string" }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["type", "id"],
+                "properties": {
+                  "type": { "const": "company" },
+                  "id": { "type": "string" }
+                }
+              }
+            ]
+          }
+        },
+        "evidenceText": { "type": "string" },
+        "notes": { "type": "string" },
+        "sourceReportId": { "type": "string" },
+        "companyId": { "type": "string" },
+        "period": { "type": "string" },
+        "estimated": { "type": "boolean" },
+        "method": { "type": "string" }
       }
     },
     "companySignal": {

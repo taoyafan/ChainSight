@@ -1,3 +1,5 @@
+import { signalTargetKey } from '@/utils/qualitativeSignals'
+
 const extractedModules = import.meta.glob('@/data/reports/**/extracted.json', { eager: true })
 
 const EDGE_GROWTH_METRICS = new Set([
@@ -106,6 +108,10 @@ function normalizeReportPackage(extracted) {
       ...signal,
       sourceReportId: reportId,
     })),
+    qualitativeSignals: (extracted.qualitativeSignals || []).map((signal) => ({
+      ...signal,
+      sourceReportId: signal.sourceReportId || reportId,
+    })),
     companySignals: (extracted.companySignals || []).map((signal) => ({
       ...signal,
       sourceReportId: reportId,
@@ -119,6 +125,7 @@ function normalizeReportPackage(extracted) {
     productCategoryMetrics: extracted.productCategoryMetrics || [],
     companyProductCoverage: extracted.companyProductCoverage || [],
     productGrowthInputs: extracted.productGrowthInputs || [],
+    mapping: extracted.mapping || {},
     notes: extracted.notes || {},
   }
 }
@@ -138,6 +145,21 @@ export const metrics = reportPackages.flatMap((item) =>
 export const graphSignals = reportPackages.flatMap((item) =>
   item.graphSignals.map((signal) => ({ report: item.report, signal }))
 )
+
+export const qualitativeSignals = reportPackages.flatMap((item) =>
+  item.qualitativeSignals.map((signal) => ({ report: item.report, signal }))
+)
+
+function signalTouchesEdge(signal, source, target) {
+  const edgeKey = `edge:${source}->${target}`
+  return (signal.targets || []).some((item) => signalTargetKey(item) === edgeKey)
+}
+
+function signalTouchesNode(signal, nodeId) {
+  return (signal.targets || []).some((item) => {
+    return item.type === 'node' && item.id === nodeId
+  })
+}
 
 export const companySignals = reportPackages.flatMap((item) =>
   item.companySignals.map((signal) => ({ report: item.report, signal }))
@@ -350,4 +372,14 @@ export function getEdgeSignals(source, target) {
     const signalTarget = signal.target || {}
     return signalTarget.type === 'edge' && signalTarget.source === source && signalTarget.target === target
   })
+}
+
+export function getNodeQualitativeSignals(nodeId) {
+  if (!nodeId) return []
+  return qualitativeSignals.filter(({ signal }) => signalTouchesNode(signal, nodeId))
+}
+
+export function getEdgeQualitativeSignals(source, target) {
+  if (!source || !target) return []
+  return qualitativeSignals.filter(({ signal }) => signalTouchesEdge(signal, source, target))
 }

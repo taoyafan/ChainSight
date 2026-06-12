@@ -1,0 +1,263 @@
+{
+  "reportId": "2026-05-06_coherent_2026q3",
+  "productNodes": [
+    {
+      "nodeId": "iii_v_epi_wafer",
+      "coverage": {
+        "commercializationType": "internal_use_only",
+        "factIds": ["item_005"],
+        "evidenceText": "Coherent is ramping internal InP output and 6-inch wafer demand for AI infrastructure.",
+        "notes": "The sources describe internal InP output and wafer demand; no external wafer revenue, share, or growth is disclosed."
+      }
+    },
+    {
+      "nodeId": "cw_light_source",
+      "coverage": {
+        "commercializationType": "internal_use_only",
+        "factIds": ["item_005"],
+        "evidenceText": "The 6-inch platform produces CW lasers alongside EMLs and photodiodes.",
+        "notes": "Recorded as product/capability coverage only. The Q3 sources do not disclose standalone CW laser revenue, share, or growth."
+      }
+    },
+    {
+      "nodeId": "eml_laser_chip",
+      "coverage": {
+        "commercializationType": "internal_use_only",
+        "factIds": ["item_005"],
+        "evidenceText": "The 6-inch platform produces EMLs alongside CW lasers and photodiodes.",
+        "notes": "Recorded as product/capability coverage only. The Q3 sources do not disclose standalone EML revenue, share, or growth."
+      }
+    },
+    {
+      "nodeId": "vcsel_laser_chip",
+      "coverage": {
+        "commercializationType": "not_revenue_product",
+        "factIds": ["item_005"],
+        "evidenceText": "Multiple CPO architectures, Silicon Photonics, InP, and VCSEL enable flexible networks.",
+        "notes": "VCSEL is named as a technology route, but the Q3 sources do not disclose VCSEL revenue, share, or growth."
+      }
+    },
+    {
+      "nodeId": "high_speed_photodiode",
+      "coverage": {
+        "commercializationType": "not_revenue_product",
+        "factIds": ["item_005"],
+        "evidenceText": "The 6-inch platform produces photodiodes alongside EMLs and CW lasers.",
+        "notes": "This generic PD node is used because the source says photodiodes but does not specify silicon integrated PD or EML/DFB PD module revenue."
+      }
+    },
+    {
+      "nodeId": "silicon_photonic_integrated_pd",
+      "coverage": {
+        "commercializationType": "internal_use_only",
+        "factIds": ["item_005"],
+        "evidenceText": "The 6-inch platform produces photodiodes, and Silicon Photonics is listed among flexible network technologies.",
+        "notes": "Photodiode capability is named, but no standalone photodiode revenue, share, or growth is disclosed."
+      }
+    },
+    {
+      "nodeId": "npo_module",
+      "coverage": {
+        "commercializationType": "r_and_d_or_sampling",
+        "factIds": ["item_007"],
+        "evidenceText": "The presentation lists CPO/NPO as new revenue in H2 2026.",
+        "notes": "Recorded as roadmap coverage. Q3 FY2026 does not disclose current NPO revenue or growth."
+      }
+    },
+    {
+      "nodeId": "silicon_photonic_modulator",
+      "coverage": {
+        "commercializationType": "r_and_d_or_sampling",
+        "factIds": ["item_005"],
+        "evidenceText": "Multiple CPO architectures, Silicon Photonics, InP, and VCSEL enable flexible networks.",
+        "notes": "Silicon Photonics is named as a technology route; the sources do not isolate modulator revenue or current commercialization."
+      }
+    },
+    {
+      "nodeId": "silicon_photonic_engine",
+      "coverage": {
+        "commercializationType": "r_and_d_or_sampling",
+        "factIds": ["item_005", "item_007"],
+        "evidenceText": "Coherent describes end-to-end optical integration for next-generation AI architectures and lists CPO/NPO as new revenue in H2 2026.",
+        "notes": "Recorded as roadmap/capability coverage. Q3 FY2026 does not disclose silicon photonic engine revenue or growth."
+      }
+    },
+    {
+      "nodeId": "cpo_module",
+      "coverage": {
+        "commercializationType": "r_and_d_or_sampling",
+        "factIds": ["item_005", "item_007"],
+        "evidenceText": "The presentation names multiple CPO architectures and lists CPO/NPO as new revenue in H2 2026.",
+        "notes": "Not treated as current Q3 FY2026 external sales because the source places CPO/NPO new revenue in H2 2026."
+      }
+    },
+    {
+      "nodeId": "optical_module",
+      "coverage": {
+        "commercializationType": "external_sales",
+        "factIds": ["item_001", "item_006"],
+        "evidenceText": "The Datacenter & Communications segment includes transceivers and modules; the presentation lists transceivers as growth engines.",
+        "notes": "Broad optical module parent node used because the sources do not split revenue by EML/DFB versus silicon photonic module route."
+      },
+      "financial": {
+        "period": "FY2026Q3",
+        "growthMetricId": "datacenter_and_communications_revenue",
+        "growthValue": 0.405748,
+        "growthValueType": "yoy_ratio",
+        "revenueScope": "segment",
+        "scopeLabel": "Datacenter & Communications segment revenue",
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "mentioned_contributor",
+        "attributionEvidenceText": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
+        "sourceMetricIds": ["datacenter_and_communications_revenue"],
+        "notes": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed."
+      }
+    },
+    {
+      "nodeId": "eml_pluggable_module",
+      "coverage": {
+        "commercializationType": "not_revenue_product",
+        "factIds": ["item_001", "item_006"],
+        "evidenceText": "The Datacenter & Communications segment includes transceivers and modules; transceivers at 1.6T, 3.2T, and 6.4T are listed as growth engines.",
+        "notes": "Required optical_module child. Kept as route coverage only because the sources do not identify the transceiver route as EML/DFB or disclose EML/DFB module financials."
+      }
+    },
+    {
+      "nodeId": "silicon_photonic_pluggable_module",
+      "coverage": {
+        "commercializationType": "not_revenue_product",
+        "factIds": ["item_001", "item_005", "item_006"],
+        "evidenceText": "The segment includes transceivers and modules, and the presentation names Silicon Photonics among technologies for flexible networks.",
+        "notes": "Required optical_module child. Kept as route coverage only because Silicon Photonics is named as a technology route, but no silicon photonic pluggable module financial split is disclosed."
+      }
+    },
+    {
+      "nodeId": "dci_coherent_transceiver_zr",
+      "coverage": {
+        "commercializationType": "not_revenue_product",
+        "factIds": ["item_006"],
+        "evidenceText": "The investor presentation lists DCI Transceivers ZR/ZR+ as growth engines.",
+        "notes": "Recorded as product-line coverage only. The Q3 sources do not disclose DCI/ZR revenue, share, or growth."
+      }
+    },
+    {
+      "nodeId": "optical_circuit_switch",
+      "coverage": {
+        "commercializationType": "not_revenue_product",
+        "factIds": ["item_006"],
+        "evidenceText": "The investor presentation lists Optical Circuit Switch as a growth engine.",
+        "notes": "Recorded as product-line coverage only. The Q3 sources do not disclose OCS revenue, share, or growth."
+      }
+    }
+  ],
+  "downstreamAttributions": [
+    {
+      "downstreamNodeId": "ai_server",
+      "sourceProductNodeId": null,
+      "factIds": ["item_003", "item_005"],
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "core_driver",
+      "attributionEvidenceText": "Management said AI datacenter infrastructure continues to scale and that Coherent is expanding capacity to meet demand.",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "notes": "AI infrastructure is the clearest demand driver, but the sources do not disclose revenue by AI server attachment."
+    },
+    {
+      "downstreamNodeId": "data_center_switch",
+      "sourceProductNodeId": null,
+      "factIds": ["item_005", "item_006"],
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "mentioned_contributor",
+      "attributionEvidenceText": "The presentation names optical networking products, 400G/lane links, optical circuit switch, transceivers, and multi-rail for AI datacenters.",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "notes": "Mapped to the data center networking side of the topology. No switch-specific revenue or growth is disclosed."
+    },
+    {
+      "downstreamNodeId": "cloud_dc",
+      "sourceProductNodeId": null,
+      "factIds": ["item_003", "item_005"],
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "core_driver",
+      "attributionEvidenceText": "The sources repeatedly attribute demand to AI datacenter infrastructure and scalable high-performance infrastructure.",
+      "sourceMetricIds": ["datacenter_and_communications_revenue"],
+      "notes": "Used as terminal demand context. Product nodes do not directly auto-generate edges to cloud_dc in the taxonomy."
+    }
+  ],
+  "qualitativeSignals": [
+    {
+      "id": "coherent-2026q3-ai-datacenter-demand",
+      "factIds": ["item_003"],
+      "signalType": "demand_growth",
+      "direction": "positive",
+      "strength": "strong",
+      "timeHorizon": "current_quarter",
+      "targets": [
+        { "type": "node", "id": "ai_server" },
+        { "type": "node", "id": "cloud_dc" },
+        { "type": "edge", "source": "optical_module", "target": "ai_server" }
+      ],
+      "evidenceText": "Management said the quarter was driven by exceptionally strong demand across datacenter and communications, and that AI datacenter infrastructure scaling is driving capacity expansion.",
+      "notes": "This is a qualitative demand signal only; it should not change YoY line width because no AI-server-specific revenue split is disclosed."
+    },
+    {
+      "id": "coherent-2026q3-inp-capacity-expansion",
+      "factIds": ["item_005"],
+      "signalType": "capacity_expansion",
+      "direction": "positive",
+      "strength": "strong",
+      "timeHorizon": "next_12_months",
+      "targets": [
+        { "type": "node", "id": "iii_v_epi_wafer" },
+        { "type": "node", "id": "cw_light_source" },
+        { "type": "node", "id": "eml_laser_chip" },
+        { "type": "node", "id": "high_speed_photodiode" }
+      ],
+      "evidenceText": "Coherent says it is ramping Datacenter and Communications capacity end to end, is on track to double internal InP output by year-end and more than double again by 2027, and produces EMLs, CW lasers, and photodiodes on a 6-inch platform.",
+      "notes": "Targets internal capacity and component capability, not standalone external revenue."
+    },
+    {
+      "id": "coherent-2026q3-nvidia-capacity-agreement",
+      "factIds": ["item_008"],
+      "signalType": "long_term_order",
+      "direction": "positive",
+      "strength": "strong",
+      "timeHorizon": "multi_year",
+      "targets": [
+        { "type": "company", "id": "coherent" },
+        { "type": "node", "id": "optical_module" },
+        { "type": "edge", "source": "optical_module", "target": "ai_server" }
+      ],
+      "evidenceText": "The 10-Q says Coherent entered into a multi-year capacity agreement with NVIDIA that may require incremental investments in equipment, labor, and working capital to support future production volumes through 2030.",
+      "notes": "The source does not name a specific product in the agreement, so the optical module and AI server targets are contextual to the report's datacenter demand narrative."
+    },
+    {
+      "id": "coherent-2026q3-cpo-npo-new-revenue",
+      "factIds": ["item_007"],
+      "signalType": "new_product_ramp",
+      "direction": "positive",
+      "strength": "medium",
+      "timeHorizon": "next_12_months",
+      "targets": [
+        { "type": "node", "id": "cpo_module" },
+        { "type": "node", "id": "npo_module" }
+      ],
+      "evidenceText": "The presentation lists CPO/NPO as new revenue in H2 2026.",
+      "notes": "Roadmap signal only. It is not treated as current Q3 FY2026 revenue."
+    },
+    {
+      "id": "coherent-2026q3-optical-networking-growth-engines",
+      "factIds": ["item_006"],
+      "signalType": "technology_route",
+      "direction": "positive",
+      "strength": "medium",
+      "timeHorizon": "multi_year",
+      "targets": [
+        { "type": "node", "id": "optical_module" },
+        { "type": "node", "id": "dci_coherent_transceiver_zr" },
+        { "type": "node", "id": "optical_circuit_switch" },
+        { "type": "edge", "source": "optical_module", "target": "data_center_switch" }
+      ],
+      "evidenceText": "The presentation lists transceivers at 1.6T, 3.2T, and 6.4T, DCI transceivers, transport/transmission, optical circuit switch, optical components, and multi-rail as growth engines.",
+      "notes": "These are named growth engines without individual revenue or growth disclosure."
+    }
+  ]
+}

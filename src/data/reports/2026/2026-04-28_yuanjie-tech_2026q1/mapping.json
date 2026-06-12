@@ -1,0 +1,59 @@
+{
+  "reportId": "2026-04-28_yuanjie-tech_2026q1",
+  "productNodes": [
+    {
+      "nodeId": "cw_light_source",
+      "coverage": {
+        "commercializationType": "external_sales",
+        "factIds": [
+          "item_002_cw_light_source_sales_growth"
+        ],
+        "evidenceText": "报告直接披露数据中心领域 CW 光源产品销售额增长。",
+        "notes": "2026Q1 点名 CW 光源销售额增长，但未披露 CW 光源单独收入金额、收入占比或同比增速。"
+      },
+      "financial": {
+        "period": "2026Q1",
+        "growthMetricId": "revenue",
+        "growthValue": 3.2094,
+        "growthValueType": "yoy_ratio",
+        "revenueScope": "company_total",
+        "scopeLabel": "公司整体营业收入",
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "core_driver",
+        "attributionEvidenceText": "数据中心领域 CW 光源产品销售额增长。",
+        "sourceMetricIds": [
+          "revenue"
+        ],
+        "notes": "报告未披露 CW 光源产品级收入或同比增速；用公司整体营业收入同比作为 CW 光源节点增长 proxy。"
+      }
+    },
+    {
+      "nodeId": "eml_laser_chip",
+      "coverage": {
+        "commercializationType": "r_and_d_or_sampling",
+        "factIds": [
+          "item_005_eml_customer_verification"
+        ],
+        "evidenceText": "华泰证券研报称，根据公司 2025 年年报，100G PAM4 EML 产品完成客户验证，200G PAM4 EML 产品开始推进客户验证。",
+        "notes": "辅助来源支持 EML 产品验证状态；本期 2026Q1 财报没有披露 EML/DFB 收入、占比或增长归因，因此不生成 EML 财务或边增长信号。"
+      },
+      "financial": null
+    }
+  ],
+  "downstreamAttributions": [
+    {
+      "downstreamNodeId": "silicon_photonic_engine",
+      "sourceProductNodeId": "cw_light_source",
+      "factIds": [
+        "item_002_cw_light_source_sales_growth"
+      ],
+      "shareOfScope": "medium_30_80_or_unknown",
+      "managementAttribution": "core_driver",
+      "attributionEvidenceText": "数据中心领域 CW 光源产品销售额增长。",
+      "sourceMetricIds": [
+        "revenue"
+      ],
+      "notes": "报告只披露数据中心领域 CW 光源销售额增长，没有披露具体下游形态或产品级收入占比；基于 taxonomy 中 cw_light_source -> silicon_photonic_engine 的真实边生成低拆分度边信号。"
+    }
+  ]
+}

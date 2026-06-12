@@ -19,6 +19,40 @@
       </div>
     </section>
 
+    <section class="panel qualitative-panel">
+      <div class="panel-heading">
+        <n-h3 style="margin: 0;">文字信号</n-h3>
+        <n-text depth="3">绿色表示未来增长；红色表示未来降低；带约束提示表示需求强但受供给限制。</n-text>
+      </div>
+      <n-list v-if="qualitativeItems.length" bordered>
+        <n-list-item v-for="item in qualitativeItems" :key="item.signal.id">
+          <n-thing>
+            <template #header>
+              <n-space align="center" size="small">
+                <n-tag size="tiny" :color="signalTagColor(item.signal)">
+                  {{ signalTypeText(item.signal.signalType) }}
+                </n-tag>
+                <n-tag size="tiny" :type="signalTagType(item.signal)">
+                  {{ signalToneText(item.signal) }}
+                </n-tag>
+                <n-text depth="3">{{ item.report.companyName || item.signal.companyId }}</n-text>
+              </n-space>
+            </template>
+            <template #description>
+              <n-space vertical size="small">
+                <n-text>{{ item.signal.evidenceText }}</n-text>
+                <n-text depth="3">
+                  {{ strengthText(item.signal.strength) }} · {{ timeHorizonText(item.signal.timeHorizon) }}
+                  <template v-if="isConstraint(item.signal)"> · 需求强但兑现受供给约束</template>
+                </n-text>
+              </n-space>
+            </template>
+          </n-thing>
+        </n-list-item>
+      </n-list>
+      <n-empty v-else description="暂无文字信号" />
+    </section>
+
     <section class="content-grid">
       <div class="panel chart-panel">
         <div class="panel-heading">
@@ -120,9 +154,17 @@ import { LAYER_TEXT, STATUS_TEXT } from '@/utils/helpers'
 import {
   FX_RATES_TO_CNY,
   FX_RATE_UPDATED_AT,
+  getNodeQualitativeSignals,
   getNodeRevenueProxyItems,
   getNodeWatchRows,
 } from '@/utils/reportRepository'
+import {
+  QUALITATIVE_SIGNAL_TEXT,
+  QUALITATIVE_STRENGTH_TEXT,
+  QUALITATIVE_TIME_HORIZON_TEXT,
+  isConstraintSignal,
+  qualitativeSignalTone,
+} from '@/utils/qualitativeSignals'
 
 const route = useRoute()
 const router = useRouter()
@@ -132,6 +174,7 @@ const nodeId = computed(() => String(route.params.nodeId || ''))
 const node = computed(() => graphStore.nodeMap[nodeId.value] || null)
 const watchRows = computed(() => getNodeWatchRows(nodeId.value))
 const revenueItems = computed(() => getNodeRevenueProxyItems(nodeId.value))
+const qualitativeItems = computed(() => getNodeQualitativeSignals(nodeId.value))
 
 const totalCny = computed(() =>
   revenueItems.value.reduce((sum, item) => sum + item.convertedValueCny, 0)
@@ -243,6 +286,35 @@ function formatMoney(value, unit) {
 function formatCny(value) {
   return formatMoney(value, 'CNY')
 }
+
+function signalTypeText(type) {
+  return QUALITATIVE_SIGNAL_TEXT[type] || type || '-'
+}
+
+function signalToneText(signal) {
+  return qualitativeSignalTone(signal).text
+}
+
+function signalTagType(signal) {
+  return qualitativeSignalTone(signal).tagType
+}
+
+function signalTagColor(signal) {
+  const tone = qualitativeSignalTone(signal)
+  return { color: tone.color, textColor: '#fff', borderColor: tone.color }
+}
+
+function strengthText(strength) {
+  return `强度 ${QUALITATIVE_STRENGTH_TEXT[strength] || strength || '-'}`
+}
+
+function timeHorizonText(timeHorizon) {
+  return QUALITATIVE_TIME_HORIZON_TEXT[timeHorizon] || timeHorizon || '-'
+}
+
+function isConstraint(signal) {
+  return isConstraintSignal(signal)
+}
 </script>
 
 <style scoped>
@@ -281,6 +353,10 @@ function formatCny(value) {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(300px, .8fr);
   gap: 18px;
+  margin-top: 18px;
+}
+
+.qualitative-panel {
   margin-top: 18px;
 }
 

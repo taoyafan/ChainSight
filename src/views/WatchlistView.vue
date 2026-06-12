@@ -19,12 +19,19 @@ const companyStore = useCompanyStore()
 
 function getCompanyHighlight(companyId) {
   const reportHighlight = getCompanyReportHighlight(companyId)
-  const nodeIds = reportHighlight.nodeIds
+  const nodeIds = [...new Set([
+    ...reportHighlight.nodeIds,
+    ...reportHighlight.contextNodeIds,
+  ])]
   const edgeKeySet = new Set(reportHighlight.edgeKeys)
   const edgeIds = []
 
-  graphStore.edges.forEach((edge, index) => {
-    if (edgeKeySet.has(`${edge.source}->${edge.target}`)) edgeIds.push(`edge-${index}`)
+  graphStore.visibleEdges.forEach((edge, index) => {
+    const visibleKey = `${edge.source}->${edge.target}`
+    const childKeys = (edge.childEdges || []).map(item => `${item.source}->${item.target}`)
+    if (edgeKeySet.has(visibleKey) || childKeys.some(key => edgeKeySet.has(key))) {
+      edgeIds.push(`edge-${index}`)
+    }
   })
 
   return {

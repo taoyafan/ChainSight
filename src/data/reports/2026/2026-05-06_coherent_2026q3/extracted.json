@@ -11,18 +11,39 @@
     "periodStart": "2026-01-01",
     "periodEnd": "2026-03-31",
     "publishedAt": "2026-05-06",
-    "accessionNumber": "0000820318-26-000013",
     "currency": "USD",
     "amountUnit": "USD",
     "audited": false,
     "sources": [
       {
+        "id": "sec_10q",
         "name": "SEC EDGAR: Coherent Fiscal 2026 Q3 Form 10-Q",
-        "type": "official_sec_filing_html",
+        "role": "primary",
+        "type": "official_sec_filing_text",
         "url": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
-        "localPathIgnored": "raw/iivi-20260331.htm",
+        "localPathIgnored": "raw/coherent_2026q3_sec_10q.txt",
         "publisher": "U.S. Securities and Exchange Commission",
-        "accessedAt": "2026-06-08"
+        "accessedAt": "2026-06-12"
+      },
+      {
+        "id": "earnings_release",
+        "name": "Coherent Q3 FY2026 earnings release",
+        "role": "supporting",
+        "type": "official_earnings_release_text",
+        "url": "https://www.coherent.com/content/dam/coherent/site/en/documents/investors/financial-releases/2026/may-6/earnings-release-fy26-q3.pdf",
+        "localPathIgnored": "raw/coherent_2026q3_earnings_release.txt",
+        "publisher": "Coherent Corp.",
+        "accessedAt": "2026-06-12"
+      },
+      {
+        "id": "investor_presentation",
+        "name": "Coherent Q3 FY2026 investor presentation",
+        "role": "supporting",
+        "type": "official_investor_presentation_text",
+        "url": "https://www.coherent.com/content/dam/coherent/site/en/documents/investors/investor-presentations/2026/may-6/investor-presentation-20260506.pdf",
+        "localPathIgnored": "raw/coherent_2026q3_investor_presentation.txt",
+        "publisher": "Coherent Corp.",
+        "accessedAt": "2026-06-12"
       }
     ]
   },
@@ -34,8 +55,9 @@
       "unit": "USD",
       "period": "FY2026Q3",
       "yoy": 0.205466,
-      "sourceText": "Revenue was $1,805.641 million for the three months ended March 31, 2026.",
-      "sourceSection": "Condensed consolidated statements of earnings"
+      "sourceId": "sec_10q",
+      "sourceText": "Revenues $1,805,641 for the three months ended March 31, 2026, compared with $1,497,879 for the three months ended March 31, 2025.",
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
     },
     {
       "id": "cost_of_revenue",
@@ -43,18 +65,21 @@
       "value": 1125696000,
       "unit": "USD",
       "period": "FY2026Q3",
-      "sourceText": "Cost of revenue was $1,125.696 million.",
-      "sourceSection": "Condensed consolidated statements of earnings"
+      "yoy": 0.160287,
+      "sourceId": "sec_10q",
+      "sourceText": "Cost of goods sold was $1,125,696 for the three months ended March 31, 2026, compared with $970,189 for the three months ended March 31, 2025.",
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
     },
     {
-      "id": "net_income",
-      "label": "Net income",
+      "id": "net_income_attributable",
+      "label": "Net earnings attributable to Coherent Corp.",
       "value": 191402000,
       "unit": "USD",
       "period": "FY2026Q3",
-      "yoy": 11.674482,
-      "sourceText": "Net income was $191.402 million.",
-      "sourceSection": "Condensed consolidated statements of earnings"
+      "yoy": 11.181414,
+      "sourceId": "sec_10q",
+      "sourceText": "Net Earnings Attributable to Coherent Corp. was $191,402 for the three months ended March 31, 2026, compared with $15,711 for the three months ended March 31, 2025.",
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
     },
     {
       "id": "datacenter_and_communications_revenue",
@@ -63,8 +88,20 @@
       "unit": "USD",
       "period": "FY2026Q3",
       "yoy": 0.405748,
-      "sourceText": "Datacenter & Communications revenue was $1,361.677 million.",
-      "sourceSection": "Revenue by segment"
+      "sourceId": "sec_10q",
+      "sourceText": "Datacenter & Communications revenues increased 41% to $1,362 million, compared to $969 million for the same period in the prior fiscal year.",
+      "sourceSection": "Management Discussion and Analysis / Results of Operations / Segment Results"
+    },
+    {
+      "id": "datacenter_and_communications_segment_profit",
+      "label": "Datacenter & Communications segment profit",
+      "value": 347610000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.491067,
+      "sourceId": "sec_10q",
+      "sourceText": "Datacenter & Communications segment profit increased 49% to $348 million, compared to $233 million for the same period last fiscal year.",
+      "sourceSection": "Management Discussion and Analysis / Results of Operations / Segment Results"
     },
     {
       "id": "industrial_revenue",
@@ -73,18 +110,9 @@
       "unit": "USD",
       "period": "FY2026Q3",
       "yoy": -0.161116,
-      "sourceText": "Industrial revenue was $443.964 million.",
-      "sourceSection": "Revenue by segment"
-    },
-    {
-      "id": "datacenter_and_communications_segment_income",
-      "label": "Datacenter & Communications segment income",
-      "value": 347610000,
-      "unit": "USD",
-      "period": "FY2026Q3",
-      "yoy": 0.491067,
-      "sourceText": "Datacenter & Communications segment income was $347.610 million.",
-      "sourceSection": "Segment income"
+      "sourceId": "sec_10q",
+      "sourceText": "Industrial revenues decreased 16% to $444 million, compared to $529 million for the same period in the prior fiscal year.",
+      "sourceSection": "Management Discussion and Analysis / Results of Operations / Segment Results"
     },
     {
       "id": "gross_profit",
@@ -92,13 +120,14 @@
       "value": 679945000,
       "unit": "USD",
       "period": "FY2026Q3",
+      "yoy": 0.288530044836585,
       "derived": true,
       "formula": "revenue - operating_cost",
       "sourceMetricIds": [
         "revenue",
         "cost_of_revenue"
       ],
-      "sourceSection": "Condensed consolidated statements of earnings"
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
     },
     {
       "id": "gross_margin",
@@ -106,69 +135,23 @@
       "value": 0.3765671027629523,
       "unit": "ratio",
       "period": "FY2026Q3",
+      "yoyChangePpt": 2.427509302808045,
       "derived": true,
       "formula": "gross_profit / revenue",
       "sourceMetricIds": [
         "revenue",
         "cost_of_revenue"
       ],
-      "sourceSection": "Condensed consolidated statements of earnings"
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
     }
   ],
-  "productCategoryMetrics": [
-    {
-      "id": "coherent-2026q3-datacenter-communications",
-      "categoryName": "Datacenter & Communications",
-      "period": "FY2026Q3",
-      "revenue": 1361677000,
-      "operatingCost": null,
-      "grossProfit": null,
-      "grossMargin": null,
-      "revenueYoy": 0.405748,
-      "operatingCostYoy": null,
-      "grossProfitYoy": null,
-      "grossMarginChangePpt": null,
-      "unit": "USD",
-      "sourceSection": "Revenue by segment",
-      "sourceText": "Datacenter & Communications revenue was $1,361.677 million.",
-      "mappedNodeIds": [
-        "cw_light_source",
-        "eml_laser_chip",
-        "silicon_photonic_integrated_pd",
-        "eml_pd_module",
-        "silicon_photonic_modulator",
-        "silicon_photonic_engine",
-        "eml_pluggable_module",
-        "silicon_photonic_pluggable_module"
-      ],
-      "notes": "Broad segment; segment income is disclosed separately but is not gross profit."
-    },
-    {
-      "id": "coherent-2026q3-industrial",
-      "categoryName": "Industrial",
-      "period": "FY2026Q3",
-      "revenue": 443964000,
-      "operatingCost": null,
-      "grossProfit": null,
-      "grossMargin": null,
-      "revenueYoy": -0.161116,
-      "operatingCostYoy": null,
-      "grossProfitYoy": null,
-      "grossMarginChangePpt": null,
-      "unit": "USD",
-      "sourceSection": "Revenue by segment",
-      "sourceText": "Industrial revenue was $443.964 million.",
-      "mappedNodeIds": [],
-      "notes": "Not mapped to the current data center optical topology."
-    }
-  ],
+  "productCategoryMetrics": [],
   "graphSignals": [
     {
-      "id": "coherent-2026q3-optical-engine-to-silicon-photonic-growth-input",
+      "id": "2026-05-06-coherent-2026q3-optical_module-node-growth",
       "target": {
-        "type": "edge",
-        "source": "silicon_photonic_engine",
-        "target": "silicon_photonic_pluggable_module"
+        "type": "node",
+        "id": "optical_module"
       },
       "metric": "revenue_growth_yoy_proxy",
       "value": 0.405748,
@@ -176,9 +159,9 @@
       "period": "FY2026Q3",
       "estimated": true,
       "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
+      "method": "derived_from_mapping_product_node",
       "derived": true,
-      "derivedFrom": "coherent-2026q3-optical-engine-to-silicon-photonic-growth-input",
+      "derivedFrom": "2026-05-06_coherent_2026q3:optical_module:FY2026Q3",
       "confidenceModel": "share_attribution_matrix",
       "confidenceFactors": {
         "shareOfScope": {
@@ -203,328 +186,22 @@
         {
           "source": "management_attribution",
           "metric": "mentioned_contributor",
-          "value": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
+          "value": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
           "unit": "text"
         },
         {
           "source": "share_of_scope",
           "metric": "medium_30_80_or_unknown",
-          "value": "Use broad Datacenter & Communications segment growth as proxy.",
+          "value": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed.",
           "unit": "text"
         }
       ]
     },
     {
-      "id": "coherent-2026q3-cw-to-optical-engine-growth-input",
+      "id": "2026-05-06-coherent-2026q3-optical_module-to-ai_server-growth",
       "target": {
         "type": "edge",
-        "source": "cw_light_source",
-        "target": "silicon_photonic_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-cw-to-optical-engine-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes components, optics and semiconductor devices.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "CW laser is one possible product within a broad segment; no standalone revenue is disclosed.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "coherent-2026q3-eml-to-pluggable-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_laser_chip",
-        "target": "eml_transmit_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-eml-to-pluggable-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes transceivers, modules, components, optics and semiconductor devices.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "EML/DFB chip revenue is not isolated from the segment.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "coherent-2026q3-pd-to-optical-engine-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "silicon_photonic_integrated_pd",
-        "target": "silicon_photonic_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-pd-to-optical-engine-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes components, optics and semiconductor devices.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "Photodetector revenue is not isolated from the segment.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "coherent-2026q3-silicon_photonic_modulator-to-optical-engine-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "silicon_photonic_modulator",
-        "target": "silicon_photonic_engine"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-silicon_photonic_modulator-to-optical-engine-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes components, optics and semiconductor devices.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "Modulator revenue is not isolated from the segment.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "coherent-2026q3-pluggable-to-switch-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_pluggable_module",
-        "target": "data_center_switch"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-pluggable-to-switch-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes transceivers and modules sold into datacenter and communications markets.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "Use Datacenter & Communications segment growth as proxy for datacenter pluggable module demand.",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "coherent-2026q3-integrated-pd-to-cpo-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "silicon_photonic_integrated_pd",
-        "target": "cpo_module"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.45,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-integrated-pd-to-cpo-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "low_under_30_or_mixed",
-          "label": "A 在所用收入分类中占比低（<30%）或分类明确包含多项无关业务"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes components, optics and semiconductor devices.",
-          "unit": "text"
-        },
-        {
-          "source": "share_of_scope",
-          "metric": "low_under_30_or_mixed",
-          "value": "Datacenter & Communications segment 包含多类器件，作为 CPO 接收端集成 PD 的宽口径 proxy。",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "coherent-2026q3-pluggable-to-ai-server-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "eml_pluggable_module",
+        "source": "optical_module",
         "target": "ai_server"
       },
       "metric": "revenue_growth_yoy_proxy",
@@ -532,19 +209,31 @@
       "unit": "yoy_ratio",
       "period": "FY2026Q3",
       "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
+      "confidence": 0.51,
+      "method": "derived_from_product_node_and_downstream_attribution",
       "derived": true,
-      "derivedFrom": "coherent-2026q3-pluggable-to-ai-server-growth-input",
-      "confidenceModel": "share_attribution_matrix",
+      "derivedFrom": "2026-05-06_coherent_2026q3:optical_module:FY2026Q3",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
       "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+        "productNode": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
         },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
         }
       },
       "sourceMetricIds": [
@@ -560,73 +249,34 @@
         {
           "source": "management_attribution",
           "metric": "mentioned_contributor",
-          "value": "The segment includes transceivers and modules sold into datacenter and communications markets.",
+          "value": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
           "unit": "text"
         },
         {
           "source": "share_of_scope",
           "metric": "medium_30_80_or_unknown",
-          "value": "Datacenter transceivers/modules 可对应 AI 服务器高速光互连需求，但财报未披露该下游单项收入。",
-          "unit": "text"
-        }
-      ]
-    },
-    {
-      "id": "coherent-2026q3-silicon-engine-to-cpo-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "silicon_photonic_engine",
-        "target": "cpo_module"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
-      "period": "FY2026Q3",
-      "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-silicon-engine-to-cpo-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "supportingContext": [
-        {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
-        },
-        {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
+          "value": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed.",
           "unit": "text"
         },
         {
-          "source": "share_of_scope",
+          "source": "downstream_attribution",
+          "metric": "core_driver",
+          "value": "Management said AI datacenter infrastructure continues to scale and that Coherent is expanding capacity to meet demand.",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
           "metric": "medium_30_80_or_unknown",
-          "value": "Datacenter & Communications segment 覆盖多类系统、模块和器件，作为硅光引擎进入 CPO 模组的宽口径 proxy。",
+          "value": "AI infrastructure is the clearest demand driver, but the sources do not disclose revenue by AI server attachment.",
           "unit": "text"
         }
       ]
     },
     {
-      "id": "coherent-2026q3-silicon-photonic-to-switch-growth-input",
+      "id": "2026-05-06-coherent-2026q3-optical_module-to-data_center_switch-growth",
       "target": {
         "type": "edge",
-        "source": "silicon_photonic_pluggable_module",
+        "source": "optical_module",
         "target": "data_center_switch"
       },
       "metric": "revenue_growth_yoy_proxy",
@@ -634,19 +284,31 @@
       "unit": "yoy_ratio",
       "period": "FY2026Q3",
       "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
+      "confidence": 0.36,
+      "method": "derived_from_product_node_and_downstream_attribution",
       "derived": true,
-      "derivedFrom": "coherent-2026q3-silicon-photonic-to-switch-growth-input",
-      "confidenceModel": "share_attribution_matrix",
+      "derivedFrom": "2026-05-06_coherent_2026q3:optical_module:FY2026Q3",
+      "confidenceModel": "product_node_confidence_x_downstream_attribution_confidence",
       "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+        "productNode": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
         },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
+        "downstreamAttribution": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
         }
       },
       "sourceMetricIds": [
@@ -662,67 +324,192 @@
         {
           "source": "management_attribution",
           "metric": "mentioned_contributor",
-          "value": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
+          "value": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
           "unit": "text"
         },
         {
           "source": "share_of_scope",
           "metric": "medium_30_80_or_unknown",
-          "value": "Datacenter & Communications segment 含 transceivers/modules，作为硅光可插拔模块进入数据中心交换机的宽口径 proxy。",
+          "value": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed.",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_attribution",
+          "metric": "mentioned_contributor",
+          "value": "The presentation names optical networking products, 400G/lane links, optical circuit switch, transceivers, and multi-rail for AI datacenters.",
+          "unit": "text"
+        },
+        {
+          "source": "downstream_share_of_scope",
+          "metric": "medium_30_80_or_unknown",
+          "value": "Mapped to the data center networking side of the topology. No switch-specific revenue or growth is disclosed.",
           "unit": "text"
         }
       ]
-    },
+    }
+  ],
+  "qualitativeSignals": [
     {
-      "id": "coherent-2026q3-silicon-photonic-to-ai-server-growth-input",
-      "target": {
-        "type": "edge",
-        "source": "silicon_photonic_pluggable_module",
-        "target": "ai_server"
-      },
-      "metric": "revenue_growth_yoy_proxy",
-      "value": 0.405748,
-      "unit": "yoy_ratio",
+      "id": "coherent-2026q3-ai-datacenter-demand",
+      "factIds": [
+        "item_003"
+      ],
+      "signalType": "demand_growth",
+      "direction": "positive",
+      "strength": "strong",
+      "timeHorizon": "current_quarter",
+      "targets": [
+        {
+          "type": "node",
+          "id": "ai_server"
+        },
+        {
+          "type": "node",
+          "id": "cloud_dc"
+        },
+        {
+          "type": "edge",
+          "source": "optical_module",
+          "target": "ai_server"
+        }
+      ],
+      "evidenceText": "Management said the quarter was driven by exceptionally strong demand across datacenter and communications, and that AI datacenter infrastructure scaling is driving capacity expansion.",
+      "notes": "This is a qualitative demand signal only; it should not change YoY line width because no AI-server-specific revenue split is disclosed.",
+      "sourceReportId": "2026-05-06_coherent_2026q3",
+      "companyId": "coherent",
       "period": "FY2026Q3",
       "estimated": true,
-      "confidence": 0.6,
-      "method": "derived_from_product_growth_input",
-      "derived": true,
-      "derivedFrom": "coherent-2026q3-silicon-photonic-to-ai-server-growth-input",
-      "confidenceModel": "share_attribution_matrix",
-      "confidenceFactors": {
-        "shareOfScope": {
-          "key": "medium_30_80_or_unknown",
-          "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
-        },
-        "managementAttribution": {
-          "key": "mentioned_contributor",
-          "label": "管理层笼统提及 A 有贡献"
-        }
-      },
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
+      "method": "mapped_from_reported_qualitative_fact"
+    },
+    {
+      "id": "coherent-2026q3-inp-capacity-expansion",
+      "factIds": [
+        "item_005"
       ],
-      "supportingContext": [
+      "signalType": "capacity_expansion",
+      "direction": "positive",
+      "strength": "strong",
+      "timeHorizon": "next_12_months",
+      "targets": [
         {
-          "source": "Datacenter & Communications segment revenue",
-          "metric": "datacenter_and_communications_revenue",
-          "value": 0.405748,
-          "unit": "yoy_ratio"
+          "type": "node",
+          "id": "iii_v_epi_wafer"
         },
         {
-          "source": "management_attribution",
-          "metric": "mentioned_contributor",
-          "value": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
-          "unit": "text"
+          "type": "node",
+          "id": "cw_light_source"
         },
         {
-          "source": "share_of_scope",
-          "metric": "medium_30_80_or_unknown",
-          "value": "Datacenter & Communications segment 作为 AI 服务器高速光互连需求的宽口径 proxy；未披露该下游单项收入。",
-          "unit": "text"
+          "type": "node",
+          "id": "eml_laser_chip"
+        },
+        {
+          "type": "node",
+          "id": "high_speed_photodiode"
         }
-      ]
+      ],
+      "evidenceText": "Coherent says it is ramping Datacenter and Communications capacity end to end, is on track to double internal InP output by year-end and more than double again by 2027, and produces EMLs, CW lasers, and photodiodes on a 6-inch platform.",
+      "notes": "Targets internal capacity and component capability, not standalone external revenue.",
+      "sourceReportId": "2026-05-06_coherent_2026q3",
+      "companyId": "coherent",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "method": "mapped_from_reported_qualitative_fact"
+    },
+    {
+      "id": "coherent-2026q3-nvidia-capacity-agreement",
+      "factIds": [
+        "item_008"
+      ],
+      "signalType": "long_term_order",
+      "direction": "positive",
+      "strength": "strong",
+      "timeHorizon": "multi_year",
+      "targets": [
+        {
+          "type": "company",
+          "id": "coherent"
+        },
+        {
+          "type": "node",
+          "id": "optical_module"
+        },
+        {
+          "type": "edge",
+          "source": "optical_module",
+          "target": "ai_server"
+        }
+      ],
+      "evidenceText": "The 10-Q says Coherent entered into a multi-year capacity agreement with NVIDIA that may require incremental investments in equipment, labor, and working capital to support future production volumes through 2030.",
+      "notes": "The source does not name a specific product in the agreement, so the optical module and AI server targets are contextual to the report's datacenter demand narrative.",
+      "sourceReportId": "2026-05-06_coherent_2026q3",
+      "companyId": "coherent",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "method": "mapped_from_reported_qualitative_fact"
+    },
+    {
+      "id": "coherent-2026q3-cpo-npo-new-revenue",
+      "factIds": [
+        "item_007"
+      ],
+      "signalType": "new_product_ramp",
+      "direction": "positive",
+      "strength": "medium",
+      "timeHorizon": "next_12_months",
+      "targets": [
+        {
+          "type": "node",
+          "id": "cpo_module"
+        },
+        {
+          "type": "node",
+          "id": "npo_module"
+        }
+      ],
+      "evidenceText": "The presentation lists CPO/NPO as new revenue in H2 2026.",
+      "notes": "Roadmap signal only. It is not treated as current Q3 FY2026 revenue.",
+      "sourceReportId": "2026-05-06_coherent_2026q3",
+      "companyId": "coherent",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "method": "mapped_from_reported_qualitative_fact"
+    },
+    {
+      "id": "coherent-2026q3-optical-networking-growth-engines",
+      "factIds": [
+        "item_006"
+      ],
+      "signalType": "technology_route",
+      "direction": "positive",
+      "strength": "medium",
+      "timeHorizon": "multi_year",
+      "targets": [
+        {
+          "type": "node",
+          "id": "optical_module"
+        },
+        {
+          "type": "node",
+          "id": "dci_coherent_transceiver_zr"
+        },
+        {
+          "type": "node",
+          "id": "optical_circuit_switch"
+        },
+        {
+          "type": "edge",
+          "source": "optical_module",
+          "target": "data_center_switch"
+        }
+      ],
+      "evidenceText": "The presentation lists transceivers at 1.6T, 3.2T, and 6.4T, DCI transceivers, transport/transmission, optical circuit switch, optical components, and multi-rail as growth engines.",
+      "notes": "These are named growth engines without individual revenue or growth disclosure.",
+      "sourceReportId": "2026-05-06_coherent_2026q3",
+      "companyId": "coherent",
+      "period": "FY2026Q3",
+      "estimated": true,
+      "method": "mapped_from_reported_qualitative_fact"
     }
   ],
   "companySignals": [
@@ -731,27 +518,30 @@
       "companyId": "coherent",
       "period": "FY2026Q3",
       "fields": {
-        "layer": "chip",
-        "techRoute": "Datacenter optics / transceivers / optical components / semiconductor devices",
-        "keyCustomers": [
-          "datacenter customers",
-          "communications customers",
-          "network equipment customers"
-        ],
+        "layer": "",
+        "techRoute": "",
+        "keyCustomers": [],
         "relatedNodeIds": [
           "iii_v_epi_wafer",
           "cw_light_source",
           "eml_laser_chip",
+          "vcsel_laser_chip",
+          "high_speed_photodiode",
           "silicon_photonic_integrated_pd",
+          "npo_module",
           "silicon_photonic_modulator",
           "silicon_photonic_engine",
+          "cpo_module",
+          "optical_module",
           "eml_pluggable_module",
-          "silicon_photonic_pluggable_module"
+          "silicon_photonic_pluggable_module",
+          "dci_coherent_transceiver_zr",
+          "optical_circuit_switch"
         ]
       },
       "estimated": true,
       "confidence": 1,
-      "method": "derived_from_company_product_coverage",
+      "method": "derived_from_mapping_product_coverage",
       "sourceMetricIds": [
         "datacenter_and_communications_revenue"
       ]
@@ -759,23 +549,30 @@
   ],
   "timelineEvents": [
     {
-      "id": "coherent-2026q3-10q-published",
+      "id": "coherent-fy2026q3-report-published",
       "date": "2026-05-06",
       "type": "financial_report",
-      "title": "Coherent 发布 FY2026 Q3 Form 10-Q",
-      "summary": "FY2026Q3 收入 18.056 亿美元；Datacenter & Communications 收入同比约 +40.6%。",
+      "title": "Coherent Corp.发布 Fiscal 2026 Third Quarter Form 10-Q",
+      "summary": "Coherent Corp.发布FY2026Q3报告。",
       "relatedNodeIds": [
+        "iii_v_epi_wafer",
         "cw_light_source",
         "eml_laser_chip",
+        "vcsel_laser_chip",
+        "high_speed_photodiode",
         "silicon_photonic_integrated_pd",
-        "eml_pd_module",
+        "npo_module",
         "silicon_photonic_modulator",
         "silicon_photonic_engine",
+        "cpo_module",
+        "optical_module",
         "eml_pluggable_module",
         "silicon_photonic_pluggable_module",
+        "dci_coherent_transceiver_zr",
+        "optical_circuit_switch",
+        "ai_server",
         "data_center_switch",
-        "cpo_module",
-        "ai_server"
+        "cloud_dc"
       ],
       "relatedCompanyIds": [
         "coherent"
@@ -788,80 +585,155 @@
       "companyId": "coherent",
       "productNodeId": "iii_v_epi_wafer",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes semiconductor devices and optical components.",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "Coherent is ramping internal InP output and 6-inch wafer demand for AI infrastructure.",
       "isRevenueProduct": false,
-      "notes": "Recorded as capability/product coverage; no output edge generated."
+      "commercializationType": "internal_use_only",
+      "notes": "The sources describe internal InP output and wafer demand; no external wafer revenue, share, or growth is disclosed."
     },
     {
       "companyId": "coherent",
       "productNodeId": "cw_light_source",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes components, optics and semiconductor devices.",
-      "isRevenueProduct": true,
-      "notes": "The report does not isolate CW laser revenue."
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The 6-inch platform produces CW lasers alongside EMLs and photodiodes.",
+      "isRevenueProduct": false,
+      "commercializationType": "internal_use_only",
+      "notes": "Recorded as product/capability coverage only. The Q3 sources do not disclose standalone CW laser revenue, share, or growth."
     },
     {
       "companyId": "coherent",
       "productNodeId": "eml_laser_chip",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes transceivers, modules, components, optics and semiconductor devices.",
-      "isRevenueProduct": true,
-      "notes": "The report does not isolate EML/DFB laser chip revenue."
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The 6-inch platform produces EMLs alongside CW lasers and photodiodes.",
+      "isRevenueProduct": false,
+      "commercializationType": "internal_use_only",
+      "notes": "Recorded as product/capability coverage only. The Q3 sources do not disclose standalone EML revenue, share, or growth."
+    },
+    {
+      "companyId": "coherent",
+      "productNodeId": "vcsel_laser_chip",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "Multiple CPO architectures, Silicon Photonics, InP, and VCSEL enable flexible networks.",
+      "isRevenueProduct": false,
+      "commercializationType": "not_revenue_product",
+      "notes": "VCSEL is named as a technology route, but the Q3 sources do not disclose VCSEL revenue, share, or growth."
+    },
+    {
+      "companyId": "coherent",
+      "productNodeId": "high_speed_photodiode",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The 6-inch platform produces photodiodes alongside EMLs and CW lasers.",
+      "isRevenueProduct": false,
+      "commercializationType": "not_revenue_product",
+      "notes": "This generic PD node is used because the source says photodiodes but does not specify silicon integrated PD or EML/DFB PD module revenue."
     },
     {
       "companyId": "coherent",
       "productNodeId": "silicon_photonic_integrated_pd",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes components, optics and semiconductor devices.",
-      "isRevenueProduct": true,
-      "notes": "The report does not isolate photodetector revenue."
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The 6-inch platform produces photodiodes, and Silicon Photonics is listed among flexible network technologies.",
+      "isRevenueProduct": false,
+      "commercializationType": "internal_use_only",
+      "notes": "Photodiode capability is named, but no standalone photodiode revenue, share, or growth is disclosed."
+    },
+    {
+      "companyId": "coherent",
+      "productNodeId": "npo_module",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The presentation lists CPO/NPO as new revenue in H2 2026.",
+      "isRevenueProduct": false,
+      "commercializationType": "r_and_d_or_sampling",
+      "notes": "Recorded as roadmap coverage. Q3 FY2026 does not disclose current NPO revenue or growth."
     },
     {
       "companyId": "coherent",
       "productNodeId": "silicon_photonic_modulator",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes components, optics and semiconductor devices.",
-      "isRevenueProduct": true,
-      "notes": "The report does not isolate silicon_photonic_modulator revenue."
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "Multiple CPO architectures, Silicon Photonics, InP, and VCSEL enable flexible networks.",
+      "isRevenueProduct": false,
+      "commercializationType": "r_and_d_or_sampling",
+      "notes": "Silicon Photonics is named as a technology route; the sources do not isolate modulator revenue or current commercialization."
     },
     {
       "companyId": "coherent",
       "productNodeId": "silicon_photonic_engine",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes systems, subsystems, modules, components and optics.",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "Coherent describes end-to-end optical integration for next-generation AI architectures and lists CPO/NPO as new revenue in H2 2026.",
+      "isRevenueProduct": false,
+      "commercializationType": "r_and_d_or_sampling",
+      "notes": "Recorded as roadmap/capability coverage. Q3 FY2026 does not disclose silicon photonic engine revenue or growth."
+    },
+    {
+      "companyId": "coherent",
+      "productNodeId": "cpo_module",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The presentation names multiple CPO architectures and lists CPO/NPO as new revenue in H2 2026.",
+      "isRevenueProduct": false,
+      "commercializationType": "r_and_d_or_sampling",
+      "notes": "Not treated as current Q3 FY2026 external sales because the source places CPO/NPO new revenue in H2 2026."
+    },
+    {
+      "companyId": "coherent",
+      "productNodeId": "optical_module",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The Datacenter & Communications segment includes transceivers and modules; the presentation lists transceivers as growth engines.",
       "isRevenueProduct": true,
-      "notes": "The report does not isolate optical engine revenue."
+      "commercializationType": "external_sales",
+      "notes": "Broad optical module parent node used because the sources do not split revenue by EML/DFB versus silicon photonic module route."
     },
     {
       "companyId": "coherent",
       "productNodeId": "eml_pluggable_module",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes transceivers and modules sold into datacenter and communications markets.",
-      "isRevenueProduct": true,
-      "notes": "The report does not isolate pluggable optical module revenue."
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The Datacenter & Communications segment includes transceivers and modules; transceivers at 1.6T, 3.2T, and 6.4T are listed as growth engines.",
+      "isRevenueProduct": false,
+      "commercializationType": "not_revenue_product",
+      "notes": "Required optical_module child. Kept as route coverage only because the sources do not identify the transceiver route as EML/DFB or disclose EML/DFB module financials."
     },
     {
       "companyId": "coherent",
       "productNodeId": "silicon_photonic_pluggable_module",
       "coverageEvidenceType": "current_report",
-      "coverageSource": "FY2026 Q3 Form 10-Q",
-      "evidenceText": "The Datacenter & Communications segment includes transceivers, systems, subsystems and modules.",
-      "isRevenueProduct": true,
-      "notes": "The report does not isolate silicon photonic pluggable module revenue."
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The segment includes transceivers and modules, and the presentation names Silicon Photonics among technologies for flexible networks.",
+      "isRevenueProduct": false,
+      "commercializationType": "not_revenue_product",
+      "notes": "Required optical_module child. Kept as route coverage only because Silicon Photonics is named as a technology route, but no silicon photonic pluggable module financial split is disclosed."
+    },
+    {
+      "companyId": "coherent",
+      "productNodeId": "dci_coherent_transceiver_zr",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The investor presentation lists DCI Transceivers ZR/ZR+ as growth engines.",
+      "isRevenueProduct": false,
+      "commercializationType": "not_revenue_product",
+      "notes": "Recorded as product-line coverage only. The Q3 sources do not disclose DCI/ZR revenue, share, or growth."
+    },
+    {
+      "companyId": "coherent",
+      "productNodeId": "optical_circuit_switch",
+      "coverageEvidenceType": "current_report",
+      "coverageSource": "Fiscal 2026 Third Quarter Form 10-Q",
+      "evidenceText": "The investor presentation lists Optical Circuit Switch as a growth engine.",
+      "isRevenueProduct": false,
+      "commercializationType": "not_revenue_product",
+      "notes": "Recorded as product-line coverage only. The Q3 sources do not disclose OCS revenue, share, or growth."
     }
   ],
   "productGrowthInputs": [
     {
-      "id": "coherent-2026q3-optical-engine-to-silicon-photonic-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "silicon_photonic_engine",
       "period": "FY2026Q3",
       "growthMetricId": "datacenter_and_communications_revenue",
       "growthValue": 0.405748,
@@ -870,123 +742,20 @@
       "scopeLabel": "Datacenter & Communications segment revenue",
       "shareOfScope": "medium_30_80_or_unknown",
       "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
+      "attributionEvidenceText": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
       "sourceMetricIds": [
         "datacenter_and_communications_revenue"
       ],
+      "notes": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed.",
+      "id": "2026-05-06-coherent-2026q3-optical_module-node-growth-input",
+      "productNodeId": "optical_module",
       "graphTarget": {
-        "type": "edge",
-        "source": "silicon_photonic_engine",
-        "target": "silicon_photonic_pluggable_module"
+        "type": "node",
+        "id": "optical_module"
       },
-      "notes": "Use broad Datacenter & Communications segment growth as proxy."
+      "confidence": 0.6
     },
     {
-      "id": "coherent-2026q3-cw-to-optical-engine-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "cw_light_source",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "low_under_30_or_mixed",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "cw_light_source",
-        "target": "silicon_photonic_engine"
-      },
-      "notes": "CW laser is one possible product within a broad segment; no standalone revenue is disclosed."
-    },
-    {
-      "id": "coherent-2026q3-eml-to-pluggable-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "eml_laser_chip",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "low_under_30_or_mixed",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes transceivers, modules, components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "eml_laser_chip",
-        "target": "eml_transmit_engine"
-      },
-      "notes": "EML/DFB chip revenue is not isolated from the segment."
-    },
-    {
-      "id": "coherent-2026q3-pd-to-optical-engine-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "silicon_photonic_integrated_pd",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "low_under_30_or_mixed",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "silicon_photonic_integrated_pd",
-        "target": "silicon_photonic_engine"
-      },
-      "notes": "Photodetector revenue is not isolated from the segment."
-    },
-    {
-      "id": "coherent-2026q3-silicon_photonic_modulator-to-optical-engine-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "silicon_photonic_modulator",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "low_under_30_or_mixed",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "silicon_photonic_modulator",
-        "target": "silicon_photonic_engine"
-      },
-      "notes": "Modulator revenue is not isolated from the segment."
-    },
-    {
-      "id": "coherent-2026q3-pluggable-to-switch-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "eml_pluggable_module",
       "period": "FY2026Q3",
       "growthMetricId": "datacenter_and_communications_revenue",
       "growthValue": 0.405748,
@@ -995,73 +764,21 @@
       "scopeLabel": "Datacenter & Communications segment revenue",
       "shareOfScope": "medium_30_80_or_unknown",
       "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes transceivers and modules sold into datacenter and communications markets.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
+      "attributionEvidenceText": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
       "sourceMetricIds": [
         "datacenter_and_communications_revenue"
       ],
+      "notes": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed.",
+      "id": "2026-05-06-coherent-2026q3-optical_module-to-ai_server-growth-input",
+      "productNodeId": "optical_module",
       "graphTarget": {
         "type": "edge",
-        "source": "eml_pluggable_module",
-        "target": "data_center_switch"
-      },
-      "notes": "Use Datacenter & Communications segment growth as proxy for datacenter pluggable module demand."
-    },
-    {
-      "id": "coherent-2026q3-integrated-pd-to-cpo-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "silicon_photonic_integrated_pd",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "low_under_30_or_mixed",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "silicon_photonic_integrated_pd",
-        "target": "cpo_module"
-      },
-      "notes": "Datacenter & Communications segment 包含多类器件，作为 CPO 接收端集成 PD 的宽口径 proxy。"
-    },
-    {
-      "id": "coherent-2026q3-pluggable-to-ai-server-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "eml_pluggable_module",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "medium_30_80_or_unknown",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes transceivers and modules sold into datacenter and communications markets.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "eml_pluggable_module",
+        "source": "optical_module",
         "target": "ai_server"
       },
-      "notes": "Datacenter transceivers/modules 可对应 AI 服务器高速光互连需求，但财报未披露该下游单项收入。"
+      "confidence": 0.51
     },
     {
-      "id": "coherent-2026q3-silicon-engine-to-cpo-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "silicon_photonic_engine",
       "period": "FY2026Q3",
       "growthMetricId": "datacenter_and_communications_revenue",
       "growthValue": 0.405748,
@@ -1070,81 +787,562 @@
       "scopeLabel": "Datacenter & Communications segment revenue",
       "shareOfScope": "medium_30_80_or_unknown",
       "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
+      "attributionEvidenceText": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
       "sourceMetricIds": [
         "datacenter_and_communications_revenue"
       ],
+      "notes": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed.",
+      "id": "2026-05-06-coherent-2026q3-optical_module-to-data_center_switch-growth-input",
+      "productNodeId": "optical_module",
       "graphTarget": {
         "type": "edge",
-        "source": "silicon_photonic_engine",
-        "target": "cpo_module"
-      },
-      "notes": "Datacenter & Communications segment 覆盖多类系统、模块和器件，作为硅光引擎进入 CPO 模组的宽口径 proxy。"
-    },
-    {
-      "id": "coherent-2026q3-silicon-photonic-to-switch-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "silicon_photonic_pluggable_module",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "medium_30_80_or_unknown",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "silicon_photonic_pluggable_module",
+        "source": "optical_module",
         "target": "data_center_switch"
       },
-      "notes": "Datacenter & Communications segment 含 transceivers/modules，作为硅光可插拔模块进入数据中心交换机的宽口径 proxy。"
-    },
-    {
-      "id": "coherent-2026q3-silicon-photonic-to-ai-server-growth-input",
-      "companyId": "coherent",
-      "productNodeId": "silicon_photonic_pluggable_module",
-      "period": "FY2026Q3",
-      "growthMetricId": "datacenter_and_communications_revenue",
-      "growthValue": 0.405748,
-      "growthValueType": "yoy_ratio",
-      "revenueScope": "segment",
-      "scopeLabel": "Datacenter & Communications segment revenue",
-      "shareOfScope": "medium_30_80_or_unknown",
-      "managementAttribution": "mentioned_contributor",
-      "attributionEvidenceText": "The segment includes systems, subsystems, modules, components, optics and semiconductor devices.",
-      "hasProductRevenueAmount": false,
-      "hasProductRevenueGrowth": false,
-      "sourceMetricIds": [
-        "datacenter_and_communications_revenue"
-      ],
-      "graphTarget": {
-        "type": "edge",
-        "source": "silicon_photonic_pluggable_module",
-        "target": "ai_server"
-      },
-      "notes": "Datacenter & Communications segment 作为 AI 服务器高速光互连需求的宽口径 proxy；未披露该下游单项收入。"
+      "confidence": 0.36
     }
   ],
   "products": [],
-  "notes": {
-    "summary": "Coherent 披露 Datacenter & Communications 分部收入和增长；该分部覆盖 transceivers、systems、subsystems、modules、components、optics 和 semiconductor devices。",
-    "mappingAssumptions": [
-      "Datacenter & Communications 分部增长用于多个相关节点/边的宽口径 proxy。",
-      "具体芯片或器件节点因未披露单项收入，使用 low_under_30_or_mixed。",
-      "硅光可插拔与 EML/DFB 可插拔相关信号均来自 Coherent 数据中心与通信分部的宽口径 proxy，财报未拆分单项收入。"
+  "mapping": {
+    "productNodes": [
+      {
+        "nodeId": "iii_v_epi_wafer",
+        "coverage": {
+          "commercializationType": "internal_use_only",
+          "factIds": [
+            "item_005"
+          ],
+          "evidenceText": "Coherent is ramping internal InP output and 6-inch wafer demand for AI infrastructure.",
+          "notes": "The sources describe internal InP output and wafer demand; no external wafer revenue, share, or growth is disclosed."
+        }
+      },
+      {
+        "nodeId": "cw_light_source",
+        "coverage": {
+          "commercializationType": "internal_use_only",
+          "factIds": [
+            "item_005"
+          ],
+          "evidenceText": "The 6-inch platform produces CW lasers alongside EMLs and photodiodes.",
+          "notes": "Recorded as product/capability coverage only. The Q3 sources do not disclose standalone CW laser revenue, share, or growth."
+        }
+      },
+      {
+        "nodeId": "eml_laser_chip",
+        "coverage": {
+          "commercializationType": "internal_use_only",
+          "factIds": [
+            "item_005"
+          ],
+          "evidenceText": "The 6-inch platform produces EMLs alongside CW lasers and photodiodes.",
+          "notes": "Recorded as product/capability coverage only. The Q3 sources do not disclose standalone EML revenue, share, or growth."
+        }
+      },
+      {
+        "nodeId": "vcsel_laser_chip",
+        "coverage": {
+          "commercializationType": "not_revenue_product",
+          "factIds": [
+            "item_005"
+          ],
+          "evidenceText": "Multiple CPO architectures, Silicon Photonics, InP, and VCSEL enable flexible networks.",
+          "notes": "VCSEL is named as a technology route, but the Q3 sources do not disclose VCSEL revenue, share, or growth."
+        }
+      },
+      {
+        "nodeId": "high_speed_photodiode",
+        "coverage": {
+          "commercializationType": "not_revenue_product",
+          "factIds": [
+            "item_005"
+          ],
+          "evidenceText": "The 6-inch platform produces photodiodes alongside EMLs and CW lasers.",
+          "notes": "This generic PD node is used because the source says photodiodes but does not specify silicon integrated PD or EML/DFB PD module revenue."
+        }
+      },
+      {
+        "nodeId": "silicon_photonic_integrated_pd",
+        "coverage": {
+          "commercializationType": "internal_use_only",
+          "factIds": [
+            "item_005"
+          ],
+          "evidenceText": "The 6-inch platform produces photodiodes, and Silicon Photonics is listed among flexible network technologies.",
+          "notes": "Photodiode capability is named, but no standalone photodiode revenue, share, or growth is disclosed."
+        }
+      },
+      {
+        "nodeId": "npo_module",
+        "coverage": {
+          "commercializationType": "r_and_d_or_sampling",
+          "factIds": [
+            "item_007"
+          ],
+          "evidenceText": "The presentation lists CPO/NPO as new revenue in H2 2026.",
+          "notes": "Recorded as roadmap coverage. Q3 FY2026 does not disclose current NPO revenue or growth."
+        }
+      },
+      {
+        "nodeId": "silicon_photonic_modulator",
+        "coverage": {
+          "commercializationType": "r_and_d_or_sampling",
+          "factIds": [
+            "item_005"
+          ],
+          "evidenceText": "Multiple CPO architectures, Silicon Photonics, InP, and VCSEL enable flexible networks.",
+          "notes": "Silicon Photonics is named as a technology route; the sources do not isolate modulator revenue or current commercialization."
+        }
+      },
+      {
+        "nodeId": "silicon_photonic_engine",
+        "coverage": {
+          "commercializationType": "r_and_d_or_sampling",
+          "factIds": [
+            "item_005",
+            "item_007"
+          ],
+          "evidenceText": "Coherent describes end-to-end optical integration for next-generation AI architectures and lists CPO/NPO as new revenue in H2 2026.",
+          "notes": "Recorded as roadmap/capability coverage. Q3 FY2026 does not disclose silicon photonic engine revenue or growth."
+        }
+      },
+      {
+        "nodeId": "cpo_module",
+        "coverage": {
+          "commercializationType": "r_and_d_or_sampling",
+          "factIds": [
+            "item_005",
+            "item_007"
+          ],
+          "evidenceText": "The presentation names multiple CPO architectures and lists CPO/NPO as new revenue in H2 2026.",
+          "notes": "Not treated as current Q3 FY2026 external sales because the source places CPO/NPO new revenue in H2 2026."
+        }
+      },
+      {
+        "nodeId": "optical_module",
+        "coverage": {
+          "commercializationType": "external_sales",
+          "factIds": [
+            "item_001",
+            "item_006"
+          ],
+          "evidenceText": "The Datacenter & Communications segment includes transceivers and modules; the presentation lists transceivers as growth engines.",
+          "notes": "Broad optical module parent node used because the sources do not split revenue by EML/DFB versus silicon photonic module route."
+        },
+        "financial": {
+          "period": "FY2026Q3",
+          "growthMetricId": "datacenter_and_communications_revenue",
+          "growthValue": 0.405748,
+          "growthValueType": "yoy_ratio",
+          "revenueScope": "segment",
+          "scopeLabel": "Datacenter & Communications segment revenue",
+          "shareOfScope": "medium_30_80_or_unknown",
+          "managementAttribution": "mentioned_contributor",
+          "attributionEvidenceText": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
+          "sourceMetricIds": [
+            "datacenter_and_communications_revenue"
+          ],
+          "notes": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed."
+        }
+      },
+      {
+        "nodeId": "eml_pluggable_module",
+        "coverage": {
+          "commercializationType": "not_revenue_product",
+          "factIds": [
+            "item_001",
+            "item_006"
+          ],
+          "evidenceText": "The Datacenter & Communications segment includes transceivers and modules; transceivers at 1.6T, 3.2T, and 6.4T are listed as growth engines.",
+          "notes": "Required optical_module child. Kept as route coverage only because the sources do not identify the transceiver route as EML/DFB or disclose EML/DFB module financials."
+        }
+      },
+      {
+        "nodeId": "silicon_photonic_pluggable_module",
+        "coverage": {
+          "commercializationType": "not_revenue_product",
+          "factIds": [
+            "item_001",
+            "item_005",
+            "item_006"
+          ],
+          "evidenceText": "The segment includes transceivers and modules, and the presentation names Silicon Photonics among technologies for flexible networks.",
+          "notes": "Required optical_module child. Kept as route coverage only because Silicon Photonics is named as a technology route, but no silicon photonic pluggable module financial split is disclosed."
+        }
+      },
+      {
+        "nodeId": "dci_coherent_transceiver_zr",
+        "coverage": {
+          "commercializationType": "not_revenue_product",
+          "factIds": [
+            "item_006"
+          ],
+          "evidenceText": "The investor presentation lists DCI Transceivers ZR/ZR+ as growth engines.",
+          "notes": "Recorded as product-line coverage only. The Q3 sources do not disclose DCI/ZR revenue, share, or growth."
+        }
+      },
+      {
+        "nodeId": "optical_circuit_switch",
+        "coverage": {
+          "commercializationType": "not_revenue_product",
+          "factIds": [
+            "item_006"
+          ],
+          "evidenceText": "The investor presentation lists Optical Circuit Switch as a growth engine.",
+          "notes": "Recorded as product-line coverage only. The Q3 sources do not disclose OCS revenue, share, or growth."
+        }
+      }
     ],
-    "limitations": [
-      "该分部非常宽，无法精确拆到 CW、EML、PD、调制器或硅光模块。",
-      "Segment income 不是毛利，未写入 productCategoryMetrics.grossProfit。"
+    "downstreamAttributions": [
+      {
+        "downstreamNodeId": "ai_server",
+        "sourceProductNodeId": null,
+        "factIds": [
+          "item_003",
+          "item_005"
+        ],
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "core_driver",
+        "attributionEvidenceText": "Management said AI datacenter infrastructure continues to scale and that Coherent is expanding capacity to meet demand.",
+        "sourceMetricIds": [
+          "datacenter_and_communications_revenue"
+        ],
+        "notes": "AI infrastructure is the clearest demand driver, but the sources do not disclose revenue by AI server attachment."
+      },
+      {
+        "downstreamNodeId": "data_center_switch",
+        "sourceProductNodeId": null,
+        "factIds": [
+          "item_005",
+          "item_006"
+        ],
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "mentioned_contributor",
+        "attributionEvidenceText": "The presentation names optical networking products, 400G/lane links, optical circuit switch, transceivers, and multi-rail for AI datacenters.",
+        "sourceMetricIds": [
+          "datacenter_and_communications_revenue"
+        ],
+        "notes": "Mapped to the data center networking side of the topology. No switch-specific revenue or growth is disclosed."
+      },
+      {
+        "downstreamNodeId": "cloud_dc",
+        "sourceProductNodeId": null,
+        "factIds": [
+          "item_003",
+          "item_005"
+        ],
+        "shareOfScope": "medium_30_80_or_unknown",
+        "managementAttribution": "core_driver",
+        "attributionEvidenceText": "The sources repeatedly attribute demand to AI datacenter infrastructure and scalable high-performance infrastructure.",
+        "sourceMetricIds": [
+          "datacenter_and_communications_revenue"
+        ],
+        "notes": "Used as terminal demand context. Product nodes do not directly auto-generate edges to cloud_dc in the taxonomy."
+      }
+    ],
+    "qualitativeSignals": [
+      {
+        "id": "coherent-2026q3-ai-datacenter-demand",
+        "factIds": [
+          "item_003"
+        ],
+        "signalType": "demand_growth",
+        "direction": "positive",
+        "strength": "strong",
+        "timeHorizon": "current_quarter",
+        "targets": [
+          {
+            "type": "node",
+            "id": "ai_server"
+          },
+          {
+            "type": "node",
+            "id": "cloud_dc"
+          },
+          {
+            "type": "edge",
+            "source": "optical_module",
+            "target": "ai_server"
+          }
+        ],
+        "evidenceText": "Management said the quarter was driven by exceptionally strong demand across datacenter and communications, and that AI datacenter infrastructure scaling is driving capacity expansion.",
+        "notes": "This is a qualitative demand signal only; it should not change YoY line width because no AI-server-specific revenue split is disclosed."
+      },
+      {
+        "id": "coherent-2026q3-inp-capacity-expansion",
+        "factIds": [
+          "item_005"
+        ],
+        "signalType": "capacity_expansion",
+        "direction": "positive",
+        "strength": "strong",
+        "timeHorizon": "next_12_months",
+        "targets": [
+          {
+            "type": "node",
+            "id": "iii_v_epi_wafer"
+          },
+          {
+            "type": "node",
+            "id": "cw_light_source"
+          },
+          {
+            "type": "node",
+            "id": "eml_laser_chip"
+          },
+          {
+            "type": "node",
+            "id": "high_speed_photodiode"
+          }
+        ],
+        "evidenceText": "Coherent says it is ramping Datacenter and Communications capacity end to end, is on track to double internal InP output by year-end and more than double again by 2027, and produces EMLs, CW lasers, and photodiodes on a 6-inch platform.",
+        "notes": "Targets internal capacity and component capability, not standalone external revenue."
+      },
+      {
+        "id": "coherent-2026q3-nvidia-capacity-agreement",
+        "factIds": [
+          "item_008"
+        ],
+        "signalType": "long_term_order",
+        "direction": "positive",
+        "strength": "strong",
+        "timeHorizon": "multi_year",
+        "targets": [
+          {
+            "type": "company",
+            "id": "coherent"
+          },
+          {
+            "type": "node",
+            "id": "optical_module"
+          },
+          {
+            "type": "edge",
+            "source": "optical_module",
+            "target": "ai_server"
+          }
+        ],
+        "evidenceText": "The 10-Q says Coherent entered into a multi-year capacity agreement with NVIDIA that may require incremental investments in equipment, labor, and working capital to support future production volumes through 2030.",
+        "notes": "The source does not name a specific product in the agreement, so the optical module and AI server targets are contextual to the report's datacenter demand narrative."
+      },
+      {
+        "id": "coherent-2026q3-cpo-npo-new-revenue",
+        "factIds": [
+          "item_007"
+        ],
+        "signalType": "new_product_ramp",
+        "direction": "positive",
+        "strength": "medium",
+        "timeHorizon": "next_12_months",
+        "targets": [
+          {
+            "type": "node",
+            "id": "cpo_module"
+          },
+          {
+            "type": "node",
+            "id": "npo_module"
+          }
+        ],
+        "evidenceText": "The presentation lists CPO/NPO as new revenue in H2 2026.",
+        "notes": "Roadmap signal only. It is not treated as current Q3 FY2026 revenue."
+      },
+      {
+        "id": "coherent-2026q3-optical-networking-growth-engines",
+        "factIds": [
+          "item_006"
+        ],
+        "signalType": "technology_route",
+        "direction": "positive",
+        "strength": "medium",
+        "timeHorizon": "multi_year",
+        "targets": [
+          {
+            "type": "node",
+            "id": "optical_module"
+          },
+          {
+            "type": "node",
+            "id": "dci_coherent_transceiver_zr"
+          },
+          {
+            "type": "node",
+            "id": "optical_circuit_switch"
+          },
+          {
+            "type": "edge",
+            "source": "optical_module",
+            "target": "data_center_switch"
+          }
+        ],
+        "evidenceText": "The presentation lists transceivers at 1.6T, 3.2T, and 6.4T, DCI transceivers, transport/transmission, optical circuit switch, optical components, and multi-rail as growth engines.",
+        "notes": "These are named growth engines without individual revenue or growth disclosure."
+      }
+    ],
+    "productNodeSignals": [
+      {
+        "id": "2026-05-06-coherent-2026q3-optical_module-node-growth",
+        "target": {
+          "type": "node",
+          "id": "optical_module"
+        },
+        "metric": "revenue_growth_yoy_proxy",
+        "value": 0.405748,
+        "unit": "yoy_ratio",
+        "period": "FY2026Q3",
+        "estimated": true,
+        "confidence": 0.6,
+        "method": "derived_from_mapping_product_node",
+        "derived": true,
+        "derivedFrom": "2026-05-06_coherent_2026q3:optical_module:FY2026Q3",
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
+        },
+        "sourceMetricIds": [
+          "datacenter_and_communications_revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "Datacenter & Communications segment revenue",
+            "metric": "datacenter_and_communications_revenue",
+            "value": 0.405748,
+            "unit": "yoy_ratio"
+          },
+          {
+            "source": "management_attribution",
+            "metric": "mentioned_contributor",
+            "value": "The segment includes transceivers and modules, and management attributed growth to strong datacenter and communications demand.",
+            "unit": "text"
+          },
+          {
+            "source": "share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "Use D&C segment growth as a broad proxy. No individual optical module revenue, share, or growth is disclosed.",
+            "unit": "text"
+          }
+        ]
+      }
+    ],
+    "downstreamSignals": [
+      {
+        "downstreamNodeId": "ai_server",
+        "sourceProductNodeId": null,
+        "confidence": 0.85,
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "factIds": [
+          "item_003",
+          "item_005"
+        ],
+        "sourceMetricIds": [
+          "datacenter_and_communications_revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "downstream_attribution",
+            "metric": "core_driver",
+            "value": "Management said AI datacenter infrastructure continues to scale and that Coherent is expanding capacity to meet demand.",
+            "unit": "text"
+          },
+          {
+            "source": "downstream_share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "AI infrastructure is the clearest demand driver, but the sources do not disclose revenue by AI server attachment.",
+            "unit": "text"
+          }
+        ]
+      },
+      {
+        "downstreamNodeId": "data_center_switch",
+        "sourceProductNodeId": null,
+        "confidence": 0.6,
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "mentioned_contributor",
+            "label": "管理层笼统提及 A 有贡献"
+          }
+        },
+        "factIds": [
+          "item_005",
+          "item_006"
+        ],
+        "sourceMetricIds": [
+          "datacenter_and_communications_revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "downstream_attribution",
+            "metric": "mentioned_contributor",
+            "value": "The presentation names optical networking products, 400G/lane links, optical circuit switch, transceivers, and multi-rail for AI datacenters.",
+            "unit": "text"
+          },
+          {
+            "source": "downstream_share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "Mapped to the data center networking side of the topology. No switch-specific revenue or growth is disclosed.",
+            "unit": "text"
+          }
+        ]
+      },
+      {
+        "downstreamNodeId": "cloud_dc",
+        "sourceProductNodeId": null,
+        "confidence": 0.85,
+        "confidenceModel": "share_attribution_matrix",
+        "confidenceFactors": {
+          "shareOfScope": {
+            "key": "medium_30_80_or_unknown",
+            "label": "A 在所用收入分类中占比中等（30%-80%）或占比不详"
+          },
+          "managementAttribution": {
+            "key": "core_driver",
+            "label": "管理层明确点名 A 是主要/核心驱动"
+          }
+        },
+        "factIds": [
+          "item_003",
+          "item_005"
+        ],
+        "sourceMetricIds": [
+          "datacenter_and_communications_revenue"
+        ],
+        "supportingContext": [
+          {
+            "source": "downstream_attribution",
+            "metric": "core_driver",
+            "value": "The sources repeatedly attribute demand to AI datacenter infrastructure and scalable high-performance infrastructure.",
+            "unit": "text"
+          },
+          {
+            "source": "downstream_share_of_scope",
+            "metric": "medium_30_80_or_unknown",
+            "value": "Used as terminal demand context. Product nodes do not directly auto-generate edges to cloud_dc in the taxonomy.",
+            "unit": "text"
+          }
+        ]
+      }
     ]
-  }
+  },
+  "notes": {}
 }

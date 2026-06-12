@@ -9,6 +9,22 @@ const reportsRoot = path.join(dataRoot, 'reports')
 const taxonomyRoot = path.join(dataRoot, 'taxonomy')
 const rulesPath = path.join(root, 'scripts', 'confidence-rules.json')
 
+const QUALITATIVE_SIGNAL_TYPES = new Set([
+  'demand_growth',
+  'capacity_expansion',
+  'supply_constraint',
+  'long_term_order',
+  'new_product_ramp',
+  'technology_route',
+  'pricing_or_margin',
+  'customer_design_win',
+  'inventory_or_working_capital',
+  'risk_or_uncertainty'
+])
+const QUALITATIVE_DIRECTIONS = new Set(['positive', 'negative', 'neutral', 'mixed'])
+const QUALITATIVE_STRENGTHS = new Set(['strong', 'medium', 'weak', 'unknown'])
+const QUALITATIVE_TIME_HORIZONS = new Set(['current_quarter', 'next_12_months', 'multi_year', 'unknown'])
+
 const command = process.argv[2]
 const argv = parseArgs(process.argv.slice(3))
 
@@ -18,7 +34,7 @@ main().catch((error) => {
 })
 
 async function main() {
-  if (!command || argv.help || argv.h) {
+  if (!command || command === '--help' || command === '-h' || argv.help || argv.h) {
     printHelp()
     return
   }
@@ -286,7 +302,79 @@ function validateMappingInput(input, facts) {
     }
   }
 
+  validateQualitativeSignals(input.qualitativeSignals || [], { nodeIds, edgeIds, factIds, facts, errors })
+
   if (errors.length > 0) throw new Error(errors.join('\n'))
+}
+
+function validateQualitativeSignals(signals, { nodeIds, edgeIds, factIds, facts, errors }) {
+  if (!Array.isArray(signals)) {
+    errors.push('qualitativeSignals must be an array')
+    return
+  }
+
+  const companyIds = new Set(loadCompanies().map((company) => company.id))
+  const seen = new Set()
+  for (const [index, signal] of signals.entries()) {
+    const pointer = `qualitativeSignals[${index}]`
+    if (!signal.id) errors.push(`${pointer}.id is required`)
+    else if (seen.has(signal.id)) errors.push(`${pointer}.id duplicates ${signal.id}`)
+    if (signal.id) seen.add(signal.id)
+
+    validateFactIds(signal.factIds, factIds, facts, errors, `${pointer}.factIds`)
+    validateEnum(signal.signalType, QUALITATIVE_SIGNAL_TYPES, errors, `${pointer}.signalType`)
+    validateEnum(signal.direction, QUALITATIVE_DIRECTIONS, errors, `${pointer}.direction`)
+    validateEnum(signal.strength, QUALITATIVE_STRENGTHS, errors, `${pointer}.strength`)
+    validateEnum(signal.timeHorizon, QUALITATIVE_TIME_HORIZONS, errors, `${pointer}.timeHorizon`)
+
+    if (!Array.isArray(signal.targets) || signal.targets.length === 0) {
+      errors.push(`${pointer}.targets must be a non-empty array`)
+    } else {
+      for (const [targetIndex, target] of signal.targets.entries()) {
+        validateQualitativeTarget(target, { nodeIds, edgeIds, companyIds, facts, errors }, `${pointer}.targets[${targetIndex}]`)
+      }
+    }
+
+    if (signal.evidenceText == null) errors.push(`${pointer}.evidenceText is required`)
+    if (signal.notes == null) errors.push(`${pointer}.notes is required`)
+  }
+}
+
+function validateEnum(value, allowed, errors, pointer) {
+  if (!value) {
+    errors.push(`${pointer} is required`)
+  } else if (!allowed.has(value)) {
+    errors.push(`${pointer} invalid: ${value}`)
+  }
+}
+
+function validateQualitativeTarget(target, { nodeIds, edgeIds, companyIds, facts, errors }, pointer) {
+  if (!target || typeof target !== 'object') {
+    errors.push(`${pointer} is required`)
+    return
+  }
+  if (target.type === 'node') {
+    if (!target.id) errors.push(`${pointer}.id is required`)
+    else if (!nodeIds.has(target.id)) errors.push(`${pointer} unknown node ${target.id}`)
+    return
+  }
+  if (target.type === 'edge') {
+    if (!target.source || !target.target) {
+      errors.push(`${pointer}.source and ${pointer}.target are required`)
+      return
+    }
+    const key = edgeKey(target.source, target.target)
+    if (!edgeIds.has(key)) errors.push(`${pointer} unknown edge ${key}`)
+    return
+  }
+  if (target.type === 'company') {
+    if (!target.id) errors.push(`${pointer}.id is required`)
+    else if (facts?.report?.companyId && target.id !== facts.report.companyId && !companyIds.has(target.id)) {
+      errors.push(`${pointer} unknown company ${target.id}`)
+    }
+    return
+  }
+  errors.push(`${pointer}.type must be node, edge, or company`)
 }
 
 function validateHierarchyCompleteness(ids, nodeIds, errors, pointer) {
@@ -372,6 +460,7 @@ function deriveProcessedMapping(input, facts) {
   const report = stripPrivate(facts.report)
   const products = stripPrivate(input.productNodes || [])
   const downstreamAttributions = stripPrivate(input.downstreamAttributions || [])
+  const qualitativeSignals = deriveQualitativeSignals(input, report)
   const downstreamByKey = new Map(downstreamAttributions.map((item) => [
     downstreamAttributionKey(item.sourceProductNodeId, item.downstreamNodeId),
     item
@@ -425,7 +514,8 @@ function deriveProcessedMapping(input, facts) {
   const relatedNodeIds = unique([
     ...products.map((item) => item.nodeId),
     ...downstreamAttributions.map((item) => item.downstreamNodeId),
-    ...graphSignals.flatMap((signal) => targetNodeIds(signal.target))
+    ...graphSignals.flatMap((signal) => targetNodeIds(signal.target)),
+    ...qualitativeSignals.flatMap((signal) => signal.targets.flatMap(targetNodeIds))
   ])
   const coverage = deriveCoverageFromMapping(report, products)
   const growthInputs = deriveGrowthInputsFromMapping(input, products, graphSignals)
@@ -450,6 +540,7 @@ function deriveProcessedMapping(input, facts) {
     metrics: deriveFinancialMetrics(facts.financialMetrics || [], report),
     productCategoryMetrics: [],
     graphSignals,
+    qualitativeSignals,
     companySignals: [companySignal],
     timelineEvents: [{
       id: `${slug(report.companyId)}-${slug(report.period)}-report-published`,
@@ -467,11 +558,24 @@ function deriveProcessedMapping(input, facts) {
     mapping: {
       productNodes: products,
       downstreamAttributions: stripPrivate(downstreamAttributions),
+      qualitativeSignals: stripPrivate(input.qualitativeSignals || []),
       productNodeSignals,
       downstreamSignals
     },
     notes: {}
   }
+}
+
+function deriveQualitativeSignals(input, report) {
+  return stripPrivate(input.qualitativeSignals || []).map((signal, index) => ({
+    ...signal,
+    id: signal.id || `${slug(input.reportId)}-qualitative-${index + 1}`,
+    sourceReportId: report.id,
+    companyId: report.companyId,
+    period: report.period,
+    estimated: true,
+    method: 'mapped_from_reported_qualitative_fact'
+  }))
 }
 
 function deriveCoverageFromMapping(report, products) {
@@ -1426,7 +1530,6 @@ function printHelp() {
   console.log(`ChainSight report-kit
 
 Commands:
-  process-extraction <path> [--force]
   process-mapping <path> [--facts path] [--output path] [--force]
   score-confidence --share-of-scope key --management-attribution key
   audit-topology --split-node old=new1,new2
@@ -1434,7 +1537,6 @@ Commands:
   validate-reports
 
 Examples:
-  node scripts/report-kit.mjs process-extraction src/data/reports/2026/example/extraction.json --force
   node scripts/report-kit.mjs process-mapping src/data/reports/2026/example/mapping.json --force
   node scripts/report-kit.mjs score-confidence --share-of-scope medium_30_80_or_unknown --management-attribution core_driver
   node scripts/report-kit.mjs audit-topology --split-node cw_light_source=cw_light_source,eml_laser_chip

@@ -1,0 +1,231 @@
+{
+  "report": {
+    "id": "2026-05-06_coherent_2026q3",
+    "companyId": "coherent",
+    "companyName": "Coherent Corp.",
+    "stockCode": "COHR",
+    "exchange": "NYSE",
+    "title": "Fiscal 2026 Third Quarter Form 10-Q",
+    "type": "quarterly_report_10q",
+    "period": "FY2026Q3",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-03-31",
+    "publishedAt": "2026-05-06",
+    "currency": "USD",
+    "amountUnit": "USD",
+    "audited": false,
+    "sources": [
+      {
+        "id": "sec_10q",
+        "name": "SEC EDGAR: Coherent Fiscal 2026 Q3 Form 10-Q",
+        "role": "primary",
+        "type": "official_sec_filing_text",
+        "url": "https://www.sec.gov/Archives/edgar/data/820318/000082031826000013/iivi-20260331.htm",
+        "localPathIgnored": "raw/coherent_2026q3_sec_10q.txt",
+        "publisher": "U.S. Securities and Exchange Commission",
+        "accessedAt": "2026-06-12"
+      },
+      {
+        "id": "earnings_release",
+        "name": "Coherent Q3 FY2026 earnings release",
+        "role": "supporting",
+        "type": "official_earnings_release_text",
+        "url": "https://www.coherent.com/content/dam/coherent/site/en/documents/investors/financial-releases/2026/may-6/earnings-release-fy26-q3.pdf",
+        "localPathIgnored": "raw/coherent_2026q3_earnings_release.txt",
+        "publisher": "Coherent Corp.",
+        "accessedAt": "2026-06-12"
+      },
+      {
+        "id": "investor_presentation",
+        "name": "Coherent Q3 FY2026 investor presentation",
+        "role": "supporting",
+        "type": "official_investor_presentation_text",
+        "url": "https://www.coherent.com/content/dam/coherent/site/en/documents/investors/investor-presentations/2026/may-6/investor-presentation-20260506.pdf",
+        "localPathIgnored": "raw/coherent_2026q3_investor_presentation.txt",
+        "publisher": "Coherent Corp.",
+        "accessedAt": "2026-06-12"
+      }
+    ]
+  },
+  "financialMetrics": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "value": 1805641000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.205466,
+      "sourceId": "sec_10q",
+      "sourceText": "Revenues $1,805,641 for the three months ended March 31, 2026, compared with $1,497,879 for the three months ended March 31, 2025.",
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
+    },
+    {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1125696000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.160287,
+      "sourceId": "sec_10q",
+      "sourceText": "Cost of goods sold was $1,125,696 for the three months ended March 31, 2026, compared with $970,189 for the three months ended March 31, 2025.",
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
+    },
+    {
+      "id": "net_income_attributable",
+      "label": "Net earnings attributable to Coherent Corp.",
+      "value": 191402000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 11.181414,
+      "sourceId": "sec_10q",
+      "sourceText": "Net Earnings Attributable to Coherent Corp. was $191,402 for the three months ended March 31, 2026, compared with $15,711 for the three months ended March 31, 2025.",
+      "sourceSection": "Condensed Consolidated Statements of Earnings (Loss)"
+    },
+    {
+      "id": "datacenter_and_communications_revenue",
+      "label": "Datacenter & Communications revenue",
+      "value": 1361677000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.405748,
+      "sourceId": "sec_10q",
+      "sourceText": "Datacenter & Communications revenues increased 41% to $1,362 million, compared to $969 million for the same period in the prior fiscal year.",
+      "sourceSection": "Management Discussion and Analysis / Results of Operations / Segment Results"
+    },
+    {
+      "id": "datacenter_and_communications_segment_profit",
+      "label": "Datacenter & Communications segment profit",
+      "value": 347610000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": 0.491067,
+      "sourceId": "sec_10q",
+      "sourceText": "Datacenter & Communications segment profit increased 49% to $348 million, compared to $233 million for the same period last fiscal year.",
+      "sourceSection": "Management Discussion and Analysis / Results of Operations / Segment Results"
+    },
+    {
+      "id": "industrial_revenue",
+      "label": "Industrial revenue",
+      "value": 443964000,
+      "unit": "USD",
+      "period": "FY2026Q3",
+      "yoy": -0.161116,
+      "sourceId": "sec_10q",
+      "sourceText": "Industrial revenues decreased 16% to $444 million, compared to $529 million for the same period in the prior fiscal year.",
+      "sourceSection": "Management Discussion and Analysis / Results of Operations / Segment Results"
+    }
+  ],
+  "reportedItems": [
+    {
+      "id": "item_001",
+      "label": "Datacenter & Communications segment scope",
+      "text": "Coherent's Datacenter & Communications segment sells into datacenter and communications markets and includes transceivers, systems, subsystems, modules, components, optics, and semiconductor devices.",
+      "metrics": [],
+      "sourceId": "sec_10q",
+      "sourceRole": "primary",
+      "sourceText": "The Datacenter & Communications segment sells primarily into the datacenter and communications market, including transceivers, systems, subsystems, modules, components, optics, and semiconductor devices.",
+      "sourceSection": "Segment Reporting"
+    },
+    {
+      "id": "item_002",
+      "label": "Datacenter & Communications revenue growth",
+      "text": "Datacenter & Communications revenue was $1.362 billion in Q3 FY2026, up 41% year over year; segment profit was $348 million, up 49%.",
+      "metrics": [
+        {
+          "id": "datacenter_and_communications_revenue",
+          "label": "Datacenter & Communications revenue",
+          "value": 1361677000,
+          "unit": "USD",
+          "period": "FY2026Q3",
+          "yoy": 0.405748,
+          "sourceText": "Revenues $1,362 $969 41%",
+          "sourceSection": "Segment Results"
+        }
+      ],
+      "sourceId": "sec_10q",
+      "sourceRole": "primary",
+      "sourceText": "Revenues for the three months ended March 31, 2026 increased 41% to $1,362 million, compared to $969 million for the same period in the prior fiscal year.",
+      "sourceSection": "Management Discussion and Analysis / Segment Results"
+    },
+    {
+      "id": "item_003",
+      "label": "AI datacenter demand attribution",
+      "text": "Management attributed the quarter's growth to exceptionally strong demand across datacenter and communications, and said AI datacenter infrastructure scaling is driving capacity expansion.",
+      "factType": "demand_growth",
+      "sentiment": "positive",
+      "magnitude": "strong",
+      "timeHorizon": "current_quarter",
+      "metrics": [],
+      "sourceId": "earnings_release",
+      "sourceRole": "supporting",
+      "sourceText": "We delivered another quarter of strong financial performance ... driven by exceptionally strong demand across our datacenter and communications businesses. As AI datacenter infrastructure continues to scale, we are rapidly expanding capacity to meet demand.",
+      "sourceSection": "CEO commentary"
+    },
+    {
+      "id": "item_004",
+      "label": "Datacenter & Communications mix and pro forma growth",
+      "text": "The investor presentation shows Datacenter & Communications as 75% of Q3 FY2026 revenue mix and 41% year-over-year growth on a pro forma basis.",
+      "metrics": [],
+      "sourceId": "investor_presentation",
+      "sourceRole": "supporting",
+      "sourceText": "Q3 FY26 NON-GAAP FINANCIAL RESULTS: 41% Q3 FY26/Q3 FY25 Datacenter & Communications; 75% Datacenter & Communications; 25% Industrial.",
+      "sourceSection": "Q3 FY26 non-GAAP financial results"
+    },
+    {
+      "id": "item_005",
+      "label": "InP platform and component capacity",
+      "text": "The investor presentation says Coherent is ramping Datacenter and Communications capacity end to end, is on track to double internal InP output by year-end and more than double again by 2027, and uses a 6-inch platform producing EMLs, CW lasers, and photodiodes.",
+      "factType": "capacity_expansion",
+      "sentiment": "positive",
+      "magnitude": "strong",
+      "timeHorizon": "next_12_months",
+      "metrics": [],
+      "sourceId": "investor_presentation",
+      "sourceRole": "supporting",
+      "sourceText": "Ramping Datacenter and Communications capacity - end to end, from materials to systems; On track to double internal InP output by year-end and more than double again by 2027; 6-inch platform producing EMLs, CW lasers, and photodiodes, with higher yields than 3-inch lines.",
+      "sourceSection": "Building the next-gen AI datacenter"
+    },
+    {
+      "id": "item_006",
+      "label": "Transceiver and optical networking growth engines",
+      "text": "The investor presentation lists transceivers at 1.6T, 3.2T, and 6.4T, DCI transceivers, transport/transmission, optical circuit switch, optical components, and multi-rail as growth engines, but does not disclose revenue or growth by individual product.",
+      "factType": "technology_route",
+      "sentiment": "positive",
+      "magnitude": "medium",
+      "timeHorizon": "multi_year",
+      "metrics": [],
+      "sourceId": "investor_presentation",
+      "sourceRole": "supporting",
+      "sourceText": "Existing Growth Engines: Transceivers 1.6T, 3.2T, 6.4T; DCI Transceivers ZR/ZR+; Transport/Transmission; Optical Circuit Switch; Optical Components; Multi-rail.",
+      "sourceSection": "Entering a new phase of accelerated growth"
+    },
+    {
+      "id": "item_007",
+      "label": "CPO/NPO timing",
+      "text": "The investor presentation lists CPO/NPO as a new revenue item expected in H2 2026, indicating it is not presented as a current Q3 FY2026 revenue contributor.",
+      "factType": "new_product_ramp",
+      "sentiment": "positive",
+      "magnitude": "medium",
+      "timeHorizon": "next_12_months",
+      "metrics": [],
+      "sourceId": "investor_presentation",
+      "sourceRole": "supporting",
+      "sourceText": "New Revenue: CPO/NPO H2 2026.",
+      "sourceSection": "Entering a new phase of accelerated growth"
+    },
+    {
+      "id": "item_008",
+      "label": "NVIDIA multi-year capacity agreement",
+      "text": "Coherent entered into a multi-year capacity agreement with NVIDIA that may require incremental investment in equipment, labor, and working capital to support future production volumes through 2030; the arrangement may affect revenue concentration, gross margin, and capital expenditures as volumes ramp.",
+      "factType": "long_term_order",
+      "sentiment": "positive",
+      "magnitude": "strong",
+      "timeHorizon": "multi_year",
+      "metrics": [],
+      "sourceId": "sec_10q",
+      "sourceRole": "primary",
+      "sourceText": "On March 2, 2026, NVIDIA made a $2 billion investment in the Company through the purchase of shares of the Company’s Common Stock. The proceeds from the investment will be used to support research and development, future capacity and operations as we build out our manufacturing capabilities. We also entered into a multi-year capacity agreement that may require incremental investments in equipment, labor, and working capital to support future production volumes through 2030.",
+      "sourceSection": "Liquidity and Capital Resources / Other Liquidity"
+    }
+  ]
+}

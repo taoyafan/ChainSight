@@ -33,6 +33,17 @@
     "altLimitNote": "面向 EML/DFB 可插拔光模块路线的发射端激光芯片，上游来自 III-V 外延/晶圆，下游进入 EML/DFB 发射光引擎"
   },
   {
+    "id": "vcsel_laser_chip",
+    "label": "VCSEL 激光芯片",
+    "layer": "chip",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "medium",
+    "costRatio": "",
+    "altLimitNote": "面向短距数据中心光互连的垂直腔面发射激光芯片，和 EML/DFB、CW 外置光源分开统计"
+  },
+  {
     "id": "eml_transmit_engine",
     "label": "EML/DFB 发射光引擎",
     "layer": "engine",
@@ -86,6 +97,17 @@
     "marketSizeHint": "medium",
     "costRatio": "~5%",
     "altLimitNote": "面向 EML/DFB 可插拔光模块接收端的独立 PD/探测器模块，区别于硅光或 CPO 内部集成 PD"
+  },
+  {
+    "id": "high_speed_photodiode",
+    "label": "高速光电探测器/PD",
+    "layer": "chip",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "medium",
+    "costRatio": "",
+    "altLimitNote": "通用高速 PD/光电探测器器件节点，用于承接未明确为硅光集成 PD 或 EML/DFB PD 模块的 photodiode 披露"
   },
   {
     "id": "faraday_rotator",
@@ -154,6 +176,17 @@
     "altLimitNote": "封测环节高度定制化，通用产线难以复用"
   },
   {
+    "id": "npo_module",
+    "label": "NPO 近封装光模组",
+    "layer": "module",
+    "status": "sampling",
+    "bottleneck": true,
+    "bottleneckNote": "近封装光学对光电协同设计、封装装配和系统散热提出更高要求",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "近封装光学形态，区别于传统可插拔光模块和 CPO 共封装光学"
+  },
+  {
     "id": "optical_module",
     "label": "光模块",
     "layer": "module",
@@ -189,6 +222,17 @@
     "altLimitNote": "将硅光光引擎封装进可插拔形态，区别于传统 EML/DFB 发射端路线和 CPO 共封装路线"
   },
   {
+    "id": "dci_coherent_transceiver_zr",
+    "label": "DCI 相干光模块/ZR/ZR+",
+    "layer": "module",
+    "status": "mass_prod",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "面向数据中心互连和城域相干传输的 ZR/ZR+ 可插拔相干光模块，区别于数据中心内部短距光模块"
+  },
+  {
     "id": "switch_asic",
     "label": "交换芯片",
     "layer": "system",
@@ -209,6 +253,17 @@
     "marketSizeHint": "large",
     "costRatio": "",
     "altLimitNote": "系统集成方案仍在定义中"
+  },
+  {
+    "id": "optical_circuit_switch",
+    "label": "光电路交换机/OCS",
+    "layer": "system",
+    "status": "sampling",
+    "bottleneck": false,
+    "bottleneckNote": "",
+    "marketSizeHint": "large",
+    "costRatio": "",
+    "altLimitNote": "用于数据中心光层动态连接和网络重构的光电路交换系统，区别于传统电交换机和 CPO 交换机"
   },
   {
     "id": "data_center_switch",

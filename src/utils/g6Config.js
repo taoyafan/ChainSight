@@ -1,4 +1,10 @@
-import { getBestEdgeGrowthAsOf, getEdgeGrowthSignalsAsOf } from '@/utils/reportRepository'
+import {
+  getBestEdgeGrowthAsOf,
+  getEdgeGrowthSignalsAsOf,
+  getEdgeQualitativeSignals,
+  getNodeQualitativeSignals,
+} from '@/utils/reportRepository'
+import { summarizeQualitativeSignals } from '@/utils/qualitativeSignals'
 
 /**
  * AntV G6 v5 配置 - 产业链拓扑图
@@ -45,6 +51,17 @@ const COLLAPSE_BADGE_STYLE = {
   padding: [2, 8, 2, 8],
   cursor: 'pointer',
 }
+const QUALITATIVE_NODE_BADGE_STYLE = {
+  placement: 'right-bottom',
+  offsetX: 8,
+  offsetY: 8,
+  fontSize: 12,
+  fontWeight: 700,
+  fill: '#fff',
+  backgroundLineWidth: 1,
+  backgroundRadius: 11,
+  padding: [2, 7, 2, 7],
+}
 
 function formatYoy(value) {
   if (!Number.isFinite(value)) return '暂无 YoY 数据'
@@ -56,6 +73,21 @@ function formatYoyLabel(value) {
   if (!Number.isFinite(value)) return ''
   const sign = value > 0 ? '+' : ''
   return `${sign}${(value * 100).toFixed(0)}%`
+}
+
+function formatQualitativeBadge(summary) {
+  if (!summary?.total) return ''
+  return summary.constraints > 0 ? `${summary.total}!` : String(summary.total)
+}
+
+function qualitativeTooltipLine(summary) {
+  if (!summary?.total) return ''
+  const parts = []
+  if (summary.growth) parts.push(`未来增长 ${summary.growth}`)
+  if (summary.decline) parts.push(`未来降低 ${summary.decline}`)
+  if (summary.neutral) parts.push(`方向不明 ${summary.neutral}`)
+  if (summary.constraints) parts.push(`约束 ${summary.constraints}`)
+  return parts.join(' / ')
 }
 
 function escapeHtml(value) {
@@ -125,21 +157,27 @@ export function buildGraphData(nodes, edges, analysisDate) {
     visibleNodeIds.has('eml_pluggable_module') &&
     visibleNodeIds.has('silicon_photonic_pluggable_module')
 
-  const g6Nodes = nodes.map(n => ({
-    id: n.id,
-    combo: showOpticalModuleCombo && (
-      n.id === 'eml_pluggable_module' || n.id === 'silicon_photonic_pluggable_module'
-    ) ? 'optical_module_combo' : undefined,
-    data: {
-      label: n.label,
-      layer: n.layer,
-      status: n.status,
-      bottleneck: n.bottleneck,
-      bottleneckNote: n.bottleneckNote,
-      marketSizeHint: n.marketSizeHint,
-      collapseControl: n.id === 'optical_module' ? '+' : '',
-    },
-  }))
+  const g6Nodes = nodes.map(n => {
+    const qualitativeItems = getNodeQualitativeSignals(n.id)
+    const qualitativeSummary = summarizeQualitativeSignals(qualitativeItems.map((item) => item.signal))
+    return {
+      id: n.id,
+      combo: showOpticalModuleCombo && (
+        n.id === 'eml_pluggable_module' || n.id === 'silicon_photonic_pluggable_module'
+      ) ? 'optical_module_combo' : undefined,
+      data: {
+        label: n.label,
+        layer: n.layer,
+        status: n.status,
+        bottleneck: n.bottleneck,
+        bottleneckNote: n.bottleneckNote,
+        marketSizeHint: n.marketSizeHint,
+        collapseControl: n.id === 'optical_module' ? '+' : '',
+        qualitativeCount: qualitativeSummary.total,
+        qualitativeSummary,
+      },
+    }
+  })
 
   const g6Edges = edges.map((e, i) => {
     const growthEvidence = getBestEdgeGrowthAsOf(e.source, e.target, analysisDate)
@@ -148,6 +186,8 @@ export function buildGraphData(nodes, edges, analysisDate) {
       .map(toGrowthContribution)
     const growthValue = growthEvidence?.signal?.value
     const growthStyle = getGrowthEdgeStyle(growthValue)
+    const qualitativeItems = getEdgeQualitativeSignals(e.source, e.target)
+    const qualitativeSummary = summarizeQualitativeSignals(qualitativeItems.map((item) => item.signal))
 
     return {
       id: `edge-${i}`,
@@ -166,6 +206,13 @@ export function buildGraphData(nodes, edges, analysisDate) {
         growthCompanyName: growthEvidence?.report?.companyName,
         growthContributions,
         contributionCount: growthContributions.length,
+        qualitativeCount: qualitativeSummary.total,
+        qualitativeSummary,
+        qualitativeBadgeText: formatQualitativeBadge(qualitativeSummary),
+        qualitativeBadgeColor: qualitativeSummary.primaryTone.color,
+        qualitativeBadgeFill: qualitativeSummary.primaryTone.softColor,
+        qualitativeBadgeStroke: qualitativeSummary.primaryTone.borderColor,
+        qualitativeTooltipLine: qualitativeTooltipLine(qualitativeSummary),
         analysisDate,
         label: e.label,
       },
@@ -218,9 +265,19 @@ export function getGraphOptions(container, width, height) {
         labelFontSize: 24,
         labelFontWeight: 600,
         labelPlacement: 'center',
-        badges: (d) => d.data?.collapseControl
-          ? [{ ...COLLAPSE_BADGE_STYLE, text: d.data.collapseControl }]
-          : [],
+        badges: (d) => {
+          const badges = []
+          if (d.data?.collapseControl) badges.push({ ...COLLAPSE_BADGE_STYLE, text: d.data.collapseControl })
+          if (d.data?.qualitativeCount) {
+            badges.push({
+              ...QUALITATIVE_NODE_BADGE_STYLE,
+              text: formatQualitativeBadge(d.data.qualitativeSummary),
+              backgroundFill: d.data.qualitativeSummary.primaryTone.color,
+              backgroundStroke: d.data.qualitativeSummary.primaryTone.color,
+            })
+          }
+          return badges
+        },
         badgePalette: false,
       },
       state: {
@@ -290,6 +347,18 @@ export function getGraphOptions(container, width, height) {
         labelBackgroundFill: '#fff',
         labelBackgroundOpacity: 0.85,
         labelBackgroundRadius: 3,
+        badgeText: (d) => d.data?.qualitativeBadgeText || '',
+        badgeFill: (d) => d.data?.qualitativeBadgeColor || '#6b7280',
+        badgeFontSize: 12,
+        badgeFontWeight: 700,
+        badgeBackgroundFill: (d) => d.data?.qualitativeBadgeFill || '#f3f4f6',
+        badgeBackgroundStroke: (d) => d.data?.qualitativeBadgeStroke || '#d1d5db',
+        badgeBackgroundLineWidth: 1,
+        badgeBackgroundRadius: 10,
+        badgePadding: [2, 6, 2, 6],
+        badgePlacement: 'suffix',
+        badgeOffsetX: 4,
+        badgeOffsetY: -12,
       },
       state: {
         highlight: {
@@ -325,6 +394,11 @@ export function getGraphOptions(container, width, height) {
                 ${edge?.data?.growthPeriod ? `${escapeHtml(edge.data.growthPeriod)} · ` : ''}
                 ${Number.isFinite(confidence) ? `置信度 ${(confidence * 100).toFixed(0)}%` : '双击查看详情'}
               </div>
+              ${edge?.data?.qualitativeCount ? `
+                <div style="margin-top: 6px; color: ${edge.data.qualitativeBadgeColor};">
+                  文字信号 ${edge.data.qualitativeCount} 条${edge.data.qualitativeTooltipLine ? ` · ${escapeHtml(edge.data.qualitativeTooltipLine)}` : ''}
+                </div>
+              ` : ''}
             </div>
           `
         },

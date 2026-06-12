@@ -13,6 +13,11 @@
         <template #checked>隐藏瓶颈</template>
         <template #unchecked>显示潜在瓶颈</template>
       </n-switch>
+      <div class="signal-legend" title="文字信号颜色">
+        <span><i class="legend-dot legend-dot--growth" />未来增长</span>
+        <span><i class="legend-dot legend-dot--decline" />未来降低</span>
+        <span><i class="legend-dot legend-dot--constraint" />数字带 ! 表示增长受约束</span>
+      </div>
     </n-space>
 
     <div class="graph-container">
@@ -123,5 +128,41 @@ function handleNodeAnalysis(nodeId) {
   color: var(--n-text-color, #303133);
   background: var(--n-color, #fff);
   font: inherit;
+}
+
+.signal-legend {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  color: var(--n-text-color-3, #606266);
+  font-size: 12px;
+}
+
+.signal-legend span {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot--growth {
+  background: #16a34a;
+}
+
+.legend-dot--decline {
+  background: #dc2626;
+}
+
+.legend-dot--constraint {
+  background: #16a34a;
+  box-shadow: 0 0 0 2px #dcfce7;
 }
 </style>

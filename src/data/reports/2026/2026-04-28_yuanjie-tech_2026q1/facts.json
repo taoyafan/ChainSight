@@ -1,0 +1,183 @@
+{
+  "report": {
+    "id": "2026-04-28_yuanjie-tech_2026q1",
+    "companyId": "yuanjie_tech",
+    "companyName": "陕西源杰半导体科技股份有限公司",
+    "stockCode": "688498",
+    "exchange": "SSE",
+    "title": "2026 年第一季度报告",
+    "type": "quarterly_report",
+    "period": "2026Q1",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-03-31",
+    "publishedAt": "2026-04-28",
+    "announcementNumber": "AN202604271821622147",
+    "currency": "CNY",
+    "amountUnit": "yuan",
+    "audited": false,
+    "sources": [
+      {
+        "id": "yuanjie_2026q1_eastmoney_notice_text",
+        "name": "东方财富公告正文缓存：源杰科技 2026 年第一季度报告",
+        "role": "primary",
+        "type": "disclosure_text_cache",
+        "url": "https://data.eastmoney.com/notices/detail/688498/AN202604271821622147.html",
+        "localPathIgnored": "raw/yuanjie_2026q1_eastmoney_notice.txt",
+        "publisher": "东方财富网",
+        "accessedAt": "2026-06-05"
+      },
+      {
+        "id": "huatai_yuanjie_cw_chip_2026_04_28",
+        "name": "华泰证券：源杰科技(688498)：公司CW光芯片业务步入收获期",
+        "role": "supporting",
+        "type": "third_party_research_text_cache",
+        "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/830705072216/index.phtml",
+        "localPathIgnored": "raw/sina_huatai_yuanjie_cw_chip_2026-04-28.txt",
+        "publisher": "新浪财经 / 华泰证券股份有限公司",
+        "accessedAt": "2026-06-10"
+      }
+    ]
+  },
+  "financialMetrics": [
+    {
+      "id": "revenue",
+      "label": "营业收入",
+      "value": 355278486.49,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 3.2094,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "营业收入 355,278,486.49 元，同比增长 320.94%。",
+      "sourceSection": "主要会计数据和财务指标"
+    },
+    {
+      "id": "operating_cost",
+      "label": "营业成本",
+      "value": 78843893.33,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.6873,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "营业成本 78,843,893.33 元，上年同期 46,723,352.39 元。",
+      "sourceSection": "利润表"
+    },
+    {
+      "id": "profit_total",
+      "label": "利润总额",
+      "value": 211353903.33,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 11.513,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "利润总额 211,353,903.33 元，同比增长 1,151.30%。",
+      "sourceSection": "主要会计数据和财务指标"
+    },
+    {
+      "id": "net_profit_attributable",
+      "label": "归属于上市公司股东的净利润",
+      "value": 179441968.61,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 11.5307,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "归属于上市公司股东的净利润 179,441,968.61 元，同比增长 1,153.07%。",
+      "sourceSection": "主要会计数据和财务指标"
+    },
+    {
+      "id": "net_profit_attributable_ex_nonrecurring",
+      "label": "归属于上市公司股东的扣除非经常性损益的净利润",
+      "value": 177939676.39,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 11.7364,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "归属于上市公司股东的扣除非经常性损益的净利润 177,939,676.39 元，同比增长 1,173.64%。",
+      "sourceSection": "主要会计数据和财务指标"
+    },
+    {
+      "id": "net_operating_cash_flow",
+      "label": "经营活动产生的现金流量净额",
+      "value": 39650807.07,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": null,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "经营活动产生的现金流量净额 39,650,807.07 元。",
+      "sourceSection": "主要会计数据和财务指标"
+    },
+    {
+      "id": "rd_expense",
+      "label": "研发投入合计",
+      "value": 20650110.32,
+      "unit": "CNY",
+      "period": "2026Q1",
+      "yoy": 0.7794,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "研发投入合计 20,650,110.32 元，同比增长 77.94%。",
+      "sourceSection": "主要会计数据和财务指标"
+    },
+    {
+      "id": "rd_expense_ratio",
+      "label": "研发投入占营业收入的比例",
+      "value": 0.0581,
+      "unit": "ratio",
+      "period": "2026Q1",
+      "yoy": null,
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceText": "研发投入占营业收入的比例 5.81%。",
+      "sourceSection": "主要会计数据和财务指标"
+    }
+  ],
+  "reportedItems": [
+    {
+      "id": "item_001_revenue_growth_drivers",
+      "label": "营业收入增长原因",
+      "text": "报告将营业收入增长归因于客户需求增长、数据中心领域 CW 光源产品销售额增长，以及产品结构持续优化带来的毛利率进一步提升。",
+      "metrics": [],
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceRole": "primary",
+      "sourceText": "报告期内，公司营业收入较上年同期增长 320.94%，主要系客户需求增长，数据中心领域 CW 光源产品销售额增长，同时随着公司产品结构持续优化，毛利率进一步提升所致。",
+      "sourceSection": "主要会计数据、财务指标发生变动的情况、原因"
+    },
+    {
+      "id": "item_002_cw_light_source_sales_growth",
+      "label": "数据中心领域 CW 光源产品销售额增长",
+      "text": "报告直接披露数据中心领域 CW 光源产品销售额增长。",
+      "metrics": [],
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceRole": "primary",
+      "sourceText": "数据中心领域 CW 光源产品销售额增长。",
+      "sourceSection": "主要会计数据、财务指标发生变动的情况、原因"
+    },
+    {
+      "id": "item_003_customer_demand_growth",
+      "label": "客户需求增长",
+      "text": "报告披露客户需求增长是营业收入同比增长的原因之一。",
+      "metrics": [],
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceRole": "primary",
+      "sourceText": "主要系客户需求增长。",
+      "sourceSection": "主要会计数据、财务指标发生变动的情况、原因"
+    },
+    {
+      "id": "item_004_product_mix_optimization",
+      "label": "产品结构持续优化",
+      "text": "报告披露产品结构持续优化，毛利率进一步提升。",
+      "metrics": [],
+      "sourceId": "yuanjie_2026q1_eastmoney_notice_text",
+      "sourceRole": "primary",
+      "sourceText": "随着公司产品结构持续优化，毛利率进一步提升。",
+      "sourceSection": "主要会计数据、财务指标发生变动的情况、原因"
+    },
+    {
+      "id": "item_005_eml_customer_verification",
+      "label": "高速 EML 产品客户验证",
+      "text": "华泰证券研报称，根据公司 2025 年年报，100G PAM4 EML 产品完成客户验证，200G PAM4 EML 产品开始推进客户验证。",
+      "metrics": [],
+      "sourceId": "huatai_yuanjie_cw_chip_2026_04_28",
+      "sourceRole": "supporting",
+      "sourceText": "根据公司2025 年年报，公司的高速EML 产品，在100GPAM4 EML 产品完成客户验证的基础上，更高速率的200G PAM4 EML 产品也开始推进客户验证。",
+      "sourceSection": "CW 产品步入收获期，持续受益AI 算力链红利"
+    }
+  ]
+}
